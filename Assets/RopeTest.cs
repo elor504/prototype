@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RopeTest : MonoBehaviour
 {
-	[SerializeField] Transform mousePosition;
+	[SerializeField] Transform playerPosition;
 
 
 	[SerializeField] LineRenderer rope;
@@ -11,6 +11,9 @@ public class RopeTest : MonoBehaviour
 
 	public List<Vector3> ropePositions { get; set; } = new List<Vector3>();
 	public List<grip> grips;
+	public Rune currentRune;
+
+
 
 	public bool isActive;
 
@@ -32,52 +35,63 @@ public class RopeTest : MonoBehaviour
 		}
 	}
 
-	public void SetRopeActive(bool _isActive)
+	public void SetRopeActive(bool _isActive, Vector2 _startingPos)
 	{
 		isActive = _isActive;
-
 		rope.enabled = _isActive;
-
+		ropePositions[0] = _startingPos;
 	}
 
 	void DetectRopeCollision()
 	{
 		grip hit;
-		if (Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask))
+		if (Physics2D.Linecast(playerPosition.position, rope.GetPosition(ropePositions.Count - 2), collMask))
 		{
-			hit = Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask).collider.gameObject.GetComponent<grip>();
+			hit = Physics2D.Linecast(playerPosition.position, rope.GetPosition(ropePositions.Count - 2), collMask).collider.gameObject.GetComponent<grip>();
 			if (hit.getIsBeingUsed && grips.Find(x => x.gameObject == hit.gameObject))
 				return;
 
-			hit.Attach(true);
-			ropePositions.RemoveAt(ropePositions.Count - 1);
-			AddPosToRope(hit.transform.position);
-			grips.Add(hit);
-			if(hit as Rune)
+		
+			if (hit as Rune)
 			{
 				Rune hittedRune = hit.GetComponent<Rune>();
-				hittedRune.isTurnedOff = true;
+				if (!hittedRune.getIsTurnedOff)
+				{
+					hittedRune.DisableRune();
+
+					hit.Attach(true);
+					ropePositions.RemoveAt(ropePositions.Count - 1);
+					AddPosToRope(hit.transform.position);
+					grips.Add(hit);
+				}
+			} 
+			else
+			{
+				hit.Attach(true);
+				ropePositions.RemoveAt(ropePositions.Count - 1);
+				AddPosToRope(hit.transform.position);
+				grips.Add(hit);
 			}
 		}
 	}
 	private void AddPosToRope(Vector3 _pos)
 	{
 		ropePositions.Add(_pos);
-		ropePositions.Add(mousePosition.position); //Always the last pos must be the player
+		ropePositions.Add(playerPosition.position); //Always the last pos must be the player
 	}
 	private void DetectCollisionExits()
 	{
-		Vector2 lastpos = mousePosition.position;
+		Vector2 lastpos = playerPosition.position;
 		Vector2 previousPos = rope.GetPosition(ropePositions.Count - 2);
-	
+
 		float angle = Mathf.Atan2(previousPos.y - lastpos.y, previousPos.x - lastpos.x) * 180 / Mathf.PI;
 		angle *= -1;
 		Debug.Log("Direction: " + angle);
 
-		if(grips.Count != 0)
+		if (grips.Count != 0)
 		{
 			grip lastGrip = grips[grips.Count - 1];
-			if(lastGrip as Rune)
+			if (lastGrip as Rune)
 			{
 				return;
 			}
@@ -110,7 +124,7 @@ public class RopeTest : MonoBehaviour
 		rope.positionCount = ropePositions.Count;
 		rope.SetPositions(ropePositions.ToArray());
 	}
-	private void LastSegmentGoToPlayerPos() => rope.SetPosition(rope.positionCount - 1, mousePosition.position);
+	private void LastSegmentGoToPlayerPos() => rope.SetPosition(rope.positionCount - 1, playerPosition.position);
 
 	public void ResetRope()
 	{
@@ -130,9 +144,9 @@ public class RopeTest : MonoBehaviour
 		{
 			return true;
 		}
-		for (int i = grips.Count -1; i > 0; i--)
+		for (int i = grips.Count - 1; i > 0; i--)
 		{
-			if(grips[i] as Rune)
+			if (grips[i] as Rune)
 			{
 				return true;
 			}
@@ -141,18 +155,21 @@ public class RopeTest : MonoBehaviour
 	}
 	public Vector2 GetLastRunePosition()
 	{
-		if (grips[0] as Rune)
+		if (grips[0] as Rune && currentRune != grips[0])
 		{
+			currentRune = (Rune)grips[0];
 			return grips[0].GetGripPosition;
 		}
 		for (int i = grips.Count - 1; i > 0; i--)
 		{
-			if (grips[i] as Rune)
+			if (grips[i] as Rune && currentRune != grips[i])
 			{
+				currentRune = (Rune)grips[i];
 				return grips[i].GetGripPosition;
 			}
 		}
-		return RopePosToMouse.getInstance.startingPos;
+		
+		return RopePosToMouse.getInstance.currentPos;
 	}
-	
+
 }

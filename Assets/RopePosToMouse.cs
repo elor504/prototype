@@ -6,12 +6,11 @@ public class RopePosToMouse : MonoBehaviour
 	public static RopePosToMouse getInstance => _instance;
 
 	public RopeTest rope;
-
-	public Vector2 startingPos;
+	public Transform startingPos;
 	public Vector2 currentPos;
 
 	[SerializeField] Transform playerPos;
-
+	
 	private void Awake()
 	{
 		if (_instance == null)
@@ -20,8 +19,8 @@ public class RopePosToMouse : MonoBehaviour
 			Destroy(this.gameObject);
 
 
-		currentPos = startingPos;
-		playerPos.position = startingPos;
+		currentPos = startingPos.position;
+		playerPos.position = startingPos.position;
 	}
 
 	// Update is called once per frame
@@ -29,16 +28,17 @@ public class RopePosToMouse : MonoBehaviour
 	{
 		if (Input.GetMouseButton(0))
 		{
-			rope.SetRopeActive(true);
+			
 			Vector3 mousePos = Input.mousePosition;
 			mousePos.z = Camera.main.nearClipPlane;
+			rope.SetRopeActive(true, currentPos);
 			playerPos.GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(mousePos));
-			//playerPos.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+
 		}
 
 		if (Input.GetMouseButtonUp(0))
 		{
-			rope.SetRopeActive(false);
+			rope.SetRopeActive(false, currentPos);
 			if (rope.hasRuneAttached())
 			{
 				UpdateCurrentPos(rope.GetLastRunePosition());
@@ -47,6 +47,7 @@ public class RopePosToMouse : MonoBehaviour
 			}
 			else
 			{
+				if(rope.currentRune == null)
 				ResetCurrentSpot();
 				ReturnToCurrentPos();
 				rope.ResetRope();
@@ -57,7 +58,7 @@ public class RopePosToMouse : MonoBehaviour
 
 
 	}
-	void ResetCurrentSpot() => currentPos = startingPos;
+	void ResetCurrentSpot() => currentPos = startingPos.position;
 	void UpdateCurrentPos(Vector2 newPos) => currentPos = newPos;
 	void ReturnToCurrentPos() => playerPos.position = currentPos;
 

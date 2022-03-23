@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Rune : grip
 {
-	public bool isTurnedOff;
+	[SerializeField]private bool isTurnedOff;
+	public bool getIsTurnedOff => isTurnedOff;
+	public void InitRune()
+	{
+		isTurnedOff = false;
+	}
 
 
+	public void DisableRune()
+	{
+		isTurnedOff = true;
+	}
 }
