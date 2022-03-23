@@ -2681,9 +2681,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bedf0c8f2bc4e0428e87068553dceee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grips: []
-  pickUps: []
-  doors: []
+  grips:
+  - {fileID: 698441940}
+  - {fileID: 2134099812}
+  - {fileID: 412016306}
+  - {fileID: 1668376240}
+  - {fileID: 1825719542}
+  - {fileID: 1525175667}
+  - {fileID: 401668764}
+  - {fileID: 211249725}
+  - {fileID: 80296883}
+  - {fileID: 6340015}
+  - {fileID: 2138764113}
+  - {fileID: 822911843}
+  - {fileID: 520216469}
+  - {fileID: 34624124}
+  - {fileID: 1998910271}
+  pickUps:
+  - {fileID: 1428640097}
+  doors:
+  - {fileID: 630096223}
 --- !u!4 &595959339
 Transform:
   m_ObjectHideFlags: 0
