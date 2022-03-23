@@ -8,7 +8,7 @@ public class RopePosToMouse : MonoBehaviour
 	public RopeTest rope;
 	public Transform startingPos;
 	public Vector2 currentPos;
-
+	[SerializeField] Transform playerPos;
 	[SerializeField] Transform mousePos;
 
 	private void Awake()
@@ -31,7 +31,7 @@ public class RopePosToMouse : MonoBehaviour
 
 			Vector3 mousePos = Input.mousePosition;
 			mousePos.z = Camera.main.nearClipPlane;
-			rope.SetRopeActive(true, currentPos);
+			rope.SetRopeActive(true, playerPos.position);
 			this.mousePos.GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(mousePos));
 
 		}
@@ -58,12 +58,12 @@ public class RopePosToMouse : MonoBehaviour
 
 
 	}
-	void ResetCurrentSpot() => currentPos = startingPos.position;
-	void UpdateCurrentPos(Vector2 newPos)
+	public void ResetCurrentSpot() => currentPos = startingPos.position;
+	public void UpdateCurrentPos(Vector2 newPos)
 	{
 		currentPos = newPos;
 		rope.SetPlayerPosition(currentPos);
 	}
-	void ReturnToCurrentPos() => mousePos.position = currentPos;
+	public void ReturnToCurrentPos() => mousePos.position = currentPos;
 
 }

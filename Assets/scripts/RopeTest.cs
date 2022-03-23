@@ -35,14 +35,12 @@ public class RopeTest : MonoBehaviour
 			}
 		}
 	}
-
 	public void SetRopeActive(bool _isActive, Vector2 _startingPos)
 	{
 		isActive = _isActive;
 		rope.enabled = _isActive;
 		ropePositions[0] = _startingPos;
 	}
-
 	void DetectRopeCollision()
 	{
 		grip hit;
@@ -58,9 +56,8 @@ public class RopeTest : MonoBehaviour
 				Rune hittedRune = hit.GetComponent<Rune>();
 				if (!hittedRune.getIsTurnedOff)
 				{
-					hittedRune.DisableRune();
-
 					hit.Attach(true);
+					hittedRune.DisableRune();
 					ropePositions.RemoveAt(ropePositions.Count - 1);
 					AddPosToRope(hit.transform.position);
 					grips.Add(hit);
@@ -87,7 +84,6 @@ public class RopeTest : MonoBehaviour
 
 		float angle = Mathf.Atan2(previousPos.y - lastpos.y, previousPos.x - lastpos.x) * 180 / Mathf.PI;
 		angle *= -1;
-		Debug.Log("Direction: " + angle);
 
 		if (grips.Count != 0)
 		{
@@ -122,6 +118,7 @@ public class RopeTest : MonoBehaviour
 	}
 	private void UpdateRopePositions()
 	{
+		rope.SetPosition(0, player.position);
 		rope.positionCount = ropePositions.Count;
 		rope.SetPositions(ropePositions.ToArray());
 	}
@@ -159,16 +156,18 @@ public class RopeTest : MonoBehaviour
 	}
 	public Vector2 GetLastRunePosition()
 	{
-		if (grips[0] as Rune && currentRune != grips[0])
+		if (grips[grips.Count-1] as Rune && currentRune != grips[grips.Count - 1])
 		{
-			currentRune = (Rune)grips[0];
-			return grips[0].GetGripPosition;
+			currentRune = (Rune)grips[grips.Count - 1];
+			currentRune.DisableRune();
+			return grips[grips.Count - 1].GetGripPosition;
 		}
 		for (int i = grips.Count - 1; i > 0; i--)
 		{
 			if (grips[i] as Rune && currentRune != grips[i])
 			{
 				currentRune = (Rune)grips[i];
+				currentRune.DisableRune();
 				return grips[i].GetGripPosition;
 			}
 		}
