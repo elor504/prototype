@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class RopeTest : MonoBehaviour
 {
-	[SerializeField] Transform playerPosition;
+	[SerializeField] Transform mousePosition;
+	[SerializeField] Transform player;
 
 
 	[SerializeField] LineRenderer rope;
@@ -45,9 +46,9 @@ public class RopeTest : MonoBehaviour
 	void DetectRopeCollision()
 	{
 		grip hit;
-		if (Physics2D.Linecast(playerPosition.position, rope.GetPosition(ropePositions.Count - 2), collMask))
+		if (Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask))
 		{
-			hit = Physics2D.Linecast(playerPosition.position, rope.GetPosition(ropePositions.Count - 2), collMask).collider.gameObject.GetComponent<grip>();
+			hit = Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask).collider.gameObject.GetComponent<grip>();
 			if (hit.getIsBeingUsed && grips.Find(x => x.gameObject == hit.gameObject))
 				return;
 
@@ -77,11 +78,11 @@ public class RopeTest : MonoBehaviour
 	private void AddPosToRope(Vector3 _pos)
 	{
 		ropePositions.Add(_pos);
-		ropePositions.Add(playerPosition.position); //Always the last pos must be the player
+		ropePositions.Add(mousePosition.position); //Always the last pos must be the player
 	}
 	private void DetectCollisionExits()
 	{
-		Vector2 lastpos = playerPosition.position;
+		Vector2 lastpos = mousePosition.position;
 		Vector2 previousPos = rope.GetPosition(ropePositions.Count - 2);
 
 		float angle = Mathf.Atan2(previousPos.y - lastpos.y, previousPos.x - lastpos.x) * 180 / Mathf.PI;
@@ -124,7 +125,7 @@ public class RopeTest : MonoBehaviour
 		rope.positionCount = ropePositions.Count;
 		rope.SetPositions(ropePositions.ToArray());
 	}
-	private void LastSegmentGoToPlayerPos() => rope.SetPosition(rope.positionCount - 1, playerPosition.position);
+	private void LastSegmentGoToPlayerPos() => rope.SetPosition(rope.positionCount - 1, mousePosition.position);
 
 	public void ResetRope()
 	{
@@ -140,6 +141,9 @@ public class RopeTest : MonoBehaviour
 
 	public bool hasRuneAttached()
 	{
+		if (grips.Count == 0)
+			return false;
+
 		if (grips[0] as Rune)
 		{
 			return true;
@@ -170,6 +174,14 @@ public class RopeTest : MonoBehaviour
 		}
 		
 		return RopePosToMouse.getInstance.currentPos;
+	}
+
+
+
+	//visual
+	public void SetPlayerPosition(Vector2 _pos)
+	{
+		player.transform.position = _pos;
 	}
 
 }

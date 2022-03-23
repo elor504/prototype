@@ -9,8 +9,8 @@ public class RopePosToMouse : MonoBehaviour
 	public Transform startingPos;
 	public Vector2 currentPos;
 
-	[SerializeField] Transform playerPos;
-	
+	[SerializeField] Transform mousePos;
+
 	private void Awake()
 	{
 		if (_instance == null)
@@ -20,7 +20,7 @@ public class RopePosToMouse : MonoBehaviour
 
 
 		currentPos = startingPos.position;
-		playerPos.position = startingPos.position;
+		mousePos.position = startingPos.position;
 	}
 
 	// Update is called once per frame
@@ -28,11 +28,11 @@ public class RopePosToMouse : MonoBehaviour
 	{
 		if (Input.GetMouseButton(0))
 		{
-			
+
 			Vector3 mousePos = Input.mousePosition;
 			mousePos.z = Camera.main.nearClipPlane;
 			rope.SetRopeActive(true, currentPos);
-			playerPos.GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(mousePos));
+			this.mousePos.GetComponent<Rigidbody2D>().MovePosition(Camera.main.ScreenToWorldPoint(mousePos));
 
 		}
 
@@ -47,19 +47,23 @@ public class RopePosToMouse : MonoBehaviour
 			}
 			else
 			{
-				if(rope.currentRune == null)
-				ResetCurrentSpot();
+				if (rope.currentRune == null)
+					ResetCurrentSpot();
 				ReturnToCurrentPos();
 				rope.ResetRope();
 			}
 
-			
+
 		}
 
 
 	}
 	void ResetCurrentSpot() => currentPos = startingPos.position;
-	void UpdateCurrentPos(Vector2 newPos) => currentPos = newPos;
-	void ReturnToCurrentPos() => playerPos.position = currentPos;
+	void UpdateCurrentPos(Vector2 newPos)
+	{
+		currentPos = newPos;
+		rope.SetPlayerPosition(currentPos);
+	}
+	void ReturnToCurrentPos() => mousePos.position = currentPos;
 
 }
