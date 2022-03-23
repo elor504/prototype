@@ -126,6 +126,10 @@ public class RopeTest : MonoBehaviour
 
 	public bool hasRuneAttached()
 	{
+		if (grips[0] as Rune)
+		{
+			return true;
+		}
 		for (int i = grips.Count -1; i > 0; i--)
 		{
 			if(grips[i] as Rune)
@@ -137,6 +141,10 @@ public class RopeTest : MonoBehaviour
 	}
 	public Vector2 GetLastRunePosition()
 	{
+		if (grips[0] as Rune)
+		{
+			return grips[0].GetGripPosition;
+		}
 		for (int i = grips.Count - 1; i > 0; i--)
 		{
 			if (grips[i] as Rune)
