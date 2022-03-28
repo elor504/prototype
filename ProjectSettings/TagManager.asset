@@ -17,9 +17,9 @@ TagManager:
   - platform
   - player
   - Enemy
-  - 
-  - 
-  - 
+  - Mouse
+  - MouseBlocker
+  - Grip
   - 
   - 
   - 
