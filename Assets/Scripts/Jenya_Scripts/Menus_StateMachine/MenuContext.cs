@@ -1,18 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MenuContext : MonoBehaviour
+﻿public class MenuContext
 {
-    // Start is called before the first frame update
-    void Start()
+    private MenuState state = null;
+
+    public MenuContext(MenuState _state)
     {
-        
+        this.TrabsitionTo(_state);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TrabsitionTo(MenuState _state)
     {
-        
+        this.state = _state;
+
+        this.state.SetContext(this);
+    }
+
+    public void Request()
+    {
+        this.state.StateLogic();
     }
 }

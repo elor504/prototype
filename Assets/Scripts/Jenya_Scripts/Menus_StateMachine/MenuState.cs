@@ -1,18 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MenuState : MonoBehaviour
+﻿public abstract class MenuState
 {
-    // Start is called before the first frame update
-    void Start()
+    protected MenuContext context;
+
+    public void SetContext(MenuContext _context)
     {
-        
+        this.context = _context; 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Abstract methid to overrite in different states
+    public abstract void StateLogic();
+}
+
+// Enum StateMachine
+public enum UIState
+{
+    MainMenu,
+    Levels,
+    Settings,
+    Credits
 }
