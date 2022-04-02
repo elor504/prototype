@@ -1,14 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	//private set public get
 	private static GameManager _instance;
 	public static GameManager getInstance => _instance;
 
+	[SerializeField] private GameSettings gameSettings;
+	public GameSettings getGameSettings => gameSettings;
+
+
+
+	////////////////////////////
+	//change to private later and make functions in the correct region that will auto search for those three lists
 	public List<grip> grips;
 	public List<PickUpInteraction> pickUps;
 	public List<DoorInteraction> doors;
+	///////////////////////////
+
+
+
 
 	private void Awake()
 	{
@@ -26,6 +39,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	#region Game Conditions
 	public void WinScreen()
 	{
 		Debug.Log("Win!");
@@ -42,7 +56,7 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < grips.Count; i++)
 		{
-			grips[i].Attach(false);
+			grips[i].Attach(false,false);
 			if (grips[i] as Rune)
 			{
 				Rune rune= (Rune)grips[i];
@@ -66,4 +80,27 @@ public class GameManager : MonoBehaviour
 		RopePosToMouse.getInstance.UpdateCurrentPos(RopePosToMouse.getInstance.currentPos);
 
 	}
+
+	#endregion
+	#region Pickups,doors and grips
+
+
+
+
+	#endregion
+}
+
+
+
+
+
+//game settings
+[Serializable]
+public class GameSettings
+{
+	[Header("Rope Settings")]
+	[SerializeField] private float ropeDetachOffset;
+	public float getRopeDetachOffset => ropeDetachOffset;
+
+
 }

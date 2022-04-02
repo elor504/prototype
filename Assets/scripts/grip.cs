@@ -6,19 +6,23 @@ public class grip : MonoBehaviour
 {
 	[SerializeField] float[] breakableAngle;
     [SerializeField] bool isBeingUsed;
-
+	[SerializeField] bool isRopeOnRight;
 	public bool getIsBeingUsed => isBeingUsed;
-
-    public void Attach(bool _isAttached)
+	public bool getIsRopeOnRight => isRopeOnRight;
+    public void Attach(bool _isAttached,bool _isOnRight)
 	{
 		isBeingUsed = _isAttached;
+		isRopeOnRight = _isOnRight;
 	}
 
 	public bool IsOnBreakableAngleRange(float _angle)
 	{
-		if(breakableAngle[0] > _angle && breakableAngle[1] < _angle)
+		//Debug.Log(" Angle: " + _angle);
+
+
+		if (breakableAngle[0] > _angle && breakableAngle[1] < _angle)
 		{
-			Debug.Log("");
+		
 			return true;
 		}
 		return false;
