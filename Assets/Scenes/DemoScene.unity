@@ -170,6 +170,9 @@ MonoBehaviour:
   - 48.6
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 1
+  isUpperCorner: 1
 --- !u!61 &6340016
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +248,9 @@ MonoBehaviour:
   - 17.6
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 1
 --- !u!61 &34624125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -575,6 +581,9 @@ MonoBehaviour:
   - 500
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 1
+  isUpperCorner: 0
 --- !u!61 &80296884
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -588,7 +597,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00045302953, y: 0.01605565}
+  m_Offset: {x: -0.00011649891, y: 0.009143475}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -599,7 +608,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0030535497, y: 0.046490196}
+  m_Size: {x: 0.003726611, y: 0.06844639}
   m_EdgeRadius: 0
 --- !u!1 &102741842
 GameObject:
@@ -650,6 +659,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &102741845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -725,6 +737,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &109982588
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -800,6 +815,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &158173600
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -988,6 +1006,9 @@ MonoBehaviour:
   - 500
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 1
+  isUpperCorner: 1
 --- !u!61 &211249726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1001,7 +1022,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00045302953, y: -0.02006959}
+  m_Offset: {x: 0.00008541811, y: -0.010717865}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1012,7 +1033,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0030535497, y: 0.050139192}
+  m_Size: {x: 0.0041304445, y: 0.06884264}
   m_EdgeRadius: 0
 --- !u!1 &211377109
 GameObject:
@@ -1193,6 +1214,9 @@ MonoBehaviour:
   - -176.7
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &222886298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1495,6 +1519,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &360327053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1821,6 +1848,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!1 &412016305
 GameObject:
@@ -1857,6 +1887,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!61 &412016307
 BoxCollider2D:
@@ -2029,6 +2062,9 @@ MonoBehaviour:
   - -74.2
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &454990609
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2168,6 +2204,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &488590328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2243,6 +2282,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &512158344
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2401,6 +2443,9 @@ MonoBehaviour:
   - -159.4
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 1
+  isUpperCorner: 0
 --- !u!61 &520216470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2827,6 +2872,9 @@ MonoBehaviour:
   - -176.7
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &624776499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3056,6 +3104,9 @@ MonoBehaviour:
   - -74.2
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &671254652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3150,6 +3201,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!61 &698441941
 BoxCollider2D:
@@ -3437,6 +3491,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &760375262
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3593,6 +3650,9 @@ MonoBehaviour:
   - -104.8
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &822911844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3988,7 +4048,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -100
-  m_Sprite: {fileID: 21300000, guid: 63ffc8b0ac29a814a9e64b4a1148aa6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c05ffe33782ceab4c829243ce2ac199e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4082,6 +4142,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1221534645
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4238,6 +4301,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1342858831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4424,6 +4490,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1404860510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4573,6 +4642,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1429151763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4682,6 +4754,9 @@ MonoBehaviour:
   - -74.2
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1463386028
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4783,6 +4858,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!1 &1489969987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,6 +4944,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1499908351
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4927,6 +5008,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!61 &1525175668
 BoxCollider2D:
@@ -5166,6 +5250,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!61 &1668376241
 BoxCollider2D:
@@ -5243,6 +5330,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!61 &1825719543
 BoxCollider2D:
@@ -5368,6 +5458,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1886751625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5572,6 +5665,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &1979788811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5647,6 +5743,9 @@ MonoBehaviour:
   - 48.6
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 1
+  isUpperCorner: 1
 --- !u!61 &1998910272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5787,6 +5886,9 @@ MonoBehaviour:
   - -176.7
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &2057523695
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5862,6 +5964,9 @@ MonoBehaviour:
   - -176.7
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &2099600987
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5937,6 +6042,9 @@ MonoBehaviour:
   - -74.2
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &2108065676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5998,6 +6106,9 @@ MonoBehaviour:
   - 0
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
   isTurnedOff: 0
 --- !u!61 &2134099813
 BoxCollider2D:
@@ -6089,6 +6200,9 @@ MonoBehaviour:
   - 500
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 1
 --- !u!61 &2138764114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6164,6 +6278,9 @@ MonoBehaviour:
   - 89.5
   isBeingUsed: 0
   isRopeOnRight: 0
+  isRopeAbove: 0
+  isRightCorner: 0
+  isUpperCorner: 0
 --- !u!61 &2142981858
 BoxCollider2D:
   m_ObjectHideFlags: 0

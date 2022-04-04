@@ -7,12 +7,22 @@ public class grip : MonoBehaviour
 	[SerializeField] float[] breakableAngle;
     [SerializeField] bool isBeingUsed;
 	[SerializeField] bool isRopeOnRight;
+	[SerializeField] bool isRopeAbove;
 	public bool getIsBeingUsed => isBeingUsed;
 	public bool getIsRopeOnRight => isRopeOnRight;
-    public void Attach(bool _isAttached,bool _isOnRight)
+	public bool getIsRopeAbove => isRopeAbove;
+
+	[Header("Physical position")]
+	[SerializeField] bool isRightCorner;
+	public bool getIsRightCorner => isRightCorner;
+	[SerializeField] bool isUpperCorner;
+	public bool getIsUpperCorner => isUpperCorner;
+
+	public void Attach(bool _isAttached,bool _isOnRight,bool _isAbove)
 	{
 		isBeingUsed = _isAttached;
 		isRopeOnRight = _isOnRight;
+		isRopeAbove = _isAbove;
 	}
 
 	public bool IsOnBreakableAngleRange(float _angle)

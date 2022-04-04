@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < grips.Count; i++)
 		{
-			grips[i].Attach(false,false);
+			grips[i].Attach(false,false,false);
 			if (grips[i] as Rune)
 			{
 				Rune rune= (Rune)grips[i];
@@ -101,6 +101,8 @@ public class GameSettings
 	[Header("Rope Settings")]
 	[SerializeField] private float ropeDetachOffset;
 	public float getRopeDetachOffset => ropeDetachOffset;
+
+
 
 
 }

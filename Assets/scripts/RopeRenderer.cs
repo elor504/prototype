@@ -55,25 +55,27 @@ public class RopeRenderer : MonoBehaviour
 	void DetectRopeCollision()
 	{
 
-		if (Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), blockMask))
-		{
-			Debug.Log("Hitting block with collider");
-			RaycastHit2D hit = Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), blockMask);
-			//SetLastRopePoisition(hit.transform.position);
-			//RopePosToMouse.getInstance.SetMousePos(hit.collider.ClosestPoint(rope.GetPosition(ropePositions.Count - 2)));
+		//if (Physics2D.Linecast(rope.GetPosition(ropePositions.Count - 2), mousePosition.position, blockMask))
+		//{
+		//	Debug.Log("Hitting block with collider");
+		//	RaycastHit2D hit = Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), blockMask);
+		//	//SetLastRopePoisition(hit.transform.position);
+		//	//RopePosToMouse.getInstance.SetMousePos(hit.collider.ClosestPoint(rope.GetPosition(ropePositions.Count - 2)));
 
-		}
-		else if (Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask))
+		//}
+		if (Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask))
 		{
+
 			//if the hit is grip
 			if (Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask).collider.gameObject.GetComponent<grip>())
 			{
 				grip hit = Physics2D.Linecast(mousePosition.position, rope.GetPosition(ropePositions.Count - 2), collMask).collider.gameObject.GetComponent<grip>();
 
-
-
 				if (hit.getIsBeingUsed && grips.Find(x => x.gameObject == hit.gameObject))
 					return;
+
+				//if (!IsTheRopeOnTheRightAngleToConnect(rope.GetPosition(ropePositions.Count - 1), rope.GetPosition(ropePositions.Count - 2), mousePosition.position, hit.gameObject.transform.position))
+				//	return;
 
 				if (hit as Rune)
 				{
@@ -81,11 +83,13 @@ public class RopeRenderer : MonoBehaviour
 					if (!hittedRune.getIsTurnedOff)
 					{
 
+						//making sure that this ruse cannot be useable again
 						hittedRune.DisableRune();
+
 						ropePositions.RemoveAt(ropePositions.Count - 1);
 						AddPosToRope(hit.transform.position);
 						grips.Add(hit);
-						hit.Attach(true, isRopeOnRightSide(ropePositions[ropePositions.Count - 1], grips[grips.Count - 1].GetGripPosition));
+						hit.Attach(true, isRopeOnRightSide(ropePositions[ropePositions.Count - 1], grips[grips.Count - 2].GetGripPosition), IsRopeAbove(ropePositions[ropePositions.Count - 2], grips[grips.Count - 1].GetGripPosition));
 					}
 				}
 				else
@@ -93,7 +97,7 @@ public class RopeRenderer : MonoBehaviour
 					ropePositions.RemoveAt(ropePositions.Count - 1);
 					AddPosToRope(hit.transform.position);
 					grips.Add(hit);
-					hit.Attach(true, isRopeOnRightSide(ropePositions[ropePositions.Count - 1], hit.GetGripPosition));
+					hit.Attach(true, isRopeOnRightSide(ropePositions[ropePositions.Count - 2], hit.GetGripPosition), IsRopeAbove(ropePositions[ropePositions.Count - 2], hit.GetGripPosition));
 				}
 
 			}
@@ -125,7 +129,7 @@ public class RopeRenderer : MonoBehaviour
 				return;
 			}
 
-			if (DoTheRopeNeedsToDetach(rope.GetPosition(ropePositions.Count - 3), rope.GetPosition(ropePositions.Count - 2), mousePosition.position))
+			if (DoTheRopeNeedsToDetach(rope.GetPosition(ropePositions.Count - 3), rope.GetPosition(ropePositions.Count - 2), mousePosition.position, lastGrip))
 			{
 				DetachRope();
 			}
@@ -147,7 +151,7 @@ public class RopeRenderer : MonoBehaviour
 	}
 	private void DetachRope()
 	{
-		grips[grips.Count - 1].Attach(false, isRopeOnRightSide(ropePositions[ropePositions.Count - 1], grips[grips.Count - 1].GetGripPosition));
+		grips[grips.Count - 1].Attach(false, isRopeOnRightSide(ropePositions[ropePositions.Count - 2], grips[grips.Count - 1].GetGripPosition), IsRopeAbove(ropePositions[ropePositions.Count - 2], grips[grips.Count - 1].GetGripPosition));
 		ropePositions.RemoveAt(ropePositions.Count - 2);
 		grips.RemoveAt(grips.Count - 1);
 	}
@@ -168,7 +172,7 @@ public class RopeRenderer : MonoBehaviour
 
 		for (int i = 0; i < grips.Count; i++)
 		{
-			grips[i].Attach(false, false);
+			grips[i].Attach(false, false, false);
 		}
 		grips.Clear();
 		AddPosToRope(RopePosToMouse.getInstance.currentPos);
@@ -253,11 +257,14 @@ public class RopeRenderer : MonoBehaviour
 		return ropePositions[ropePositions.Count - 2];
 	}
 
-	private bool isRopeOnRightSide(Vector2 ropePos, Vector2 gripPos)
+	private bool isRopeOnRightSide(Vector2 _ropePos, Vector2 _gripPos)
 	{
-		return ropePos.x > gripPos.x;
+		return _ropePos.x > _gripPos.x;
 	}
-
+	private bool IsRopeAbove(Vector2 _ropePos, Vector2 _gripPos)
+	{
+		return _ropePos.y > _gripPos.y;
+	}
 
 	//visual
 	public void SetPlayerPosition(Vector2 _pos)
@@ -298,8 +305,10 @@ public class RopeRenderer : MonoBehaviour
 		return bearing;
 	}
 
-	public bool DoTheRopeNeedsToDetach(Vector2 _firstPos, Vector2 _secondPos, Vector2 _mousePos)
+	public bool DoTheRopeNeedsToDetach(Vector2 _firstPos, Vector2 _secondPos, Vector2 _mousePos, grip _grip)
 	{
+
+
 		bool detach = false;
 
 		float lastLineAngle = GetAngle(_firstPos, _secondPos);
@@ -308,80 +317,166 @@ public class RopeRenderer : MonoBehaviour
 		//Debug.LogError("Last Line Angle: " + lastLineAngle + " Mouse Line Angle: " + mouseLineAngle);
 
 		float angleOffset = 0;
+
+		bool isGripUpperCorner = _grip.getIsUpperCorner;
+		bool isGripRightcorner = _grip.getIsRightCorner;
+
+
+
 		if (grips[grips.Count - 1].getIsRopeOnRight)
 		{
-			angleOffset = -GameManager.getInstance.getGameSettings.getRopeDetachOffset;
+
+			if (grips[grips.Count - 1].getIsRopeAbove)
+			{
+				angleOffset = -GameManager.getInstance.getGameSettings.getRopeDetachOffset;
+			}
+			else
+			{
+				angleOffset = GameManager.getInstance.getGameSettings.getRopeDetachOffset;
+			}
+
 		}
 		else
 		{
-			angleOffset = GameManager.getInstance.getGameSettings.getRopeDetachOffset;
+			if (grips[grips.Count - 1].getIsRopeAbove)
+			{
+				angleOffset = GameManager.getInstance.getGameSettings.getRopeDetachOffset;
+			}
+			else
+			{
+				angleOffset = -GameManager.getInstance.getGameSettings.getRopeDetachOffset;
+			}
 		}
+
+
 
 
 
 		float offsetToBreak = lastLineAngle + angleOffset;
+
+
 		if (mouseLineAngle != 0)
 		{
 			//Debug.LogError("Offset: " + offsetToBreak + " Last Line Angle: " + lastLineAngle + " Mouse Line Angle: " + mouseLineAngle + " is on right?:  " + grips[grips.Count - 1].getIsRopeOnRight);
 			if (grips[grips.Count - 1].getIsRopeOnRight)
 			{
-				Debug.Log("");
+
 				//Debug.LogError("Right Side Mouse Line Angle: " + mouseLineAngle + " < Mouse Offset: " + offsetToBreak);
-				if (mouseLineAngle < offsetToBreak)
+
+				if (grips[grips.Count - 1].getIsRopeAbove)
 				{
-					//Debug.LogError("Is grip on the right?: " + grips[grips.Count - 1].getIsRopeOnRight + " MouseLineAngle: " + mouseLineAngle + " Required to break: " + (angleOffset + lastLineAngle));
-					//Debug.LogError("Detach");
-					detach = true;
+					if (mouseLineAngle < offsetToBreak)
+					{
+						detach = true;
+					}
+				}
+				else
+				{
+					if (mouseLineAngle > offsetToBreak)
+					{
+						detach = true;
+					}
 				}
 			}
 			else
 			{
-			//	Debug.LogError("Left Side Mouse Line Angle: " + mouseLineAngle + " < Mouse Offset: " + offsetToBreak);
-				if (mouseLineAngle < offsetToBreak)
+				//Debug.LogError("Left Side Mouse Line Angle: " + mouseLineAngle + " < Mouse Offset: " + offsetToBreak);
+				if (grips[grips.Count - 1].getIsRopeAbove)
 				{
-					//Debug.LogError("Is grip on the right?: " + grips[grips.Count - 1].getIsRopeOnRight + " MouseLineAngle: " + mouseLineAngle + " Required to break: " + (angleOffset + lastLineAngle));
-					//Debug.LogError("Detach");
-					detach = true;
+					if (mouseLineAngle < offsetToBreak)
+					{
+						detach = true;
+					}
+				}
+				else
+				{
+					if (mouseLineAngle < offsetToBreak)
+					{
+						detach = true;
+					}
 				}
 			}
 		}
 
-		//float angle = GetAngle(_secondPos, _mousePos);
-		//float angleFirstLine = GetAngle(_firstPos, _secondPos);
-
-
-		//float angleToBreak = angle;
-
-		//if (angleToBreak + angleOffset > 360)
-		//{
-		//	float leftOvers = (angleToBreak + angleOffset) - 360;
-		//	angleToBreak = leftOvers;
-		//}
-		//else if (angleToBreak - angleOffset < 0)
-		//{
-		//	float leftOvers = (angle - angleToBreak) + 360;
-		//	angleToBreak = leftOvers;
-		//}
-		//else
-		//{
-		//	angleToBreak += angleOffset;
-		//}
-
-
-
-		//if(grips[grips.Count - 1].getIsRopeOnRight)
-		//{
-
-		//}
-		//else
-		//{
-		//	if (angleToBreak < angle)
-		//		detach = true;
-		//}
-
-
-		//Debug.Log("Angle at: " + angle + " Angle to break: " + angleToBreak + " First Line Angle: " + angleFirstLine + " Detach: " + detach);
 		return detach;
+	}
+
+	public bool IsTheRopeOnTheRightAngleToConnect(Vector2 _firstPos, Vector2 _secondPos, Vector2 _mousePos, Vector2 _gripPos)
+	{
+		bool canConnect = false;
+
+		float lastLineAngle = GetAngle(_firstPos, _secondPos);
+		float mouseLineAngle = GetAngle(_secondPos, _mousePos);
+
+		bool isOnRight = isRopeOnRightSide(_secondPos, _gripPos);
+		bool isOnAbove = IsRopeAbove(_secondPos, _gripPos);
+
+		float minAngle = 0;
+
+		if (isOnRight)
+		{
+			if (isOnAbove)
+			{
+				minAngle = -10;
+			}
+			else
+			{
+				minAngle = 10;
+			}
+		}
+		else
+		{
+			if (isOnAbove)
+			{
+				minAngle = 10;
+			}
+			else
+			{
+				minAngle = -10;
+			}
+		}
+
+		float minToConnect = lastLineAngle + minAngle;
+
+
+		if (isOnRight)
+		{
+			if (isOnAbove)
+			{
+				if (mouseLineAngle > minToConnect)
+				{
+					canConnect = true;
+				}
+			}
+			else
+			{
+				if (mouseLineAngle < minToConnect)
+				{
+					canConnect = true;
+				}
+			}
+		}
+		else
+		{
+			if (isOnAbove)
+			{
+				if (mouseLineAngle < minToConnect)
+				{
+					canConnect = true;
+				}
+			}
+			else
+			{
+				if (mouseLineAngle > minToConnect)
+				{
+					canConnect = true;
+				}
+			}
+		}
+
+
+
+		return canConnect;
 	}
 
 	private void OnDrawGizmos()
