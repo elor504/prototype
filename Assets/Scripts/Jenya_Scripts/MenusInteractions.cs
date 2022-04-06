@@ -5,7 +5,11 @@ public class MenusInteractions : MonoBehaviour
 {
     
 
-
+    void Start()
+    {
+        var context = new MenuContext(new StateMainMenu());
+        context.Request();
+    }
 
 
 
@@ -15,14 +19,21 @@ public class MenusInteractions : MonoBehaviour
     }
     public void LevelSelectionB()
     {
-        
+        var context = new MenuContext(new StateLevelSelection());
+        context.Request();
     }
     public void SettingsB()
     {
-        
+        var context = new MenuContext(new StateSettings());
+        context.Request();
     }
     public void CreditsB()
     {
-        
+        var context = new MenuContext(new StateCredits());
+        context.Request();
+    }
+    public void QuitB()
+    {
+        Application.Quit();
     }
 }
