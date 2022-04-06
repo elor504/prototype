@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
 			_instance = this;
 		else if (_instance != this)
 			Destroy(this.gameObject);
+
+
+	//	QualitySettings.vSyncCount = 0;
+	//	Application.targetFrameRate = 30;
 	}
 
 	private void Update()
@@ -56,7 +60,7 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < grips.Count; i++)
 		{
-			grips[i].Attach(false,false,false);
+			grips[i].Attach(false, false, false, false, false);
 			if (grips[i] as Rune)
 			{
 				Rune rune= (Rune)grips[i];
@@ -76,7 +80,7 @@ public class GameManager : MonoBehaviour
 		
 
 		RopePosToMouse.getInstance.ResetCurrentSpot();
-		RopePosToMouse.getInstance.ReturnToCurrentPos();
+		//RopePosToMouse.getInstance.ReturnToCurrentPos();
 		RopePosToMouse.getInstance.UpdateCurrentPos(RopePosToMouse.getInstance.currentPos);
 
 	}

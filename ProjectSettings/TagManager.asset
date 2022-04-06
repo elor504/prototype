@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - platforms
+  - Mouse
   layers:
   - Default
   - TransparentFX

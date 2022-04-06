@@ -18,11 +18,17 @@ public class grip : MonoBehaviour
 	[SerializeField] bool isUpperCorner;
 	public bool getIsUpperCorner => isUpperCorner;
 
-	public void Attach(bool _isAttached,bool _isOnRight,bool _isAbove)
+	public bool isMouseOnGrip;
+	public bool isMouseAbove;
+	public bool isMouseOnRight;
+
+	public void Attach(bool _isAttached,bool _isOnRight,bool _isAbove,bool _isMouseAbove,bool _isMouseOnRight)
 	{
 		isBeingUsed = _isAttached;
 		isRopeOnRight = _isOnRight;
 		isRopeAbove = _isAbove;
+		isMouseAbove = _isMouseAbove;
+		isMouseOnRight = _isMouseOnRight;
 	}
 
 	public bool IsOnBreakableAngleRange(float _angle)
@@ -48,6 +54,21 @@ public class grip : MonoBehaviour
 		return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
 	}
 
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if(collision.gameObject.tag == "Mouse")
+		{
+
+			isMouseOnGrip = true;
+		}
+	}
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.gameObject.tag == "Mouse")
+		{
+			isMouseOnGrip = false;
+		}
+	}
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.red;
