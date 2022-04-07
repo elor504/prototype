@@ -272,7 +272,19 @@ public class RopeRenderer : MonoBehaviour
 
 	private bool isRopeOnRightSide(Vector2 _ropePos, Vector2 _gripPos)
 	{
-		return _ropePos.x > _gripPos.x;
+		float dirX = _ropePos.x - _gripPos.x;
+		float offset = 0;
+		if(dirX < 0)
+		{
+			//negative
+			offset = -0.2f;
+		}
+		else
+		{
+			offset = 0.2f;
+		}
+
+		return _ropePos.x + offset > _gripPos.x;
 	}
 	private bool IsRopeAbove(Vector2 _ropePos, Vector2 _gripPos)
 	{
@@ -1319,19 +1331,19 @@ public class RopeRenderer : MonoBehaviour
 						{
 							if (ismouseRight)
 							{
-								if (_mouseLineAngle < _offsetToBreak)
+								if (_mouseLineAngle < _offsetToBreak && _mouseLineAngle > 180)
 								{
 									Debug.Log("Test21");
-									Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " > Mouse Offset: " + _offsetToBreak);
+									Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " < Mouse Offset: " + _offsetToBreak);
 									detach = true;
 								}
 							}
 							else
 							{
-								if (_mouseLineAngle > _offsetToBreak)
+								if (_mouseLineAngle < _offsetToBreak)
 								{
 									Debug.Log("Test22");
-									Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " > Mouse Offset: " + _offsetToBreak);
+									Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " < Mouse Offset: " + _offsetToBreak);
 									detach = true;
 								}
 							}
@@ -1633,7 +1645,7 @@ public class RopeRenderer : MonoBehaviour
 						{
 							if (ismouseRight)
 							{
-								if (_mouseLineAngle < _offsetToBreak)
+								if (_mouseLineAngle > _offsetToBreak && _mouseLineAngle < 180)
 								{
 									Debug.Log("Test47");
 									Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " < Mouse Offset: " + _offsetToBreak);
@@ -1642,7 +1654,7 @@ public class RopeRenderer : MonoBehaviour
 							}
 							else
 							{
-								if (_mouseLineAngle > _offsetToBreak)
+								if (_mouseLineAngle > _offsetToBreak && _mouseLineAngle < 180)
 								{
 									Debug.Log("Test48");
 									Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " > Mouse Offset: " + _offsetToBreak);
