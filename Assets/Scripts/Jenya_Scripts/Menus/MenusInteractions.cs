@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class MenusInteractions : MonoBehaviour
 {
+    [HideInInspector] public bool isFullScreenMenus = true;
     private int lastPlayedLevel;
 
     void Start()
@@ -25,7 +26,7 @@ public class MenusInteractions : MonoBehaviour
     }
 
 
-
+    #region Buttons
     public void PlayB()
     {
         SceneManager.LoadScene(lastPlayedLevel);
@@ -70,4 +71,27 @@ public class MenusInteractions : MonoBehaviour
     {
         //SceneManager.LoadScene(4);
     }
+    #endregion
+
+    #region Options
+    public void ScreenResolutionDropdownInputData(int value)
+    {
+        if (value == 0)
+        {
+            Debug.Log("Resolution 1");
+            Screen.SetResolution(1920, 1080, isFullScreenMenus);
+        }
+        if (value == 1)
+        {
+            Debug.Log("Resolution 2");
+            Screen.SetResolution(1366, 768, isFullScreenMenus);
+        }
+        if (value == 2)
+        {
+            Debug.Log("Resolution 3");
+            Screen.SetResolution(1280, 720, isFullScreenMenus);
+        }
+    }
+
+    #endregion
 }
