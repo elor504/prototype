@@ -1547,7 +1547,7 @@ public class RopeRenderer : MonoBehaviour
 							{
 								if (ismouseRight)
 								{
-									if (_mouseLineAngle < _offsetToBreak)
+									if (_mouseLineAngle < _offsetToBreak && _mouseLineAngle > 180)
 									{
 										Debug.Log("Test39");
 										Debug.LogError("Right Side Mouse Line Angle: " + _mouseLineAngle + " < Mouse Offset: " + _offsetToBreak);
