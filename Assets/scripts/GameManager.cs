@@ -8,18 +8,25 @@ public class GameManager : MonoBehaviour
 	private static GameManager _instance;
 	public static GameManager getInstance => _instance;
 
-	[SerializeField] private GameSettings gameSettings;
-	public GameSettings getGameSettings => gameSettings;
+	[Header("References")]
+	public RopePhysic rope;
+	public GhostMovement ghost;
+
+	//information saved for resetting
+	Vector2 ghostStartPos;
 
 
 
+	[Header("Temp")]
 	////////////////////////////
 	//change to private later and make functions in the correct region that will auto search for those three lists
-	public List<grip> grips;
+	public List<Rune> runes;
 	public List<PickUpInteraction> pickUps;
 	public List<DoorInteraction> doors;
 	///////////////////////////
 
+
+	public GameState currentState;
 
 
 
@@ -30,7 +37,7 @@ public class GameManager : MonoBehaviour
 		else if (_instance != this)
 			Destroy(this.gameObject);
 
-
+		ghostStartPos = ghost.transform.position;
 	//	QualitySettings.vSyncCount = 0;
 	//	Application.targetFrameRate = 30;
 	}
@@ -58,55 +65,67 @@ public class GameManager : MonoBehaviour
 
 	public void ResetGame()
 	{
-		for (int i = 0; i < grips.Count; i++)
+		//resets the runes
+		for (int i = 0; i < runes.Count; i++)
 		{
-			grips[i].Attach(false, false, false, false, false);
-			if (grips[i] as Rune)
-			{
-				Rune rune= (Rune)grips[i];
-				rune.InitRune();
-			}
+			runes[i].InitRune();
 		}
+		//resets the doors
 		for (int i = 0; i < doors.Count; i++)
 		{
 			doors[i].InitDoor();
 		}
+		//resets pickables
 		for (int i = 0; i < pickUps.Count; i++)
 		{
 			pickUps[i].InitPickUp();
 		}
 
 
-		
 
-		RopePosToMouse.getInstance.ResetCurrentSpot();
-		//RopePosToMouse.getInstance.ReturnToCurrentPos();
-		RopePosToMouse.getInstance.UpdateCurrentPos(RopePosToMouse.getInstance.currentPos);
+		//resetting the player position to the start
+		ghost.transform.position = ghostStartPos;
 
 	}
 
-	#endregion
-	#region Pickups,doors and grips
 
 
 
 
 	#endregion
+
+
+	public void SetGameState(GameState newState)
+	{
+		switch (newState)
+		{
+			case GameState.draggingRope:
+				break;
+			case GameState.ghostMovement:
+				StartGhostMovement();
+				break;
+			case GameState.pause:
+				break;
+			default:
+				break;
+		}
+		currentState = newState;
+	}
+
+	void StartGhostMovement()
+	{
+		rope.UseRunes();
+		ghost.SetGhostPath( rope.getGhostPath(), true);
+	}
+
 }
 
 
-
-
-
-//game settings
-[Serializable]
-public class GameSettings
+public enum GameState
 {
-	[Header("Rope Settings")]
-	[SerializeField] private float ropeDetachOffset;
-	public float getRopeDetachOffset => ropeDetachOffset;
-
-
-
-
+	draggingRope,
+	ghostMovement,
+	pause
 }
+
+

@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4031327795401507382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4031327795401507380}
+  - component: {fileID: 4031327795401507381}
+  - component: {fileID: 4031327795401507375}
+  - component: {fileID: 4031327795401507376}
+  - component: {fileID: 4031327795401507374}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4031327795401507380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031327795401507382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4031327795401507381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031327795401507382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bedf0c8f2bc4e0428e87068553dceee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rope: {fileID: 4031327795401507375}
+  ghost: {fileID: 0}
+  runes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  pickUps:
+  - {fileID: 0}
+  doors:
+  - {fileID: 0}
+  currentState: 0
+--- !u!114 &4031327795401507375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031327795401507382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b613f3a9e60bcd94ba979278f9ba9a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRopeActive: 0
+  ropePositions: []
+  colliderMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  colliderMouseMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  colliderMouseBlockerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  colliderMapMask:
+    serializedVersion: 2
+    m_Bits: 0
+  mouse: {fileID: 4031327795401507376}
+  playerTrans: {fileID: 0}
+  mouseTrans: {fileID: 0}
+--- !u!114 &4031327795401507376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031327795401507382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715e670b7753a264f950b525d70a828c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseRB: {fileID: 0}
+  rope: {fileID: 4031327795401507375}
+--- !u!114 &4031327795401507374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4031327795401507382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b515463ed194842a4d15bf890b8ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rope: {fileID: 4031327795401507375}
+  lineRenderer: {fileID: 0}
