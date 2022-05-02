@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 	public List<Rune> runes;
 	public List<PickUpInteraction> pickUps;
 	public List<DoorInteraction> doors;
+	public List<MovingPlatform> platforms;
 	///////////////////////////
 
 
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.D))
 		{
-			ResetGame();
+		//	ResetGame();
 		}
 	}
 
@@ -81,7 +82,10 @@ public class GameManager : MonoBehaviour
 			pickUps[i].InitPickUp();
 		}
 
-
+		for (int i = 0; i < platforms.Count; i++)
+		{
+			platforms[i].ResetMovingPlatform();
+		}
 
 		//resetting the player position to the start
 		ghost.transform.position = ghostStartPos;

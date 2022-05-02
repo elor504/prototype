@@ -83,7 +83,6 @@ public class GhostMovement : MonoBehaviour
 		if (startMovement)
 			MoveGhostOnPath();
 	}
-
 	public void MoveGhostOnPath()
 	{
 		if (ghostPaths.Count == 0)
@@ -97,7 +96,6 @@ public class GhostMovement : MonoBehaviour
 		startMovement = true;
 		SetGhostCollider(true);
 	}
-
 	void SetGhostCollider(bool _isMoving)
 	{
 		if (_isMoving)
