@@ -20,7 +20,7 @@ public class RunePlatformMover : Rune
 
 	public override void UseRune()
 	{
-		base.UseRune();
+		//base.UseRune();
 		MovePlatforms();
 
 
