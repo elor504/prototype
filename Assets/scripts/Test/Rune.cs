@@ -2,10 +2,15 @@
 
 public class Rune : grip
 {
+	public bool isFragile;
+	bool canBeUsed;
+	public bool getCanBeUsed => canBeUsed;
 	public Color useableColor;
 	public Color disabledColor;
 	SpriteRenderer sprite;
 
+
+	[Header("Ignore, old settings")]
 	[SerializeField]
 	private int useableCountStart;
 
@@ -19,11 +24,11 @@ public class Rune : grip
 	{
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		InitRune();
-
 	}
 
 	public virtual void InitRune()
 	{
+		canBeUsed = true;
 		useableCountLeft = useableCountStart;
 		SetRuneGFX();
 	}
@@ -31,6 +36,10 @@ public class Rune : grip
 
 	public virtual void UseRune()
 	{
+		if (isFragile)
+		{
+			canBeUsed = false;
+		}
 		useableCountLeft--;
 		SetRuneGFX();
 	}
@@ -45,7 +54,7 @@ public class Rune : grip
 
 	void SetRuneGFX()
 	{
-		if (isTurnedOff)
+		if (!canBeUsed)
 			sprite.color = disabledColor;
 		else
 			sprite.color = useableColor;

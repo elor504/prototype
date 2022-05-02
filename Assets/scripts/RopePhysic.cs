@@ -109,7 +109,7 @@ public class RopePhysic : MonoBehaviour
 			if (hitGrip as Rune)
 			{
 				Rune hitRune = (Rune)hitGrip;
-				if (hitRune.isTurnedOff)
+				if (!hitRune.getCanBeUsed)
 					return;
 
 				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y)))

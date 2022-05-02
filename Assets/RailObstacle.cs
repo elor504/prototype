@@ -10,8 +10,13 @@ public class RailObstacle : MonoBehaviour
 	public List<Transform> points;
 	int maxIndex => points.Count - 1;
 	public int currentIndex;
+
+	Vector2 startPos;
+
+
 	private void Awake()
 	{
+		startPos = obstacle.transform.position;
 		obstacleRB = obstacle.GetComponent<Rigidbody2D>();
 	}
 	// Update is called once per frame
@@ -37,5 +42,11 @@ public class RailObstacle : MonoBehaviour
 				currentIndex = 0;
 			}
 		}
+	}
+
+
+	public void ResetRail()
+	{
+		obstacle.transform.position = startPos;
 	}
 }
