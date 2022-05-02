@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RailObstacle : MonoBehaviour
@@ -16,12 +15,13 @@ public class RailObstacle : MonoBehaviour
 
 	private void Awake()
 	{
+		currentIndex = 0;
 		startPos = obstacle.transform.position;
 		obstacleRB = obstacle.GetComponent<Rigidbody2D>();
 	}
 	// Update is called once per frame
 	void Update()
-    {
+	{
 		MoveObstacle();
 
 	}
@@ -37,7 +37,7 @@ public class RailObstacle : MonoBehaviour
 		else
 		{
 			currentIndex++;
-			if(currentIndex > maxIndex)
+			if (currentIndex > maxIndex)
 			{
 				currentIndex = 0;
 			}
@@ -47,6 +47,7 @@ public class RailObstacle : MonoBehaviour
 
 	public void ResetRail()
 	{
+		currentIndex = 0;
 		obstacle.transform.position = startPos;
 	}
 }

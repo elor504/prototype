@@ -54,7 +54,7 @@ public class GhostMovement : MonoBehaviour
 					}
 
 					pathIndex++;
-				}		
+				}
 			}
 			else
 			{
@@ -70,6 +70,14 @@ public class GhostMovement : MonoBehaviour
 		platformCollider.enabled = true;
 		hitableCollider.enabled = false;
 		ghostGravity = rb.gravityScale;
+
+	}
+
+	public void ResetGhost()
+	{
+		finishedMovement = true;
+		startMovement = false;
+		ghostPaths.Clear();
 	}
 
 

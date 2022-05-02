@@ -95,8 +95,9 @@ public class GameManager : MonoBehaviour
 
 
 		//resetting the player position to the start
+		ghost.ResetGhost();
 		ghost.transform.position = ghostStartPos;
-
+		SetGameState(GameState.draggingRope);
 	}
 
 
