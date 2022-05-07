@@ -25,7 +25,10 @@ public class AudioSettings : MonoBehaviour
         }
 
         if (AudioHandler.GetInstance != null)
+        {
             AudioHandler.GetInstance.PlayMusicMainMenu(false);
+            AudioHandler.GetInstance.PlayMusicGame(true);
+        }
     }
 
     private void ContinueSettings()

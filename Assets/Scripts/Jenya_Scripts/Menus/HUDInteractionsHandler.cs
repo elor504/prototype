@@ -96,6 +96,9 @@ public class HUDInteractionsHandler : MonoBehaviour
         // Save volume settings
         audioSettings.SaveSoundSettings();
 
+        // Turn off game music
+        AudioHandler.GetInstance.PlayMusicGame(false);
+
         SceneManager.LoadScene(0);
     }
     public void Button_Back()

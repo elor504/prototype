@@ -50,5 +50,16 @@ public class AudioHandler : MonoBehaviour
             musicAudio[0].Stop();
         }
     }
+    public void PlayMusicGame(bool play)
+    {
+        if (play == true)
+        {
+            musicAudio[1].Play();
+        }
+        else
+        {
+            musicAudio[1].Stop();
+        }
+    }
     #endregion
 }
