@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 	public List<PickUpInteraction> pickUps;
 	public List<DoorInteraction> doors;
 	public List<MovingPlatform> platforms;
+	public List<RailObstacle> rails;
 	///////////////////////////
 
 
@@ -87,9 +88,16 @@ public class GameManager : MonoBehaviour
 			platforms[i].ResetMovingPlatform();
 		}
 
-		//resetting the player position to the start
-		ghost.transform.position = ghostStartPos;
+		for (int i = 0; i < rails.Count; i++)
+		{
+			rails[i].ResetRail();
+		}
 
+
+		//resetting the player position to the start
+		ghost.ResetGhost();
+		ghost.transform.position = ghostStartPos;
+		SetGameState(GameState.draggingRope);
 	}
 
 
