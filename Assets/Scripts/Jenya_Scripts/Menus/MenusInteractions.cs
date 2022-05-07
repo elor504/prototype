@@ -5,6 +5,21 @@ public class MenusInteractions : MonoBehaviour
 {
     [HideInInspector] public bool isFullScreenMenus = true;
     private int lastPlayedLevel;
+    private static MenusInteractions MIHInstance;
+    public static MenusInteractions GetInstance => MIHInstance;
+
+    private void Awake()
+    {
+        if (MIHInstance == null)
+        {
+            MIHInstance = this;
+        }
+        else if (MIHInstance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+    }
 
     void Start()
     {

@@ -745,6 +745,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353855364}
+        m_MethodName: SaveSoundSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2128596662}
         m_MethodName: TutorialB
         m_Mode: 1
@@ -806,7 +817,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &142478243
 GameObject:
   m_ObjectHideFlags: 0
@@ -7044,7 +7054,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &444688559
 GameObject:
   m_ObjectHideFlags: 0
@@ -8517,7 +8526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &859672613
 GameObject:
   m_ObjectHideFlags: 0
@@ -8676,6 +8684,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353855364}
+        m_MethodName: SaveSoundSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2128596662}
         m_MethodName: Level2B
         m_Mode: 1
@@ -8737,7 +8756,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &867674549
 GameObject:
   m_ObjectHideFlags: 0
@@ -9154,7 +9172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 3.6
-  onHoverRotate: 0
 --- !u!1 &1134547136
 GameObject:
   m_ObjectHideFlags: 0
@@ -9328,6 +9345,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353855364}
+        m_MethodName: SaveSoundSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2128596662}
         m_MethodName: Level1B
         m_Mode: 1
@@ -9389,7 +9417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &1185116055
 GameObject:
   m_ObjectHideFlags: 0
@@ -9650,7 +9677,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 3.6
-  onHoverRotate: 0
 --- !u!1 &1255600996
 GameObject:
   m_ObjectHideFlags: 0
@@ -9807,7 +9833,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 3.6
-  onHoverRotate: 0
 --- !u!1 &1256906387
 GameObject:
   m_ObjectHideFlags: 0
@@ -10161,7 +10186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 3.6
-  onHoverRotate: 0
 --- !u!1 &1353855362
 GameObject:
   m_ObjectHideFlags: 0
@@ -10293,6 +10317,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353855364}
+        m_MethodName: SaveSoundSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2128596662}
         m_MethodName: Level3B
         m_Mode: 1
@@ -10354,7 +10389,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &1374112477
 GameObject:
   m_ObjectHideFlags: 0
@@ -10439,6 +10473,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1353855364}
+        m_MethodName: SaveSoundSettings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2128596662}
         m_MethodName: PlayB
         m_Mode: 1
@@ -10500,7 +10545,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 3.6
-  onHoverRotate: 0
 --- !u!1 &1409697282
 GameObject:
   m_ObjectHideFlags: 0
@@ -11008,7 +11052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHoverScale: 6
-  onHoverRotate: 0
 --- !u!1 &1506378385
 GameObject:
   m_ObjectHideFlags: 0
@@ -11978,7 +12021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1851411475
 RectTransform:
   m_ObjectHideFlags: 0
