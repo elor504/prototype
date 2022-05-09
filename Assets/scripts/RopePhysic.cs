@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class RopePhysic : MonoBehaviour
 {
+	private static RopePhysic _instance;
+	public static RopePhysic getInstance => _instance;
+
+
 	public bool isRopeActive;
 	public List<Vector2> ropePositions = new List<Vector2>();
 	[Header("Collider Masks")]
@@ -16,7 +20,16 @@ public class RopePhysic : MonoBehaviour
 	public Transform mouseTrans;
 	[Header("Runes related")]
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
-
+	private void Awake()
+	{
+		if(_instance == null)
+		{
+			_instance = this;
+		}else if(_instance != this)
+		{
+			Destroy(this.gameObject);
+		}
+	}
 	// Update is called once per frame
 	void Update()
 	{
@@ -60,9 +73,11 @@ public class RopePhysic : MonoBehaviour
 	{
 		isRopeActive = false;
 		ropePositions.Clear();
+	}
+	public void ClearHittedRunes()
+	{
 		hittedRunes.Clear();
 	}
-
 	void UpdateRopePositions()
 	{
 		ropePositions[0] = playerTrans.position;
@@ -154,6 +169,8 @@ public class RopePhysic : MonoBehaviour
 		RaycastHit2D hit;
 		Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
 
+
+
 		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, 20, colliderMouseBlockerMask))
 		{
 			Debug.Log("detecting a blocker");
@@ -166,8 +183,6 @@ public class RopePhysic : MonoBehaviour
 			RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
 		}
 	}
-
-
 	public Vector2 GetAnchorPoint => ropePositions[ropePositions.Count - 2];
 	public List<Vector2> getAnchorLine()
 	{
@@ -231,7 +246,7 @@ public class RopePhysic : MonoBehaviour
 	{
 		foreach (var rune in hittedRunes)
 		{
-			hittedRunes[rune.Key].UseRune();
+			//hittedRunes[rune.Key].UseRune();
 		}
 	}
 	public Vector2 GetLastRunePostionInRopePositions()
@@ -273,7 +288,13 @@ public class RopePhysic : MonoBehaviour
 		return canEnter;
 	}
 	#endregion
-
+	public Rune GetRuneByPosition(Vector2 _pos)
+	{
+		if (hittedRunes.ContainsKey(_pos))
+			return hittedRunes[_pos];
+		else
+			return null;
+	}
 
 
 	private void OnDrawGizmos()

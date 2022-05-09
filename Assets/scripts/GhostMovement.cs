@@ -48,6 +48,8 @@ public class GhostMovement : MonoBehaviour
 					Vector2 dir = (ghostPaths[pathIndex] - rb.position).normalized;
 					rb.velocity = (dir * movementSpeed * Time.deltaTime);
 
+
+
 					if (rb.transform.position.x < ghostPaths[pathIndex].x)
 					{
 						if (!isLookingRight)
@@ -69,6 +71,10 @@ public class GhostMovement : MonoBehaviour
 				else
 				{
 					Debug.Log("path index");
+					if (RopePhysic.getInstance.GetRuneByPosition(ghostPaths[pathIndex]) != null)
+					{
+						RopePhysic.getInstance.GetRuneByPosition(ghostPaths[pathIndex]).UseRune();
+					}
 
 					if (pathIndex + 1 > ghostPaths.Count - 1)
 					{
@@ -76,6 +82,8 @@ public class GhostMovement : MonoBehaviour
 						finishedMovement = true;
 						return;
 					}
+
+
 
 					pathIndex++;
 				}

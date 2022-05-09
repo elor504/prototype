@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 	[Header("References")]
 	public RopePhysic rope;
 	public GhostMovement ghost;
-
+	public MousePosition mouse;
 	//information saved for resetting
 	Vector2 ghostStartPos;
 
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 		//resetting the player position to the start
 		ghost.ResetGhost();
 		ghost.transform.position = ghostStartPos;
+
 		SetGameState(GameState.draggingRope);
 	}
 
@@ -116,6 +117,7 @@ public class GameManager : MonoBehaviour
 		switch (newState)
 		{
 			case GameState.draggingRope:
+				rope.ClearHittedRunes();
 				break;
 			case GameState.ghostMovement:
 				StartGhostMovement();
@@ -130,7 +132,7 @@ public class GameManager : MonoBehaviour
 
 	void StartGhostMovement()
 	{
-		rope.UseRunes();
+		//rope.UseRunes();
 		ghost.SetGhostPath(rope.getGhostPath(), true);
 	}
 

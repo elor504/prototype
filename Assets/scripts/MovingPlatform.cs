@@ -65,6 +65,7 @@ public class MovingPlatform : MonoBehaviour
 	}
 	public void ResetMovingPlatform()
 	{
+		movePos.Clear();
 		currentPoint = 1;
 		platform.position = startPos;
 	}
