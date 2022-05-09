@@ -227,7 +227,6 @@ public class RopePhysic : MonoBehaviour
 		}
 		return ghostPath;
 	}
-
 	public void UseRunes()
 	{
 		foreach (var rune in hittedRunes)
@@ -235,14 +234,10 @@ public class RopePhysic : MonoBehaviour
 			hittedRunes[rune.Key].UseRune();
 		}
 	}
-
-
 	public Vector2 GetLastRunePostionInRopePositions()
 	{
 		return GetLastRune().transform.position;
 	}
-
-
 	public Rune GetLastRune()
 	{
 		Rune lastRune = null;

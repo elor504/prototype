@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -40,15 +39,15 @@ public class GameManager : MonoBehaviour
 			Destroy(this.gameObject);
 
 		ghostStartPos = ghost.transform.position;
-	//	QualitySettings.vSyncCount = 0;
-	//	Application.targetFrameRate = 30;
+		//	QualitySettings.vSyncCount = 0;
+		//	Application.targetFrameRate = 30;
 	}
 
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.D))
 		{
-		//	ResetGame();
+			//	ResetGame();
 		}
 	}
 
@@ -70,27 +69,32 @@ public class GameManager : MonoBehaviour
 		//resets the runes
 		for (int i = 0; i < runes.Count; i++)
 		{
-			runes[i].InitRune();
+			if (runes[i].enabled)
+				runes[i].InitRune();
 		}
 		//resets the doors
 		for (int i = 0; i < doors.Count; i++)
 		{
-			doors[i].InitDoor();
+			if (doors[i].enabled)
+				doors[i].InitDoor();
 		}
 		//resets pickables
 		for (int i = 0; i < pickUps.Count; i++)
 		{
-			pickUps[i].InitPickUp();
+			if (pickUps[i].enabled)
+				pickUps[i].InitPickUp();
 		}
 
 		for (int i = 0; i < platforms.Count; i++)
 		{
-			platforms[i].ResetMovingPlatform();
+			if (platforms[i].enabled)
+				platforms[i].ResetMovingPlatform();
 		}
 
 		for (int i = 0; i < rails.Count; i++)
 		{
-			rails[i].ResetRail();
+			if (rails[i].enabled)
+				rails[i].ResetRail();
 		}
 
 
@@ -127,7 +131,7 @@ public class GameManager : MonoBehaviour
 	void StartGhostMovement()
 	{
 		rope.UseRunes();
-		ghost.SetGhostPath( rope.getGhostPath(), true);
+		ghost.SetGhostPath(rope.getGhostPath(), true);
 	}
 
 }

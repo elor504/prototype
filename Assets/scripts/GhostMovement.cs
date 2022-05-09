@@ -10,13 +10,13 @@ public class GhostMovement : MonoBehaviour
 
 	[Header("References")]
 	[SerializeField] Rigidbody2D rb;
-
+	[SerializeField] SpriteRenderer spriteRenderer;
 
 	[Header("Colliders")]
 	[SerializeField] BoxCollider2D platformCollider;
 	[SerializeField] BoxCollider2D hitableCollider;
 
-
+	bool isLookingRight;
 
 	//vars for saving info on start
 	float ghostGravity;
@@ -29,7 +29,12 @@ public class GhostMovement : MonoBehaviour
 		InitPlayer();
 	}
 
-	private void Update()
+	private void FixedUpdate()
+	{
+		playerMovement();
+	}
+
+	void playerMovement()
 	{
 		if (startMovement)
 		{
@@ -41,7 +46,25 @@ public class GhostMovement : MonoBehaviour
 				{
 					Debug.Log("Moving");
 					Vector2 dir = (ghostPaths[pathIndex] - rb.position).normalized;
-					rb.MovePosition(rb.position + dir * Time.deltaTime * movementSpeed);
+					rb.velocity = (dir * movementSpeed * Time.deltaTime);
+
+					if (rb.transform.position.x < ghostPaths[pathIndex].x)
+					{
+						if (!isLookingRight)
+						{
+							isLookingRight = true;
+							Flip();
+						}
+					}
+					else
+					{
+						if (isLookingRight)
+						{
+							isLookingRight = false;
+							Flip();
+						}
+					}
+
 				}
 				else
 				{
@@ -49,6 +72,7 @@ public class GhostMovement : MonoBehaviour
 
 					if (pathIndex + 1 > ghostPaths.Count - 1)
 					{
+						rb.velocity = Vector2.zero;
 						finishedMovement = true;
 						return;
 					}
@@ -65,21 +89,23 @@ public class GhostMovement : MonoBehaviour
 			}
 		}
 	}
+
 	void InitPlayer()
 	{
 		platformCollider.enabled = true;
 		hitableCollider.enabled = false;
 		ghostGravity = rb.gravityScale;
-
+		isLookingRight = true;
+		Flip();
 	}
 
 	public void ResetGhost()
 	{
+		rb.velocity = Vector2.zero;
 		finishedMovement = true;
 		startMovement = false;
 		ghostPaths.Clear();
 	}
-
 
 	public void SetGhostPath(List<Vector2> _paths, bool startMovement = false)
 	{
@@ -118,5 +144,11 @@ public class GhostMovement : MonoBehaviour
 		}
 	}
 
+
+
+	void Flip()
+	{
+		spriteRenderer.flipX = isLookingRight;
+	}
 
 }

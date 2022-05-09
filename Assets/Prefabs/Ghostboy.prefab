@@ -175,8 +175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostPaths: []
-  movementSpeed: 7
+  movementSpeed: 200
   rb: {fileID: 8074487560474159995}
+  spriteRenderer: {fileID: 8074487558908932992}
   platformCollider: {fileID: 8074487560474159994}
   hitableCollider: {fileID: 8074487558908932999}
 --- !u!50 &8074487560474159995

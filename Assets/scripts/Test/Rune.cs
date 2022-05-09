@@ -50,10 +50,10 @@ public class Rune : grip
 		useableCountLeft++;
 		SetRuneGFX();
 	}
-
-
 	void SetRuneGFX()
 	{
+		if (sprite == null)
+			return;
 		if (!canBeUsed)
 			sprite.color = disabledColor;
 		else
