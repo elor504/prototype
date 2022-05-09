@@ -19,7 +19,7 @@ public class PickUpInteraction : ObjectInteraction
 	{
 		isInteracted = true;
 		pickupSprite.enabled = false;
-		door.hasKey = true;
+		door.OnGettingKey();
 	}
 
 	public override void OnTriggerEnter2D(Collider2D collision)
