@@ -6,7 +6,7 @@ public class Obstacle : MonoBehaviour
 {
 	public string playerTag;
 
-
+	
 
 	public virtual void OnTriggerEnter2D(Collider2D collision)
 	{
