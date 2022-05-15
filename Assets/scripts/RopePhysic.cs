@@ -168,19 +168,37 @@ public class RopePhysic : MonoBehaviour
 
 		RaycastHit2D hit;
 		Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
+		float distance = Vector2.Distance(ropePositions[ropePositions.Count - 1], ropePositions[ropePositions.Count - 3]);
 
 
 
-		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, 20, colliderMouseBlockerMask))
-		{
-			Debug.Log("detecting a blocker");
-		}
-		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, 20, colliderMouseMask))
+		Vector2 testPos;
+		testPos.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 2;
+		testPos.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 2;
+		Vector2 secondDir = (testPos - ropePositions[ropePositions.Count - 2]).normalized;
+
+		RaycastHit2D test;
+
+		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseBlockerMask))
 		{
 			
 
-			Debug.Log("Detach");
-			RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+			Debug.Log("detecting a blocker : " + hit.collider.gameObject.name);
+		}
+		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseMask))
+		{
+			
+			if (!Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
+			{
+
+				Debug.Log("Detach");
+				RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+			}
+			else if(test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
+			{
+				 
+				Debug.Log("detecting a blocker test : " + test.collider.gameObject.name);
+			}
 		}
 	}
 	public Vector2 GetAnchorPoint => ropePositions[ropePositions.Count - 2];
@@ -198,6 +216,8 @@ public class RopePhysic : MonoBehaviour
 	bool CheckIfThereIsABlocker()
 	{
 		RaycastHit2D hit = Physics2D.Linecast(ropePositions[0], ropePositions[ropePositions.Count - 1], colliderMouseBlockerMask);
+
+
 
 		return hit;
 	}
@@ -317,8 +337,16 @@ public class RopePhysic : MonoBehaviour
 			Gizmos.color = Color.blue;
 			//Vector2 dir = (getAnchorLine()[0] - getAnchorLine()[1]).normalized;
 			Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
-			Gizmos.DrawRay(ropePositions[ropePositions.Count - 3], dir * 20);
+			float distance = Vector2.Distance(ropePositions[ropePositions.Count - 1], ropePositions[ropePositions.Count - 3]);
+			Gizmos.DrawRay(ropePositions[ropePositions.Count - 3], dir * distance);
 
+			Gizmos.color = new Color(1,0,1);
+			Vector2 testPos;
+			testPos.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 2;
+			testPos.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 2;
+			Vector2 secondDir = (testPos - ropePositions[ropePositions.Count - 2]).normalized;
+
+			Gizmos.DrawRay(ropePositions[ropePositions.Count - 2], secondDir * 0.2f);
 
 			Gizmos.color = Color.green;
 			Gizmos.DrawLine(ropePositions[ropePositions.Count - 2], ropePositions[ropePositions.Count - 1]);

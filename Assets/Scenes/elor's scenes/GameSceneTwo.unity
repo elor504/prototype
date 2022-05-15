@@ -2768,7 +2768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903105947}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: platform
   m_TagString: platforms
   m_Icon: {fileID: 0}
@@ -3610,7 +3610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276585160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4159995, y: 0.077, z: 0}
+  m_LocalPosition: {x: -1.4159995, y: 0.11, z: 0}
   m_LocalScale: {x: 0.16128, y: 0.16128, z: 0.16128}
   m_Children: []
   m_Father: {fileID: 903105947}
@@ -3650,7 +3650,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.3374067, y: 0.16479167}
+  m_Offset: {x: 0.3374067, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5362,7 +5362,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980269681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.428, y: 0.077, z: 0}
+  m_LocalPosition: {x: 1.428, y: 0.118, z: 0}
   m_LocalScale: {x: 0.16128, y: 0.16128, z: 0.16128}
   m_Children: []
   m_Father: {fileID: 903105947}
@@ -5872,6 +5872,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4031327795401507374, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4031327795401507374, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
         type: 3}
       propertyPath: lineRenderer
