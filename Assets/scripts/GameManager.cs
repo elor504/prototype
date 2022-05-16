@@ -18,12 +18,13 @@ public class GameManager : MonoBehaviour
 
 	[Header("Temp")]
 	////////////////////////////
-	//change to private later and make functions in the correct region that will auto search for those three lists
+	//change to private later and make functions in the correct region that will auto search
 	public List<Rune> runes;
 	public List<PickUpInteraction> pickUps;
 	public List<DoorInteraction> doors;
 	public List<MovingPlatform> platforms;
 	public List<RailObstacle> rails;
+	public List<EnemyController> enemies;
 	///////////////////////////
 
 
@@ -39,8 +40,56 @@ public class GameManager : MonoBehaviour
 			Destroy(this.gameObject);
 
 		ghostStartPos = ghost.transform.position;
-		//	QualitySettings.vSyncCount = 0;
-		//	Application.targetFrameRate = 30;
+		InitGameManager();
+
+	}
+
+
+	void InitGameManager()
+	{
+		runes.Clear();
+		pickUps.Clear();
+		doors.Clear();
+		platforms.Clear();
+		rails.Clear();
+		enemies.Clear();
+
+
+		Rune[] runesInScene = UnityEngine.Object.FindObjectsOfType<Rune>();
+		foreach (var rune in runesInScene)
+		{
+			runes.Add(rune);
+		}
+
+		PickUpInteraction[] pickUpsInScene = UnityEngine.Object.FindObjectsOfType<PickUpInteraction>();
+		foreach (var pickup in pickUpsInScene)
+		{
+			pickUps.Add(pickup);
+		}
+
+		DoorInteraction[] doorsInScene = UnityEngine.Object.FindObjectsOfType<DoorInteraction>();
+		foreach (var door in doorsInScene)
+		{
+			doors.Add(door);
+		}
+
+		MovingPlatform[] platformsInScene = UnityEngine.Object.FindObjectsOfType<MovingPlatform>();
+		foreach (var platform in platformsInScene)
+		{
+			platforms.Add(platform);
+		}
+
+		RailObstacle[] railsInScene = UnityEngine.Object.FindObjectsOfType<RailObstacle>();
+		foreach (var Rail in railsInScene)
+		{
+			rails.Add(Rail);
+		}
+
+		EnemyController[] enemiesInScene = UnityEngine.Object.FindObjectsOfType<EnemyController>();
+		foreach (var enemy in enemiesInScene)
+		{
+			enemies.Add(enemy);
+		}
 	}
 
 	private void Update()
@@ -97,6 +146,12 @@ public class GameManager : MonoBehaviour
 				rails[i].ResetRail();
 		}
 
+
+		for (int i = 0; i < enemies.Count; i++)
+		{
+			if (enemies[i].enabled)
+				enemies[i].InitEnemy();
+		}
 
 		//resetting the player position to the start
 		ghost.ResetGhost();

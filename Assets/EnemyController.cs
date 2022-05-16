@@ -16,11 +16,15 @@ public class EnemyController : MonoBehaviour
 	private SpriteRenderer spriteRenderer;
 
 	// Start is called before the first frame update
+
+	private Vector2 startPos;
+
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		groundCheckXPos = groundCheckTrans.localPosition.x;
+		startPos = this.transform.position;
 	}
 
 	// Update is called once per frame
@@ -34,7 +38,10 @@ public class EnemyController : MonoBehaviour
 			Flip();
 		}
 	}
-
+	public void InitEnemy()
+	{
+		this.transform.position = startPos;
+	}
 	void MoveEnemy()
 	{
 		if (isLookingRight)
