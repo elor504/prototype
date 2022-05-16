@@ -70,4 +70,8 @@ public class MovingPlatform : MonoBehaviour
 		platform.position = startPos;
 	}
 
+
+
+
+
 }

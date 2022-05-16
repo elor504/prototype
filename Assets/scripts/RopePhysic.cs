@@ -19,6 +19,7 @@ public class RopePhysic : MonoBehaviour
 	public Transform playerTrans;
 	public Transform mouseTrans;
 	[Header("Runes related")]
+	public List<grip> hittedGrips = new List<grip>();
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
 	private void Awake()
 	{
@@ -73,6 +74,7 @@ public class RopePhysic : MonoBehaviour
 	{
 		isRopeActive = false;
 		ropePositions.Clear();
+		hittedGrips.Clear();
 	}
 	public void ClearHittedRunes()
 	{
@@ -81,6 +83,19 @@ public class RopePhysic : MonoBehaviour
 	void UpdateRopePositions()
 	{
 		ropePositions[0] = playerTrans.position;
+
+		for (int i = 0; i < ropePositions.Count; i++)
+		{
+			if(i != 0 && i != ropePositions.Count -1)
+			{
+
+				ropePositions[i] = hittedGrips[i - 1].transform.position;
+				Debug.Log("test: " + i);
+			}
+		}
+
+
+
 		ropePositions[ropePositions.Count - 1] = mouseTrans.position;
 	}
 
@@ -95,6 +110,9 @@ public class RopePhysic : MonoBehaviour
 	{
 		if (ropePositions.Contains(_pos))
 			ropePositions.Remove(_pos);
+
+		
+
 		Debug.Log("Removing at: " + _pos);
 	}
 
@@ -131,6 +149,7 @@ public class RopePhysic : MonoBehaviour
 				{
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
 					AddNewRopePos(hitGrip.transform.position);
+					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
 				}
 			}
 			else
@@ -139,6 +158,7 @@ public class RopePhysic : MonoBehaviour
 				{
 					//	Debug.Log("adding collider: " + hittedGrip.point);
 					AddNewRopePos(hitGrip.transform.position);
+					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
 				}
 			}
 
@@ -192,6 +212,7 @@ public class RopePhysic : MonoBehaviour
 			{
 
 				Debug.Log("Detach");
+				hittedGrips.RemoveAt(hittedGrips.Count - 1);
 				RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
 			}
 			else if(test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
