@@ -60,7 +60,7 @@ public class MousePosition : MonoBehaviour
 	/// <summary>
 	/// resets the mouse position to the player and disable the rope and reset it
 	/// </summary>
-	void ResetTotalController()
+	public void ResetTotalController()
 	{
 		rope.ResetRope();
 		ResetMousePos();

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - platforms
   - Mouse
+  - Enemy
   layers:
   - Default
   - TransparentFX

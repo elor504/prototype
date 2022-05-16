@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class RopePhysic : MonoBehaviour
 {
+	private static RopePhysic _instance;
+	public static RopePhysic getInstance => _instance;
+
+
 	public bool isRopeActive;
 	public List<Vector2> ropePositions = new List<Vector2>();
 	[Header("Collider Masks")]
@@ -15,8 +19,18 @@ public class RopePhysic : MonoBehaviour
 	public Transform playerTrans;
 	public Transform mouseTrans;
 	[Header("Runes related")]
+	public List<grip> hittedGrips = new List<grip>();
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
-
+	private void Awake()
+	{
+		if(_instance == null)
+		{
+			_instance = this;
+		}else if(_instance != this)
+		{
+			Destroy(this.gameObject);
+		}
+	}
 	// Update is called once per frame
 	void Update()
 	{
@@ -60,12 +74,28 @@ public class RopePhysic : MonoBehaviour
 	{
 		isRopeActive = false;
 		ropePositions.Clear();
+		hittedGrips.Clear();
+	}
+	public void ClearHittedRunes()
+	{
 		hittedRunes.Clear();
 	}
-
 	void UpdateRopePositions()
 	{
 		ropePositions[0] = playerTrans.position;
+
+		for (int i = 0; i < ropePositions.Count; i++)
+		{
+			if(i != 0 && i != ropePositions.Count -1)
+			{
+
+				ropePositions[i] = hittedGrips[i - 1].transform.position;
+				Debug.Log("test: " + i);
+			}
+		}
+
+
+
 		ropePositions[ropePositions.Count - 1] = mouseTrans.position;
 	}
 
@@ -80,6 +110,9 @@ public class RopePhysic : MonoBehaviour
 	{
 		if (ropePositions.Contains(_pos))
 			ropePositions.Remove(_pos);
+
+		
+
 		Debug.Log("Removing at: " + _pos);
 	}
 
@@ -116,6 +149,7 @@ public class RopePhysic : MonoBehaviour
 				{
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
 					AddNewRopePos(hitGrip.transform.position);
+					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
 				}
 			}
 			else
@@ -124,6 +158,7 @@ public class RopePhysic : MonoBehaviour
 				{
 					//	Debug.Log("adding collider: " + hittedGrip.point);
 					AddNewRopePos(hitGrip.transform.position);
+					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
 				}
 			}
 
@@ -153,21 +188,40 @@ public class RopePhysic : MonoBehaviour
 
 		RaycastHit2D hit;
 		Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
+		float distance = Vector2.Distance(ropePositions[ropePositions.Count - 1], ropePositions[ropePositions.Count - 3]);
 
-		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, 20, colliderMouseBlockerMask))
-		{
-			Debug.Log("detecting a blocker");
-		}
-		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, 20, colliderMouseMask))
+
+
+		Vector2 testPos;
+		testPos.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 2;
+		testPos.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 2;
+		Vector2 secondDir = (testPos - ropePositions[ropePositions.Count - 2]).normalized;
+
+		RaycastHit2D test;
+
+		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseBlockerMask))
 		{
 			
 
-			Debug.Log("Detach");
-			RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+			Debug.Log("detecting a blocker : " + hit.collider.gameObject.name);
+		}
+		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseMask))
+		{
+			
+			if (!Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
+			{
+
+				Debug.Log("Detach");
+				hittedGrips.RemoveAt(hittedGrips.Count - 1);
+				RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+			}
+			else if(test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
+			{
+				 
+				Debug.Log("detecting a blocker test : " + test.collider.gameObject.name);
+			}
 		}
 	}
-
-
 	public Vector2 GetAnchorPoint => ropePositions[ropePositions.Count - 2];
 	public List<Vector2> getAnchorLine()
 	{
@@ -183,6 +237,8 @@ public class RopePhysic : MonoBehaviour
 	bool CheckIfThereIsABlocker()
 	{
 		RaycastHit2D hit = Physics2D.Linecast(ropePositions[0], ropePositions[ropePositions.Count - 1], colliderMouseBlockerMask);
+
+
 
 		return hit;
 	}
@@ -231,7 +287,7 @@ public class RopePhysic : MonoBehaviour
 	{
 		foreach (var rune in hittedRunes)
 		{
-			hittedRunes[rune.Key].UseRune();
+			//hittedRunes[rune.Key].UseRune();
 		}
 	}
 	public Vector2 GetLastRunePostionInRopePositions()
@@ -273,7 +329,13 @@ public class RopePhysic : MonoBehaviour
 		return canEnter;
 	}
 	#endregion
-
+	public Rune GetRuneByPosition(Vector2 _pos)
+	{
+		if (hittedRunes.ContainsKey(_pos))
+			return hittedRunes[_pos];
+		else
+			return null;
+	}
 
 
 	private void OnDrawGizmos()
@@ -296,8 +358,16 @@ public class RopePhysic : MonoBehaviour
 			Gizmos.color = Color.blue;
 			//Vector2 dir = (getAnchorLine()[0] - getAnchorLine()[1]).normalized;
 			Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
-			Gizmos.DrawRay(ropePositions[ropePositions.Count - 3], dir * 20);
+			float distance = Vector2.Distance(ropePositions[ropePositions.Count - 1], ropePositions[ropePositions.Count - 3]);
+			Gizmos.DrawRay(ropePositions[ropePositions.Count - 3], dir * distance);
 
+			Gizmos.color = new Color(1,0,1);
+			Vector2 testPos;
+			testPos.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 2;
+			testPos.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 2;
+			Vector2 secondDir = (testPos - ropePositions[ropePositions.Count - 2]).normalized;
+
+			Gizmos.DrawRay(ropePositions[ropePositions.Count - 2], secondDir * 0.2f);
 
 			Gizmos.color = Color.green;
 			Gizmos.DrawLine(ropePositions[ropePositions.Count - 2], ropePositions[ropePositions.Count - 1]);
