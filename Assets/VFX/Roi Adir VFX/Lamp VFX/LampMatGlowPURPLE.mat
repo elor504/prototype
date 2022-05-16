@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LampMatGlow
+  m_Name: LampMatGlowPURPLE
   m_Shader: {fileID: -6465566751694194690, guid: f4f932942c47c1d4abd5964250a9d3c5,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -82,7 +82,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - GlowColor: {r: 2.3196948, g: 0.88105655, b: 0.22978109, a: 0.8627451}
+    - GlowColor: {r: 1.4163061, g: 0.24289994, b: 2.319695, a: 0.8627451}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
