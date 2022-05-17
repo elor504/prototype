@@ -7,6 +7,11 @@ public class LineRendererManager : MonoBehaviour
     public RopePhysic rope;
 
     public LineRenderer lineRenderer;
+
+    private void Awake()
+    {
+        lineRenderer.alignment = LineAlignment.View;
+    }
     // Update is called once per frame
     void Update()
     {
