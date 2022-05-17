@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class LineGFXManager : MonoBehaviour
 {
+    private static LineGFXManager _instance;
+    public static LineGFXManager LineGFXManage => _instance;
+
     [SerializeField] LineRenderer mainLine;
     [SerializeField] LineRenderer prefabGFXLine;
 
@@ -12,11 +15,25 @@ public class LineGFXManager : MonoBehaviour
     private LineRenderer activeGFXLine;
     [SerializeField] List<LineRenderer> lineGFXList = new List<LineRenderer>();
 
+    private GhostMovement ghostMove => GameManager.getInstance.ghost;
+
     // Start is called before the first frame update
     void Start()
     {
         lineDots = 0;
        
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
+        else if (_instance != this)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -50,15 +67,21 @@ public class LineGFXManager : MonoBehaviour
                 activeGFXLine.SetPosition(0, mainLine.GetPosition(lineDots - 2));
                 activeGFXLine.SetPosition(1, mainLine.GetPosition(lineDots - 1));
 
-            }
-            else if (mainLine.positionCount == 0)
-            {
-                foreach (LineRenderer item in lineGFXList)
+                if (lineGFXList.Count >= lineDots)
                 {
-                    Destroy(item);
+                    for (int i = lineGFXList.Count - lineDots; i > 0; i--)
+                    {
+                        Destroy(lineGFXList[lineGFXList.Count-1].gameObject);
+                        lineGFXList.RemoveAt(lineGFXList.Count-1);
+
+                    }
+
                 }
 
-                lineGFXList.Clear();
+            }
+            else if (mainLine.positionCount == 0 && ghostMove.ropeGFXBool == false)
+            {
+                ResetLineGFX();
 
             }
 
@@ -68,4 +91,21 @@ public class LineGFXManager : MonoBehaviour
 
     }
 
+    public void ResetLineGFX()
+    {
+        foreach (LineRenderer item in lineGFXList)
+        {
+            Destroy(item.gameObject);
+        }
+
+        lineGFXList.Clear();
+    }
+
+    public void RemoveLastLineRenderer()
+    {
+        //Debug.LogError("REMOVED LAST LINE");
+        lineDots = 0;
+        Destroy(lineGFXList[lineGFXList.Count - 1].gameObject);
+        lineGFXList.RemoveAt(lineGFXList.Count - 1);
+    }
 }

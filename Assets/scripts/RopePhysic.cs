@@ -21,6 +21,9 @@ public class RopePhysic : MonoBehaviour
 	[Header("Runes related")]
 	public List<grip> hittedGrips = new List<grip>();
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
+
+	private GhostMovement ghostMove => GameManager.getInstance.ghost;
+
 	private void Awake()
 	{
 		if (_instance == null)
@@ -147,6 +150,7 @@ public class RopePhysic : MonoBehaviour
 
 				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y)))
 				{
+					if (ghostMove.ropeGFXBool == false) ghostMove.ropeGFXBool = true;
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
 					AddNewRopePos(hitGrip.transform.position);
 					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
