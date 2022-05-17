@@ -80,12 +80,9 @@ public class GhostMovement : MonoBehaviour
 					{
 						rb.velocity = Vector2.zero;
 						finishedMovement = true;
-						RopePhysic.getInstance.ResetRope();
+						//RopePhysic.getInstance.ResetRope();
 						return;
 					}
-
-
-
 					pathIndex++;
 				}
 			}

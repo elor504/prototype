@@ -89,7 +89,6 @@ public class RopePhysic : MonoBehaviour
 		{
 			if (i != 0 && i != ropePositions.Count - 1)
 			{
-
 				ropePositions[i] = hittedGrips[i - 1].transform.position;
 				Debug.Log("test: " + i);
 			}
