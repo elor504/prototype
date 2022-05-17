@@ -62,7 +62,7 @@ public class MousePosition : MonoBehaviour
 	/// </summary>
 	public void ResetTotalController()
 	{
-		rope.ResetRope();
+		//rope.ResetRope();
 		ResetMousePos();
 	}
 
