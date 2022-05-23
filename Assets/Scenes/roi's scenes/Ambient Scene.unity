@@ -15256,7 +15256,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a755f51e4bcf414182a5776d54cdded, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15276,13 +15276,13 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -15300,8 +15300,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 1}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -15317,7 +15317,7 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 578
-      atime1: 26600
+      atime1: 65535
       atime2: 65535
       atime3: 65535
       atime4: 0
@@ -15326,7 +15326,7 @@ LineRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 3
+      m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 1
@@ -60957,7 +60957,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4031327794856549407}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2123539531}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715e670b7753a264f950b525d70a828c, type: 3}
@@ -61421,6 +61421,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2123539531 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4031327795401507382, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4031327794856549407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2123539532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123539531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33e04a82c898284a82e1d61d3a2bd6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainLine: {fileID: 531508845}
+  prefabGFXLine: {fileID: 8685404257056328743, guid: 5620f8e3e9f3dc9468d1bd11828b33b6,
+    type: 3}
+  lineDots: 0
+  lineGFXList: []
 --- !u!1 &2145844283
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,12 +21,17 @@ public class RopePhysic : MonoBehaviour
 	[Header("Runes related")]
 	public List<grip> hittedGrips = new List<grip>();
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
+
+	private GhostMovement ghostMove => GameManager.getInstance.ghost;
+	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
+
 	private void Awake()
 	{
-		if(_instance == null)
+		if (_instance == null)
 		{
 			_instance = this;
-		}else if(_instance != this)
+		}
+		else if (_instance != this)
 		{
 			Destroy(this.gameObject);
 		}
@@ -86,9 +91,8 @@ public class RopePhysic : MonoBehaviour
 
 		for (int i = 0; i < ropePositions.Count; i++)
 		{
-			if(i != 0 && i != ropePositions.Count -1)
+			if (i != 0 && i != ropePositions.Count - 1)
 			{
-
 				ropePositions[i] = hittedGrips[i - 1].transform.position;
 				Debug.Log("test: " + i);
 			}
@@ -111,7 +115,7 @@ public class RopePhysic : MonoBehaviour
 		if (ropePositions.Contains(_pos))
 			ropePositions.Remove(_pos);
 
-		
+
 
 		Debug.Log("Removing at: " + _pos);
 	}
@@ -147,6 +151,7 @@ public class RopePhysic : MonoBehaviour
 
 				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y)))
 				{
+					if (ghostMove.ropeGFXBool == false) ghostMove.ropeGFXBool = true;
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
 					AddNewRopePos(hitGrip.transform.position);
 					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
@@ -185,6 +190,7 @@ public class RopePhysic : MonoBehaviour
 			return;
 		}
 
+		//HERE
 
 		RaycastHit2D hit;
 		Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
@@ -201,23 +207,24 @@ public class RopePhysic : MonoBehaviour
 
 		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseBlockerMask))
 		{
-			
+
 
 			Debug.Log("detecting a blocker : " + hit.collider.gameObject.name);
 		}
 		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseMask))
 		{
-			
+
 			if (!Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
 			{
 
 				Debug.Log("Detach");
 				hittedGrips.RemoveAt(hittedGrips.Count - 1);
 				RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+
 			}
-			else if(test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
+			else if (test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
 			{
-				 
+
 				Debug.Log("detecting a blocker test : " + test.collider.gameObject.name);
 			}
 		}
@@ -244,7 +251,11 @@ public class RopePhysic : MonoBehaviour
 	}
 	bool CheckIfGripCanBeAdded(grip hitGrip, RaycastHit2D hittedGrip)
 	{
-		return !hitGrip.isMouseOnGrip && !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
+
+		if (hitGrip is Rune)
+			return !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
+		else
+			return !hitGrip.isMouseOnGrip && !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
 	}
 
 
@@ -361,7 +372,7 @@ public class RopePhysic : MonoBehaviour
 			float distance = Vector2.Distance(ropePositions[ropePositions.Count - 1], ropePositions[ropePositions.Count - 3]);
 			Gizmos.DrawRay(ropePositions[ropePositions.Count - 3], dir * distance);
 
-			Gizmos.color = new Color(1,0,1);
+			Gizmos.color = new Color(1, 0, 1);
 			Vector2 testPos;
 			testPos.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 2;
 			testPos.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 2;

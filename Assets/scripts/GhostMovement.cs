@@ -23,6 +23,7 @@ public class GhostMovement : MonoBehaviour
 	bool startMovement;
 	int pathIndex;
 	bool finishedMovement;
+	public bool ropeGFXBool = false;
 
 	private void Awake()
 	{
@@ -80,18 +81,17 @@ public class GhostMovement : MonoBehaviour
 					{
 						rb.velocity = Vector2.zero;
 						finishedMovement = true;
+						//RopePhysic.getInstance.ResetRope();
 						return;
 					}
-
-
-
 					pathIndex++;
 				}
 			}
 			else
 			{
 				startMovement = false;
-				rb.gravityScale = ghostGravity;
+				ropeGFXBool = false;
+	            rb.gravityScale = ghostGravity;
 				SetGhostCollider(false);
 				GameManager.getInstance.SetGameState(GameState.draggingRope);
 			}
@@ -157,6 +157,12 @@ public class GhostMovement : MonoBehaviour
 	void Flip()
 	{
 		spriteRenderer.flipX = isLookingRight;
+	}
+
+	public void SwitchOnRopeGFXBool()
+	{
+		ropeGFXBool = true;
+
 	}
 
 }

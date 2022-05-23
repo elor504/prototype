@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 	public GameState currentState;
 
 
+	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
 	private void Awake()
 	{
@@ -153,10 +154,11 @@ public class GameManager : MonoBehaviour
 				enemies[i].InitEnemy();
 		}
 
+
 		//resetting the player position to the start
 		ghost.ResetGhost();
 		ghost.transform.position = ghostStartPos;
-
+		lineGFXMan.ResetLineGFX();
 		SetGameState(GameState.draggingRope);
 	}
 

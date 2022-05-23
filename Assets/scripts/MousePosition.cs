@@ -7,7 +7,7 @@ public class MousePosition : MonoBehaviour
 	public Rigidbody2D mouseRB;
 	public RopePhysic rope;
 
-
+	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
 	private void Update()
 	{
@@ -38,6 +38,8 @@ public class MousePosition : MonoBehaviour
 		{
 			if (rope.GetLastRune() != null)
 			{
+				// HERE
+				lineGFXMan.RemoveLastLineRenderer();
 				GameManager.getInstance.SetGameState(GameState.ghostMovement);
 			}
 			ResetTotalController();
