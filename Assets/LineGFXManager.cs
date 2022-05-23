@@ -64,19 +64,14 @@ public class LineGFXManager : MonoBehaviour
 
                 }
 
-                activeGFXLine.SetPosition(0, mainLine.GetPosition(lineDots - 2));
-                activeGFXLine.SetPosition(1, mainLine.GetPosition(lineDots - 1));
-
-                if (lineGFXList.Count >= lineDots)
+                if (activeGFXLine.GetPosition(0) != null && activeGFXLine.GetPosition(1) != null)
                 {
-                    for (int i = lineGFXList.Count - lineDots; i > 0; i--)
-                    {
-                        Destroy(lineGFXList[lineGFXList.Count-1].gameObject);
-                        lineGFXList.RemoveAt(lineGFXList.Count-1);
-
-                    }
+                    activeGFXLine.SetPosition(0, mainLine.GetPosition(mainLine.positionCount - 2));
+                    activeGFXLine.SetPosition(1, mainLine.GetPosition(mainLine.positionCount - 1));
 
                 }
+
+                DeleteToPointNumber();
 
             }
             else if (mainLine.positionCount == 0 && ghostMove.ropeGFXBool == false)
@@ -108,4 +103,29 @@ public class LineGFXManager : MonoBehaviour
         Destroy(lineGFXList[lineGFXList.Count - 1].gameObject);
         lineGFXList.RemoveAt(lineGFXList.Count - 1);
     }
+
+    public void DeleteToPointNumber()
+    {
+        if (lineGFXList.Count >= mainLine.positionCount)
+        {
+            for (int i = lineGFXList.Count+1 - mainLine.positionCount; i > 0; i--)
+            {
+                //Debug.LogError("FORFORFOR");
+                Destroy(lineGFXList[lineGFXList.Count -1].gameObject);
+                lineGFXList.RemoveAt(lineGFXList.Count - 1);
+                activeGFXLine = lineGFXList[lineGFXList.Count - 1];
+
+            }
+
+            for (int i = 0; i <= lineGFXList.Count - 1; i++)
+            {
+                lineGFXList[i].SetPosition(0, mainLine.GetPosition(i));
+                lineGFXList[i].SetPosition(1, mainLine.GetPosition(i + 1));
+
+            }
+
+        }
+
+    }
+
 }

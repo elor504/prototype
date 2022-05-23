@@ -23,6 +23,7 @@ public class RopePhysic : MonoBehaviour
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
 
 	private GhostMovement ghostMove => GameManager.getInstance.ghost;
+	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
 	private void Awake()
 	{
@@ -189,6 +190,7 @@ public class RopePhysic : MonoBehaviour
 			return;
 		}
 
+		//HERE
 
 		RaycastHit2D hit;
 		Vector2 dir = (ropePositions[ropePositions.Count - 1] - ropePositions[ropePositions.Count - 3]).normalized;
@@ -218,6 +220,7 @@ public class RopePhysic : MonoBehaviour
 				Debug.Log("Detach");
 				hittedGrips.RemoveAt(hittedGrips.Count - 1);
 				RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+
 			}
 			else if (test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
 			{
