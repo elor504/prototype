@@ -110,6 +110,7 @@ public class GhostMovement : MonoBehaviour
 	public void ResetGhost()
 	{
 		rb.velocity = Vector2.zero;
+		rb.isKinematic = true;
 		finishedMovement = true;
 		startMovement = false;
 		ghostPaths.Clear();

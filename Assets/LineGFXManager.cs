@@ -116,7 +116,7 @@ public class LineGFXManager : MonoBehaviour
         {
             lineGFXList[0].SetPosition(0, ghostMove.rb.position);
 
-            if (Vector2.Distance(lineGFXList[0].GetPosition(0), lineGFXList[0].GetPosition(1)) < 1)
+            if (Vector2.Distance(lineGFXList[0].GetPosition(0), lineGFXList[0].GetPosition(1)) < 0.5f)
             {
                 Destroy(lineGFXList[0].gameObject);
                 lineGFXList.RemoveAt(0);

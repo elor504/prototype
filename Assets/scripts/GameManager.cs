@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	public RopePhysic rope;
 	public GhostMovement ghost;
 	public MousePosition mouse;
+	public Animator deathVortex;
 	//information saved for resetting
 	Vector2 ghostStartPos;
 
@@ -157,7 +158,14 @@ public class GameManager : MonoBehaviour
 
 		//resetting the player position to the start
 		ghost.ResetGhost();
-		ghost.transform.position = ghostStartPos;
+
+		deathVortex.transform.position = ghost.transform.position;
+
+		deathVortex.SetTrigger("SwallowTrigger");
+
+		///////////         HERE         ////////////
+		
+		// ghost.transform.position = ghostStartPos;
 		lineGFXMan.ResetLineGFX();
 		SetGameState(GameState.draggingRope);
 	}
