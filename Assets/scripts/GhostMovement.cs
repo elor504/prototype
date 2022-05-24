@@ -9,7 +9,7 @@ public class GhostMovement : MonoBehaviour
 	public float movementSpeed;
 
 	[Header("References")]
-	[SerializeField] Rigidbody2D rb;
+	[SerializeField] public Rigidbody2D rb;
 	[SerializeField] SpriteRenderer spriteRenderer;
 
 	[Header("Colliders")]
@@ -20,7 +20,7 @@ public class GhostMovement : MonoBehaviour
 
 	//vars for saving info on start
 	float ghostGravity;
-	bool startMovement;
+	public bool startMovement;
 	int pathIndex;
 	bool finishedMovement;
 	public bool ropeGFXBool = false;
@@ -135,6 +135,9 @@ public class GhostMovement : MonoBehaviour
 		rb.gravityScale = 0;
 		pathIndex = 0;
 		finishedMovement = false;
+
+		//    HERE
+
 		startMovement = true;
 		SetGhostCollider(true);
 	}

@@ -40,6 +40,12 @@ public class LineGFXManager : MonoBehaviour
     void Update()
     {
         OnLinePosAdded();
+
+        if (ghostMove.startMovement)
+        {
+            LineFollowGhost();
+        }
+
     }
 
     private void OnLinePosAdded()
@@ -102,6 +108,22 @@ public class LineGFXManager : MonoBehaviour
         lineDots = 0;
         Destroy(lineGFXList[lineGFXList.Count - 1].gameObject);
         lineGFXList.RemoveAt(lineGFXList.Count - 1);
+    }
+
+    public void LineFollowGhost()
+    {
+        if (lineGFXList.Count > 0)
+        {
+            lineGFXList[0].SetPosition(0, ghostMove.rb.position);
+
+            if (Vector2.Distance(lineGFXList[0].GetPosition(0), lineGFXList[0].GetPosition(1)) < 1)
+            {
+                Destroy(lineGFXList[0].gameObject);
+                lineGFXList.RemoveAt(0);
+            }
+
+        }
+
     }
 
     public void DeleteToPointNumber()
