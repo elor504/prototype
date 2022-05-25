@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	[Header("References")]
 	public RopePhysic rope;
 	public GhostMovement ghost;
+	public GhostAnimator getGhostAnim => ghost.GetComponent<GhostAnimator>();
 	public MousePosition mouse;
 	public Animator deathVortex;
 	//information saved for resetting
@@ -159,6 +160,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine( VortexAnimation());
     }
 
+
     IEnumerator VortexAnimation()
     {
         //resetting the player position to the start
@@ -182,6 +184,7 @@ public class GameManager : MonoBehaviour
         lineGFXMan.ResetLineGFX();
         SetGameState(GameState.draggingRope);
     }
+
 
 
 

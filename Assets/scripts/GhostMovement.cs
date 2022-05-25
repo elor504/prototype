@@ -50,6 +50,8 @@ public class GhostMovement : MonoBehaviour
 					rb.velocity = (dir * movementSpeed * Time.deltaTime);
 
 
+					GameManager.getInstance.getGhostAnim.RotateSpriteTowardDirection(ghostPaths[pathIndex]);
+
 
 					if (rb.transform.position.x < ghostPaths[pathIndex].x)
 					{
@@ -81,6 +83,9 @@ public class GhostMovement : MonoBehaviour
 					{
 						rb.velocity = Vector2.zero;
 						finishedMovement = true;
+						GameManager.getInstance.getGhostAnim.RotateToNormal();
+						GameManager.getInstance.getGhostAnim.SetAnimBool("Movement", false);
+						GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", true);
 						//RopePhysic.getInstance.ResetRope();
 						return;
 					}
@@ -91,11 +96,23 @@ public class GhostMovement : MonoBehaviour
 			{
 				startMovement = false;
 				ropeGFXBool = false;
-	            rb.gravityScale = ghostGravity;
+				rb.gravityScale = ghostGravity;
 				SetGhostCollider(false);
 				GameManager.getInstance.SetGameState(GameState.draggingRope);
 			}
 		}
+		else
+		{
+			if(GameManager.getInstance.currentState == GameState.draggingRope)
+			{
+				isLookingRight = this.transform.position.x > GameManager.getInstance.mouse.mouseRB.position.x
+					? false : true;
+				Debug.Log("test looking right:" + isLookingRight);
+				Flip();
+			}
+		}
+
+
 	}
 
 	void InitPlayer()
