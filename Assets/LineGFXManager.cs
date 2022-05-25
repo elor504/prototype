@@ -70,10 +70,15 @@ public class LineGFXManager : MonoBehaviour
 
                 }
 
-                if (activeGFXLine.GetPosition(0) != null && activeGFXLine.GetPosition(1) != null)
+                
+                for (int i = 0; i <= lineGFXList.Count - 1; i++)
                 {
-                    activeGFXLine.SetPosition(0, mainLine.GetPosition(mainLine.positionCount - 2));
-                    activeGFXLine.SetPosition(1, mainLine.GetPosition(mainLine.positionCount - 1));
+                    if (mainLine.GetPosition(i) != null && mainLine.positionCount > i + 1)
+                    {
+                        lineGFXList[i].SetPosition(0, mainLine.GetPosition(i));
+                        lineGFXList[i].SetPosition(1, mainLine.GetPosition(i + 1));
+
+                    }
 
                 }
 
