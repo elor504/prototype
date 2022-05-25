@@ -61471,7 +61471,7 @@ Transform:
   m_GameObject: {fileID: 2039673866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.39, y: -4.64, z: -1.66}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -61997,6 +61997,11 @@ PrefabInstance:
       propertyPath: deathVortex
       value: 
       objectReference: {fileID: 2039673869}
+    - target: {fileID: 4031327795401507381, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
+        type: 3}
+      propertyPath: ghostVortexTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 4031327795401507381, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
         type: 3}
       propertyPath: rails.Array.size

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -30,9 +31,9 @@ public class GameManager : MonoBehaviour
 
 
 	public GameState currentState;
+    public float ghostVortexTime;
 
-
-	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
+    private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
 	private void Awake()
 	{
@@ -116,68 +117,80 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void ResetGame()
-	{
-		//resets the runes
-		for (int i = 0; i < runes.Count; i++)
-		{
-			if (runes[i].enabled)
-				runes[i].InitRune();
-		}
-		//resets the doors
-		for (int i = 0; i < doors.Count; i++)
-		{
-			if (doors[i].enabled)
-				doors[i].InitDoor();
-		}
-		//resets pickables
-		for (int i = 0; i < pickUps.Count; i++)
-		{
-			if (pickUps[i].enabled)
-				pickUps[i].InitPickUp();
-		}
+    {
+        //resets the runes
+        for (int i = 0; i < runes.Count; i++)
+        {
+            if (runes[i].enabled)
+                runes[i].InitRune();
+        }
+        //resets the doors
+        for (int i = 0; i < doors.Count; i++)
+        {
+            if (doors[i].enabled)
+                doors[i].InitDoor();
+        }
+        //resets pickables
+        for (int i = 0; i < pickUps.Count; i++)
+        {
+            if (pickUps[i].enabled)
+                pickUps[i].InitPickUp();
+        }
 
-		for (int i = 0; i < platforms.Count; i++)
-		{
-			if (platforms[i].enabled)
-				platforms[i].ResetMovingPlatform();
-		}
+        for (int i = 0; i < platforms.Count; i++)
+        {
+            if (platforms[i].enabled)
+                platforms[i].ResetMovingPlatform();
+        }
 
-		for (int i = 0; i < rails.Count; i++)
-		{
-			if (rails[i].enabled)
-				rails[i].ResetRail();
-		}
-
-
-		for (int i = 0; i < enemies.Count; i++)
-		{
-			if (enemies[i].enabled)
-				enemies[i].InitEnemy();
-		}
+        for (int i = 0; i < rails.Count; i++)
+        {
+            if (rails[i].enabled)
+                rails[i].ResetRail();
+        }
 
 
-		//resetting the player position to the start
-		ghost.ResetGhost();
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].enabled)
+                enemies[i].InitEnemy();
+        }
 
-		deathVortex.transform.position = ghost.transform.position;
+        StartCoroutine( VortexAnimation());
+    }
 
-		deathVortex.SetTrigger("SwallowTrigger");
+    IEnumerator VortexAnimation()
+    {
+        //resetting the player position to the start
+        ghost.ResetGhost();
 
-		///////////         HERE         ////////////
-		
-		// ghost.transform.position = ghostStartPos;
-		lineGFXMan.ResetLineGFX();
-		SetGameState(GameState.draggingRope);
-	}
+        deathVortex.transform.position = ghost.transform.position;
+
+        deathVortex.SetTrigger("SwallowTrigger");
+
+		yield return new WaitForSeconds(ghostVortexTime);
+
+        ///////////         HERE         ////////////
+
+        ghost.transform.position = ghostStartPos;
+
+        deathVortex.transform.position = ghost.transform.position;
+
+        deathVortex.SetTrigger("SpitTrigger");
+
+        ghost.rb.isKinematic = false;
+        lineGFXMan.ResetLineGFX();
+        SetGameState(GameState.draggingRope);
+    }
 
 
 
 
 
-	#endregion
+    #endregion
 
 
-	public void SetGameState(GameState newState)
+    public void SetGameState(GameState newState)
 	{
 		switch (newState)
 		{
