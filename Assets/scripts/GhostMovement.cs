@@ -9,7 +9,7 @@ public class GhostMovement : MonoBehaviour
 	public float movementSpeed;
 
 	[Header("References")]
-	[SerializeField] Rigidbody2D rb;
+	[SerializeField] public Rigidbody2D rb;
 	[SerializeField] SpriteRenderer spriteRenderer;
 
 	[Header("Colliders")]
@@ -20,7 +20,7 @@ public class GhostMovement : MonoBehaviour
 
 	//vars for saving info on start
 	float ghostGravity;
-	bool startMovement;
+	public bool startMovement;
 	int pathIndex;
 	bool finishedMovement;
 	public bool ropeGFXBool = false;
@@ -49,6 +49,8 @@ public class GhostMovement : MonoBehaviour
 					Vector2 dir = (ghostPaths[pathIndex] - rb.position).normalized;
 					rb.velocity = (dir * movementSpeed * Time.deltaTime);
 
+
+					GameManager.getInstance.getGhostAnim.RotateSpriteTowardDirection(ghostPaths[pathIndex]);
 
 
 					if (rb.transform.position.x < ghostPaths[pathIndex].x)
@@ -81,6 +83,9 @@ public class GhostMovement : MonoBehaviour
 					{
 						rb.velocity = Vector2.zero;
 						finishedMovement = true;
+						GameManager.getInstance.getGhostAnim.RotateToNormal();
+						GameManager.getInstance.getGhostAnim.SetAnimBool("Movement", false);
+						GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", true);
 						//RopePhysic.getInstance.ResetRope();
 						return;
 					}
@@ -91,11 +96,23 @@ public class GhostMovement : MonoBehaviour
 			{
 				startMovement = false;
 				ropeGFXBool = false;
-	            rb.gravityScale = ghostGravity;
+				rb.gravityScale = ghostGravity;
 				SetGhostCollider(false);
 				GameManager.getInstance.SetGameState(GameState.draggingRope);
 			}
 		}
+		else
+		{
+			if(GameManager.getInstance.currentState == GameState.draggingRope)
+			{
+				isLookingRight = this.transform.position.x > GameManager.getInstance.mouse.mouseRB.position.x
+					? false : true;
+				Debug.Log("test looking right:" + isLookingRight);
+				Flip();
+			}
+		}
+
+
 	}
 
 	void InitPlayer()
@@ -110,6 +127,7 @@ public class GhostMovement : MonoBehaviour
 	public void ResetGhost()
 	{
 		rb.velocity = Vector2.zero;
+		rb.isKinematic = true;
 		finishedMovement = true;
 		startMovement = false;
 		ghostPaths.Clear();
@@ -135,6 +153,9 @@ public class GhostMovement : MonoBehaviour
 		rb.gravityScale = 0;
 		pathIndex = 0;
 		finishedMovement = false;
+
+		//    HERE
+
 		startMovement = true;
 		SetGhostCollider(true);
 	}

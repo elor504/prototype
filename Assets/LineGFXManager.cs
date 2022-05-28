@@ -40,6 +40,12 @@ public class LineGFXManager : MonoBehaviour
     void Update()
     {
         OnLinePosAdded();
+
+        if (ghostMove.startMovement)
+        {
+            LineFollowGhost();
+        }
+
     }
 
     private void OnLinePosAdded()
@@ -64,10 +70,15 @@ public class LineGFXManager : MonoBehaviour
 
                 }
 
-                if (activeGFXLine.GetPosition(0) != null && activeGFXLine.GetPosition(1) != null)
+                
+                for (int i = 0; i <= lineGFXList.Count - 1; i++)
                 {
-                    activeGFXLine.SetPosition(0, mainLine.GetPosition(mainLine.positionCount - 2));
-                    activeGFXLine.SetPosition(1, mainLine.GetPosition(mainLine.positionCount - 1));
+                    if (mainLine.GetPosition(i) != null && mainLine.positionCount > i + 1)
+                    {
+                        lineGFXList[i].SetPosition(0, mainLine.GetPosition(i));
+                        lineGFXList[i].SetPosition(1, mainLine.GetPosition(i + 1));
+
+                    }
 
                 }
 
@@ -102,6 +113,22 @@ public class LineGFXManager : MonoBehaviour
         lineDots = 0;
         Destroy(lineGFXList[lineGFXList.Count - 1].gameObject);
         lineGFXList.RemoveAt(lineGFXList.Count - 1);
+    }
+
+    public void LineFollowGhost()
+    {
+        if (lineGFXList.Count > 0)
+        {
+            lineGFXList[0].SetPosition(0, ghostMove.rb.position);
+
+            if (Vector2.Distance(lineGFXList[0].GetPosition(0), lineGFXList[0].GetPosition(1)) < 0.5f)
+            {
+                Destroy(lineGFXList[0].gameObject);
+                lineGFXList.RemoveAt(0);
+            }
+
+        }
+
     }
 
     public void DeleteToPointNumber()
