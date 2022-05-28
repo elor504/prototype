@@ -207,8 +207,6 @@ public class RopePhysic : MonoBehaviour
 
 		if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseBlockerMask))
 		{
-
-
 			Debug.Log("detecting a blocker : " + hit.collider.gameObject.name);
 		}
 		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseMask))
