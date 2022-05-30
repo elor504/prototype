@@ -8,34 +8,35 @@ public class GhostAnimator : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();
 		spriteRendrer = GetComponentInChildren<SpriteRenderer>();
-		SetAnimBool("Idle", true);
+		//SetAnimBool("Idle", true);
+		anim.SetBool("Idle", true);
 	}
 
 	public void RotateSpriteTowardDirection(Vector2 _lookPos)
 	{
-		Vector2 direction = (_lookPos - (Vector2)this.transform.position).normalized;
-		float angle = SignedAngleBetween(_lookPos, this.transform.position);
+		//Vector2 direction = (_lookPos - (Vector2)this.transform.position).normalized;
+		//float angle = SignedAngleBetween(_lookPos, this.transform.position);
 
 
-		if (direction.x >= 0)
-		{
-			Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.right);
-			spriteRendrer.transform.eulerAngles = rotation.eulerAngles;
+		//if (direction.x >= 0)
+		//{
+		//	Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.right);
+		//	spriteRendrer.transform.eulerAngles = rotation.eulerAngles;
 
-			//transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5 * Time.deltaTime);
-			//going right
-			Debug.Log("Look right");
-		}
-		else if (direction.x < 0)
-		{
-			Debug.Log("Angle:" + angle);
-			Debug.Log("Look left");
-			Quaternion rotation = Quaternion.AngleAxis(-angle, Vector3.right);
-			spriteRendrer.transform.eulerAngles = rotation.eulerAngles;
+		//	//transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5 * Time.deltaTime);
+		//	//going right
+		//	Debug.Log("Look right");
+		//}
+		//else if (direction.x < 0)
+		//{
+		//	Debug.Log("Angle:" + angle);
+		//	Debug.Log("Look left");
+		//	Quaternion rotation = Quaternion.AngleAxis(-angle, Vector3.right);
+		//	spriteRendrer.transform.eulerAngles = rotation.eulerAngles;
 
-			//transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5 * Time.deltaTime);
-			//going left
-		}
+		//	//transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5 * Time.deltaTime);
+		//	//going left
+		//}
 
 
 
@@ -54,12 +55,12 @@ public class GhostAnimator : MonoBehaviour
 
 	public void RotateToNormal()
 	{
-		Debug.Log("Rotate to normal");
-		spriteRendrer.transform.eulerAngles = Vector3.zero;
+		//Debug.Log("Rotate to normal");
+		//spriteRendrer.transform.eulerAngles = Vector3.zero;
 	}
 	public void SetAnimBool(string _boolMame, bool _bool)
 	{
-		anim.SetBool(_boolMame, _bool);
+		//anim.SetBool(_boolMame, _bool);
 	}
 
 }
