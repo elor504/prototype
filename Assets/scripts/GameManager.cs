@@ -163,25 +163,35 @@ public class GameManager : MonoBehaviour
 
     IEnumerator VortexAnimation()
     {
-        //resetting the player position to the start
-        ghost.ResetGhost();
+		lineGFXMan.ResetLineGFX();
+
+		//resetting the player position to the start
+		ghost.ResetGhost();
 
         deathVortex.transform.position = ghost.transform.position;
 
         deathVortex.SetTrigger("SwallowTrigger");
 
-		yield return new WaitForSeconds(ghostVortexTime);
+		yield return new WaitForSeconds(0.46f);
 
-        ///////////         HERE         ////////////
+		ghost.spriteRenderer.enabled = false;
+		
+		ghost.transform.position = ghostStartPos;
 
-        ghost.transform.position = ghostStartPos;
+		yield return new WaitForSeconds(0.2f);
 
-        deathVortex.transform.position = ghost.transform.position;
+		deathVortex.transform.position = ghost.transform.position;
 
-        deathVortex.SetTrigger("SpitTrigger");
+		deathVortex.SetTrigger("SpitTrigger");
 
-        ghost.rb.isKinematic = false;
-        lineGFXMan.ResetLineGFX();
+		yield return new WaitForSeconds(0.2f);
+
+		ghost.spriteRenderer.enabled = true;
+
+		yield return new WaitForSeconds(0.2f);
+
+		ghost.rb.gravityScale = 5;
+		ghost.ropeGFXBool = false;
         SetGameState(GameState.draggingRope);
     }
 

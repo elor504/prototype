@@ -82,11 +82,14 @@ public class LineGFXManager : MonoBehaviour
 
                 }
 
+                //Debug.LogError("Delete to point");
+
                 DeleteToPointNumber();
 
             }
             else if (mainLine.positionCount == 0 && ghostMove.ropeGFXBool == false)
             {
+                //Debug.LogError("Reset");
                 ResetLineGFX();
 
             }
