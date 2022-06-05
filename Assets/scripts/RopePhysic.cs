@@ -94,7 +94,6 @@ public class RopePhysic : MonoBehaviour
 			if (i != 0 && i != ropePositions.Count - 1)
 			{
 				ropePositions[i] = hittedGrips[i - 1].transform.position;
-				Debug.Log("test: " + i);
 			}
 		}
 
@@ -112,8 +111,8 @@ public class RopePhysic : MonoBehaviour
 	}
 	void RemoveRopePosAt(Vector2 _pos)
 	{
-		if (ropePositions.Contains(_pos))
-			ropePositions.Remove(_pos);
+		//if (ropePositions.Contains(_pos))
+		ropePositions.Remove(_pos);
 
 
 
@@ -149,7 +148,7 @@ public class RopePhysic : MonoBehaviour
 				if (!hitRune.getCanBeUsed)
 					return;
 
-				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y)))
+				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(hitGrip.transform.position))
 				{
 					if (ghostMove.ropeGFXBool == false) ghostMove.ropeGFXBool = true;
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
@@ -211,13 +210,13 @@ public class RopePhysic : MonoBehaviour
 		}
 		else if (hit = Physics2D.Raycast(ropePositions[ropePositions.Count - 3], dir, distance, colliderMouseMask))
 		{
-
-			if (!Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
+			//!Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask)
+			if (!DetectWithSecond())
 			{
-
-				Debug.Log("Detach");
+				Debug.Log("Detach: " + hittedGrips[hittedGrips.Count - 1].transform.position);
 				hittedGrips.RemoveAt(hittedGrips.Count - 1);
-				RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
+				ropePositions.RemoveAt(ropePositions.Count - 2);
+				//RemoveRopePosAt(ropePositions[ropePositions.Count - 2]);
 
 			}
 			else if (test = Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask))
@@ -227,6 +226,38 @@ public class RopePhysic : MonoBehaviour
 			}
 		}
 	}
+
+	bool DetectWithSecond()
+	{
+		Vector2 testPos;
+		testPos.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 2;
+		testPos.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 2;
+		Vector2 secondDir = (testPos - ropePositions[ropePositions.Count - 2]).normalized;
+
+
+
+		Vector2 testPos2;
+		testPos2.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 4f;
+		testPos2.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 4f;
+		Vector2 thirdDir = (testPos2 - ropePositions[ropePositions.Count - 2]).normalized;
+		;
+
+		Vector2 testPos3;
+		testPos3.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 8f;
+		testPos3.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 8f;
+		Vector2 fourthDir = (testPos3 - ropePositions[ropePositions.Count - 2]).normalized;
+
+
+
+		if (Physics2D.Raycast(ropePositions[ropePositions.Count - 2], secondDir, 0.15f, colliderMouseBlockerMask)
+			|| Physics2D.Raycast(ropePositions[ropePositions.Count - 2], thirdDir, 0.15f, colliderMouseBlockerMask)
+			|| Physics2D.Raycast(ropePositions[ropePositions.Count - 2], fourthDir, 0.15f, colliderMouseBlockerMask))
+		{
+			return true;
+		}
+		return false;
+	}
+
 	public Vector2 GetAnchorPoint => ropePositions[ropePositions.Count - 2];
 	public List<Vector2> getAnchorLine()
 	{
@@ -250,10 +281,14 @@ public class RopePhysic : MonoBehaviour
 	bool CheckIfGripCanBeAdded(grip hitGrip, RaycastHit2D hittedGrip)
 	{
 
-		if (hitGrip is Rune)
-			return !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
+		//if (hitGrip is Rune)
+		//	return !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
+
+
+		if (hittedGrips.Count < 1)
+			return true;
 		else
-			return !hitGrip.isMouseOnGrip && !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
+			return !hitGrip.isMouseOnGrip && hittedGrips[hittedGrips.Count - 1] != hitGrip;
 	}
 
 
@@ -377,6 +412,22 @@ public class RopePhysic : MonoBehaviour
 			Vector2 secondDir = (testPos - ropePositions[ropePositions.Count - 2]).normalized;
 
 			Gizmos.DrawRay(ropePositions[ropePositions.Count - 2], secondDir * 0.2f);
+
+			Vector2 testPos2;
+			testPos2.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 4f;
+			testPos2.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 4f;
+			Vector2 thirdDir = (testPos2 - ropePositions[ropePositions.Count - 2]).normalized;
+
+			Gizmos.DrawRay(ropePositions[ropePositions.Count - 2], thirdDir * 0.2f);
+
+			Vector2 testPos3;
+			testPos3.x = ropePositions[ropePositions.Count - 1].x + (ropePositions[ropePositions.Count - 3].x - ropePositions[ropePositions.Count - 1].x) / 8f;
+			testPos3.y = ropePositions[ropePositions.Count - 1].y + (ropePositions[ropePositions.Count - 3].y - ropePositions[ropePositions.Count - 1].y) / 8f;
+			Vector2 fourthDir = (testPos3 - ropePositions[ropePositions.Count - 2]).normalized;
+
+			Gizmos.DrawRay(ropePositions[ropePositions.Count - 2], fourthDir * 0.2f);
+
+
 
 			Gizmos.color = Color.green;
 			Gizmos.DrawLine(ropePositions[ropePositions.Count - 2], ropePositions[ropePositions.Count - 1]);

@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
 		ghostStartPos = ghost.transform.position;
 		InitGameManager();
-
+		Application.targetFrameRate = 60;
 	}
 
 

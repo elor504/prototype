@@ -1,14 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MousePosition : MonoBehaviour
 {
 	public Rigidbody2D mouseRB;
 	public RopePhysic rope;
 
+	public float clamp;
+
 	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
+	public float mouseSpeed;
+	public bool rigidbodyMouse;
+	Vector2 lastFrameMousePos;
+
+	float distanceLerp;
+	float distance;
 	private void Update()
 	{
 		if (GameManager.getInstance.currentState != GameState.draggingRope)
@@ -25,15 +31,34 @@ public class MousePosition : MonoBehaviour
 
 		if (Input.GetKey(KeyCode.Mouse0) && rope.isRopeActive)
 		{
-			
-			Vector3 mouseWorldPos = Input.mousePosition;
-			mouseWorldPos.z = Camera.main.nearClipPlane;
+			if (!rigidbodyMouse)
+			{
+				Vector3 mouseWorldPos = Input.mousePosition;
+				mouseWorldPos.z = Camera.main.nearClipPlane;
+				Vector2 target = Camera.main.ScreenToWorldPoint(mouseWorldPos);
+				mouseRB.MovePosition(target);
+			}
+			else
+			{
+				Vector3 mouseWorldPos = Input.mousePosition;
+				mouseWorldPos.z = Camera.main.nearClipPlane;
+				Vector2 target = Camera.main.ScreenToWorldPoint(mouseWorldPos);
 
-			Vector2 target = Camera.main.ScreenToWorldPoint(mouseWorldPos);
+				Vector2 dir = target - (Vector2)mouseRB.transform.position;
+				if (Vector2.Distance(target, (Vector2)mouseRB.transform.position) > 0.05f)
+				{
+					//Vector2 velocity = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+					//velocity = new Vector2(Map(velocity.x, -2, 2, 0, 1), Map(velocity.y, -2, 2, 0, 1));
 
-			mouseRB.MovePosition(target);
 
+					//Debug.LogError("Mouse velocity: " + velocity);
 
+					mouseRB.MovePosition(Vector2.Lerp(mouseRB.position, target, Time.deltaTime * mouseSpeed));
+					//mouseRB.velocity =  dir * mouseSpeed * Time.deltaTime * velocity;
+				}
+				else
+					mouseRB.velocity = Vector2.zero;
+			}
 
 		}
 		if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -41,8 +66,8 @@ public class MousePosition : MonoBehaviour
 			if (rope.GetLastRune() != null)
 			{
 				// HERE
-				if(lineGFXMan != null)
-				lineGFXMan.RemoveLastLineRenderer();
+				if (lineGFXMan != null)
+					lineGFXMan.RemoveLastLineRenderer();
 				GameManager.getInstance.SetGameState(GameState.ghostMovement);
 				GameManager.getInstance.getGhostAnim.SetAnimBool("Movement", true);
 			}
@@ -54,7 +79,7 @@ public class MousePosition : MonoBehaviour
 
 
 			GameManager.getInstance.getGhostAnim.SetAnimBool("DragActive", false);
-	
+
 			ResetTotalController();
 		}
 
@@ -65,6 +90,20 @@ public class MousePosition : MonoBehaviour
 		}
 
 	}
+
+	float ScrollLimit(float dist, float min, float max)
+	{
+		if (dist < min)
+			dist = min;
+		if (dist > max)
+			dist = max;
+		return dist;
+	}
+	public float Map(float value, float inMin, float inMax, float OutMin, float outMax)
+	{
+		return (value - inMin) * (outMax - OutMin) / (inMax - inMin) + OutMin;
+	}
+
 	/// <summary>
 	///  reset the mouse postiion to the player position
 	/// </summary>
@@ -83,6 +122,6 @@ public class MousePosition : MonoBehaviour
 
 	public void MoveMouseByTrans(Vector2 _pos)
 	{
-		mouseRB.transform.position = _pos;
+		//mouseRB.transform.position = _pos;
 	}
 }
