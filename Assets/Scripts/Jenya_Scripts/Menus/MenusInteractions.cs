@@ -76,25 +76,50 @@ public class MenusInteractions : MonoBehaviour
         var context = new MenuContext(new StateMainMenu());
         context.Request();
     }
-    public void TutorialB()
-    {
-        AudioHandler.GetInstance.PlaySoundUIClicks();
-        SceneManager.LoadScene(1);
-    }
     public void Level1B()
     {
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(1);
     }
     public void Level2B()
     {
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(3);
+        //SceneManager.LoadScene(2);
     }
     public void Level3B()
     {
         AudioHandler.GetInstance.PlaySoundUIClicks();
+        //SceneManager.LoadScene(3);
+    }
+    public void Level4B()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
         //SceneManager.LoadScene(4);
+    }
+    public void Level5B()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
+        //SceneManager.LoadScene(5);
+    }
+    public void Level6B()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
+        //SceneManager.LoadScene(6);
+    }
+    public void Level7B()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
+        //SceneManager.LoadScene(7);
+    }
+    public void Level8B()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
+        //SceneManager.LoadScene(8);
+    }
+    public void Level9B()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
+        //SceneManager.LoadScene(9);
     }
     #endregion
 
