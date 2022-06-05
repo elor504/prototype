@@ -107,7 +107,7 @@ public class GhostMovement : MonoBehaviour
 			{
 				isLookingRight = this.transform.position.x > GameManager.getInstance.mouse.mouseRB.position.x
 					? false : true;
-				Debug.Log("test looking right:" + isLookingRight);
+				//Debug.Log("test looking right:" + isLookingRight);
 				Flip();
 			}
 		}
