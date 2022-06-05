@@ -10,7 +10,7 @@ public class GhostMovement : MonoBehaviour
 
 	[Header("References")]
 	[SerializeField] public Rigidbody2D rb;
-	[SerializeField] SpriteRenderer spriteRenderer;
+	[SerializeField] public SpriteRenderer spriteRenderer;
 
 	[Header("Colliders")]
 	[SerializeField] BoxCollider2D platformCollider;
@@ -127,7 +127,7 @@ public class GhostMovement : MonoBehaviour
 	public void ResetGhost()
 	{
 		rb.velocity = Vector2.zero;
-		rb.isKinematic = true;
+		rb.gravityScale = 0;
 		finishedMovement = true;
 		startMovement = false;
 		ghostPaths.Clear();
