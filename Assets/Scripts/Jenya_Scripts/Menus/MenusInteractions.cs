@@ -78,48 +78,57 @@ public class MenusInteractions : MonoBehaviour
     }
     public void Level1B()
     {
+        lastPlayedLevel = 1;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
     public void Level2B()
     {
+        lastPlayedLevel = 2;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(2);
+        SceneManager.LoadScene(2);
     }
     public void Level3B()
     {
+        lastPlayedLevel = 3;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(3);
+        SceneManager.LoadScene(3);
     }
     public void Level4B()
     {
+        lastPlayedLevel = 4;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(4);
+        SceneManager.LoadScene(4);
     }
     public void Level5B()
     {
+        lastPlayedLevel = 5;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(5);
+        SceneManager.LoadScene(5);
     }
     public void Level6B()
     {
+        lastPlayedLevel = 6;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(6);
+        SceneManager.LoadScene(6);
     }
     public void Level7B()
     {
+        lastPlayedLevel = 7;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(7);
+        SceneManager.LoadScene(7);
     }
     public void Level8B()
     {
+        lastPlayedLevel = 8;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(8);
+        SceneManager.LoadScene(8);
     }
     public void Level9B()
     {
+        lastPlayedLevel = 9;
         AudioHandler.GetInstance.PlaySoundUIClicks();
-        //SceneManager.LoadScene(9);
+        SceneManager.LoadScene(9);
     }
     #endregion
 
