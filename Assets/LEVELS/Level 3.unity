@@ -388,8 +388,8 @@ Transform:
   m_LocalPosition: {x: 8.179956, y: -5.465272, z: 4.725689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1099151552}
   - {fileID: 1286716657}
+  - {fileID: 1099151552}
   - {fileID: 1696675209}
   m_Father: {fileID: 63079709}
   m_RootOrder: 0
@@ -4277,7 +4277,7 @@ PrefabInstance:
     - target: {fileID: 8978044865845614639, guid: f2940e147a590c14ea080854ddea4f6e,
         type: 3}
       propertyPath: isFragile
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8978044865845614639, guid: f2940e147a590c14ea080854ddea4f6e,
         type: 3}
