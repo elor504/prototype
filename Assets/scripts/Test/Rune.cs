@@ -41,6 +41,10 @@ public class Rune : grip
 			canBeUsed = false;
 		}
 		useableCountLeft--;
+		if(useableCountLeft <= 0){
+			canBeUsed = false;
+		}
+
 		SetRuneGFX();
 	}
 
