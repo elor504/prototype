@@ -388,8 +388,8 @@ Transform:
   m_LocalPosition: {x: 8.179956, y: -5.465272, z: 4.725689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1099151552}
   - {fileID: 1286716657}
+  - {fileID: 1099151552}
   - {fileID: 1696675209}
   m_Father: {fileID: 63079709}
   m_RootOrder: 0
@@ -2036,6 +2036,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2414098, y: 0.3341887}
   m_EdgeRadius: 0
+--- !u!120 &1089811440 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 8111859499597616780, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5143456544479749374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1093574322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,7 +3989,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MUST NEEDED
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5143456544974322383, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
+        type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 1089811440}
+    - target: {fileID: 5143456544974322385, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
+        type: 3}
+      propertyPath: mouseSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5143456543580946610, guid: 0f7268fb7eb6d8745b1444e4752e2ba6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7268fb7eb6d8745b1444e4752e2ba6, type: 3}
 --- !u!1001 &5185074611343620417
 PrefabInstance:
