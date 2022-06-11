@@ -18,5 +18,6 @@
         interfaceHandler.Credits.gameObject.SetActive(false);
         interfaceHandler.Settings.gameObject.SetActive(false);
         interfaceHandler.MainMenu.gameObject.SetActive(true);
+        interfaceHandler.quitB.enabled = true;
     }
 }

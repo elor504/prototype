@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.UI;
 using UnityEngine;
 
 public class InterfaceHandler : MonoBehaviour
@@ -9,6 +8,7 @@ public class InterfaceHandler : MonoBehaviour
     [HideInInspector]public UIState uiState;
 
     public GameObject MainMenu, LevelSelection, Settings, Credits;
+    public Button quitB;
     [SerializeField]private int targetFPS;
 
     private void Awake()

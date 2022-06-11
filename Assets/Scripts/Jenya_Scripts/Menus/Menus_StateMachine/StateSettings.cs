@@ -14,7 +14,7 @@
         interfaceHandler.uiState = UIState.Settings;
 
         // Screens logic
-        interfaceHandler.MainMenu.gameObject.SetActive(false);
+        interfaceHandler.quitB.enabled = false;
         interfaceHandler.Settings.gameObject.SetActive(true);
     }
 }

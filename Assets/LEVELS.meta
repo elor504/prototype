@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/UI/Menus/MAIN/Anims.meta
+guid: d9d6b70d2fe011e49a25210c21dcf83c
+========
 guid: 2e69854b2b549294699956b34cbf7cca
+>>>>>>>> elor_branch:Assets/Scenes/LEVELS.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sprites/UI/Menus/MAIN/Chains.controller.meta
+guid: 2eb531f6f5030f541b24266075499afa
+NativeFormatImporter:
+========
 guid: f2d3aeeb50675ca4e9b05aec8988ec6d
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> elor_branch:Assets/Sprites/Characters/Ghost/NewGhost/1. Idle.meta
   externalObjects: {}
+  mainObjectFileID: 9100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
