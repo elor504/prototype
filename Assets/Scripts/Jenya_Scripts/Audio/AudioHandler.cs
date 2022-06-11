@@ -54,7 +54,10 @@ public class AudioHandler : MonoBehaviour
     {
         if (play == true)
         {
-            musicAudio[1].Play();
+            if(musicAudio[1].isPlaying == false)
+            {
+                musicAudio[1].Play();
+            }
         }
         else
         {
