@@ -4,7 +4,7 @@ using UnityEngine;
 public class MenusInteractions : MonoBehaviour
 {
     [HideInInspector] public bool isFullScreenMenus = true;
-    private int lastPlayedLevel;
+    [SerializeField]private int lastPlayedLevel = 0;
     private static MenusInteractions MIHInstance;
     public static MenusInteractions GetInstance => MIHInstance;
 
@@ -26,8 +26,11 @@ public class MenusInteractions : MonoBehaviour
         var context = new MenuContext(new StateMainMenu());
         context.Request();
 
-        // Get the data from last scene
-        lastPlayedLevel = 1;
+        if(HUDInteractionsHandler.playedLevel != 0)
+        {
+            // Get the data from last scene
+            lastPlayedLevel = HUDInteractionsHandler.playedLevel;
+        }
     }
     void Update()
     {

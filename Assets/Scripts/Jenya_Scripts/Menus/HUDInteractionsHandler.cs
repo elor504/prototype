@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class HUDInteractionsHandler : MonoBehaviour
@@ -9,6 +7,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     private HUDstate hudState;
     private bool isPauseAvailable;
     bool isFullScreenHUD;
+    public static int playedLevel;
 
     #region PublicFields
     [Header("Menus")]
@@ -26,6 +25,8 @@ public class HUDInteractionsHandler : MonoBehaviour
         {
             isFullScreenHUD = MenusInteractions.GetInstance.isFullScreenMenus;
         }
+
+        playedLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Update()

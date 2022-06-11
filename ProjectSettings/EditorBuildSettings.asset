@@ -9,6 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/jenya's scenes/Menus.unity
     guid: ec6e5d8ba61e8614db7b2819b6e8bf99
   - enabled: 1
+    path: Assets/LEVELS/Level 1.unity
+    guid: 40f026c890efcb6419a08b2242fa2127
+  - enabled: 1
+    path: Assets/LEVELS/Level 2.unity
+    guid: a69b515d86ea5414abb85d9f85f4ed3b
+  - enabled: 1
+    path: Assets/LEVELS/Level 3.unity
+    guid: 875f2137316385543bb2525e7d299adf
+  - enabled: 1
+    path: Assets/LEVELS/Level 4.unity
+    guid: 5ae9fc364654225418effc1e57182cf4
+  - enabled: 1
+    path: Assets/LEVELS/Level 5.unity
+    guid: 719025bd174d9484ca7ae4bc8ed1dd54
+  - enabled: 1
+    path: Assets/LEVELS/Level 6.unity
+    guid: 16d0e0e247bd3cc409dcbc0d5658b462
+  - enabled: 0
     path: Assets/Scenes/jenya's scenes/DemoForJenya.unity
     guid: 79ad5286fc5844041a3aedb540178115
   - enabled: 0
