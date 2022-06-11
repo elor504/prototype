@@ -31,6 +31,10 @@ public class MenusInteractions : MonoBehaviour
             // Get the data from last scene
             lastPlayedLevel = HUDInteractionsHandler.playedLevel;
         }
+        else
+        {
+            lastPlayedLevel = 1;    
+        }
     }
     void Update()
     {

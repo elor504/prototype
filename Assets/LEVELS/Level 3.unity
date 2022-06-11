@@ -6996,6 +6996,11 @@ PrefabInstance:
       propertyPath: mouseSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5143456545033474666, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5143456543580946610, guid: 0f7268fb7eb6d8745b1444e4752e2ba6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0f7268fb7eb6d8745b1444e4752e2ba6, type: 3}
