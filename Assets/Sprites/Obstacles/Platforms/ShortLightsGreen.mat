@@ -82,7 +82,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - GlowColor: {r: 0.8389019, g: 2.9960785, b: 1.0069937, a: 0.8627451}
+    - GlowColor: {r: 0.5735392, g: 5.571523, b: 0.98321, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
