@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     {
         musicAudio = new List<AudioSource>(AudioHandler.GetInstance.musicAudio);
         sfxAudio = new List<AudioSource>(AudioHandler.GetInstance.sfxAudio);
+        AudioHandler.GetInstance.PlayMusicGame(false);
         AudioHandler.GetInstance.PlayMusicMainMenu(true);
 
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
