@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -23441,6 +23441,7 @@ GameObject:
   - component: {fileID: 2128596661}
   - component: {fileID: 2128596662}
   - component: {fileID: 2128596663}
+  - component: {fileID: 2128596664}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -23495,6 +23496,21 @@ MonoBehaviour:
   Credits: {fileID: 1578841041}
   quitB: {fileID: 1255600998}
   targetFPS: 60
+--- !u!114 &2128596664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128596660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a798853e25c7c46b88bf9b2b0799c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorClickSprite: {fileID: 2800000, guid: 05abbad60f3f6e14ca65b78e0e2841ae, type: 3}
+  cursorHoldSprite: {fileID: 2800000, guid: 82ec90c85f845aa4aa554f3369ca7aca, type: 3}
+  cursorPointSprite: {fileID: 2800000, guid: 0eb5821f58471ed4ab080b3e8cc91a37, type: 3}
 --- !u!1 &2132988050
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
 		ghostStartPos = ghost.transform.position;
 		InitGameManager();
+		CursorChanger.cursorState = CursorState.Gameplay;
 		Application.targetFrameRate = 60;
 	}
 
@@ -300,5 +301,4 @@ public enum GameState
 	ghostMovement,
 	pause
 }
-
 

@@ -35,6 +35,8 @@ public class MenusInteractions : MonoBehaviour
         {
             lastPlayedLevel = 1;    
         }
+
+        CursorChanger.cursorState = CursorState.Menus;
     }
     void Update()
     {
