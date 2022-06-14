@@ -60,6 +60,10 @@ public class MenusInteractions : MonoBehaviour
         var context = new MenuContext(new StateLevelSelection());
         context.Request();
     }
+    public void LockedLevelB()
+    {
+        AudioHandler.GetInstance.PlaySoundUILockedLevel();
+    }
     public void SettingsB()
     {
         AudioHandler.GetInstance.PlaySoundUIClicks();
@@ -139,7 +143,7 @@ public class MenusInteractions : MonoBehaviour
     }
     #endregion
 
-    #region Options
+    #region Settings
     public void ScreenResolutionDropdownInputData(int value)
     {
         if (value == 0)
