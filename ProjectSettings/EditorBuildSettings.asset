@@ -26,6 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/LEVELS/Level 6.unity
     guid: 16d0e0e247bd3cc409dcbc0d5658b462
+  - enabled: 1
+    path: Assets/LEVELS/Level 7.unity
+    guid: 6065d767b4cd3704fa37112855b0e881
+  - enabled: 1
+    path: Assets/LEVELS/Level 8.unity
+    guid: d49fed8e9c2942d4c88f6604769ae8dd
+  - enabled: 1
+    path: Assets/LEVELS/Level 9.unity
+    guid: feffd6dd2e0c7b84b98fca90c6e4ba93
   - enabled: 0
     path: Assets/Scenes/jenya's scenes/DemoForJenya.unity
     guid: 79ad5286fc5844041a3aedb540178115
