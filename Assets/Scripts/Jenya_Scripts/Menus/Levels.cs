@@ -120,7 +120,7 @@ public class Levels : MonoBehaviour
             buttonLVL9.interactable = false;
         }
 
-        if (GameManager.completeLVL9 == true || isFreePlay == true)
+        if (GameManager.completeLVL9 == true || GameManager.completeLVL8 == true || isFreePlay == true)
         {
             lockLVL9.SetActive(false);
             lockLVL9.GetComponent<Button>().interactable = false;
