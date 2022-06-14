@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 	public GhostAnimator getGhostAnim => ghost.GetComponent<GhostAnimator>();
 	public MousePosition mouse;
 	public Animator deathVortex;
+	public int GameLevelsAmount;
 	//information saved for resetting
 	Vector2 ghostStartPos;
 
@@ -112,7 +113,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Win!");
 		currentScene = SceneManager.GetActiveScene().buildIndex;
-		if(currentScene < 6)
+		if(currentScene < GameLevelsAmount)
 		{
 			// Move to the next level
 			StartCoroutine(NextLevelTransition());
@@ -121,7 +122,7 @@ public class GameManager : MonoBehaviour
         {
 			// Move to some thank you screen cuz the whole game was beaten
 			Debug.Log("The whole game was beaten!");
-			SceneManager.LoadScene(0);
+			StartCoroutine(GameCompleteTransition());
 		}
 	}
 
@@ -214,14 +215,19 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadScene(currentScene + 1);
 	}
+	IEnumerator GameCompleteTransition()
+	{
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene(0);
+	}
 
 
 
 
-    #endregion
+	#endregion
 
 
-    public void SetGameState(GameState newState)
+	public void SetGameState(GameState newState)
 	{
 		switch (newState)
 		{
