@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LineForKnifesMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: a4acdb9c5178dc645863e2deadf108cd,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_69289976:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_909E3073:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D2307664:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_2FC9F8C_Out_0:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_C90849E5_Out_0:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_72B04FEA: 74.58
+    - Vector1_7385B540: 35
+    - Vector1_7F06F28E: 35
+    m_Colors:
+    - Color_1A5FEAA0: {r: 0.3622198, g: 0.9617087, b: 0.778086, a: 0}
+    - Color_23E40222: {r: 0.107912, g: 0.9150943, b: 0.5673483, a: 0}
+    - Color_2B4EC38: {r: 0.3460101, g: 0.450142, b: 0.9958414, a: 0}
+    - Color_33C72DD7: {r: 0.09812211, g: 0.1707602, b: 0.990566, a: 0}
+    - Vector2_3F5709C5: {r: 3.78, g: 0, b: 0, a: 0}
+    - Vector2_4CF374BB: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_9E1BC7AB: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_9FC58379: {r: -0.1, g: 0, b: 0, a: 0}
+    - Vector2_A7636AD: {r: 2.55, g: 0, b: 0, a: 0}
+    - Vector2_ED19FAA0: {r: -0.1, g: 0, b: 0, a: 0}
