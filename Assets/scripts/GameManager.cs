@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -33,8 +34,10 @@ public class GameManager : MonoBehaviour
 
 	public GameState currentState;
     public float ghostVortexTime;
+	int currentScene;
 
-    private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
+
+	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
 	private void Awake()
 	{
@@ -108,7 +111,18 @@ public class GameManager : MonoBehaviour
 	public void WinScreen()
 	{
 		Debug.Log("Win!");
-		ResetGame();
+		currentScene = SceneManager.GetActiveScene().buildIndex;
+		if(currentScene < 6)
+		{
+			// Move to the next level
+			StartCoroutine(NextLevelTransition());
+		}
+        else
+        {
+			// Move to some thank you screen cuz the whole game was beaten
+			Debug.Log("The whole game was beaten!");
+			SceneManager.LoadScene(0);
+		}
 	}
 
 	public void LoseScreen()
@@ -195,7 +209,11 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.draggingRope);
     }
 
-
+	IEnumerator NextLevelTransition()
+    {
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene(currentScene + 1);
+	}
 
 
 
