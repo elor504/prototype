@@ -6,6 +6,7 @@ public class Levels : MonoBehaviour
     public GameObject lockLVL2, lockLVL3, lockLVL4, lockLVL5, lockLVL6, lockLVL7, lockLVL8, lockLVL9;
     public Button buttonLVL2, buttonLVL3, buttonLVL4, buttonLVL5, buttonLVL6, buttonLVL7, buttonLVL8, buttonLVL9;
     public Toggle freePlayToggle;
+    public GameObject toggleLampMask;
     private bool isFreePlay;
 
     void OnEnable()
@@ -138,11 +139,13 @@ public class Levels : MonoBehaviour
         if(freePlayToggle.isOn)
         {
             isFreePlay = true;
+            toggleLampMask.SetActive(true);
             CheckLevelsStates();
         }
         else
         {
             isFreePlay = false;
+            toggleLampMask.SetActive(false);
             CheckLevelsStates();
         }
     }
