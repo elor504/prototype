@@ -180,6 +180,7 @@ MonoBehaviour:
   ghost: {fileID: 0}
   mouse: {fileID: 4031327795401507376}
   deathVortex: {fileID: 0}
+  GameLevelsAmount: 9
   runes: []
   pickUps: []
   doors: []

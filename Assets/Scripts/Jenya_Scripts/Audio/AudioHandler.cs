@@ -36,6 +36,10 @@ public class AudioHandler : MonoBehaviour
     {
         sfxAudio[2].Play();
     }
+    public void PlaySoundUILockedLevel()
+    {
+        sfxAudio[3].Play();
+    }
     #endregion
 
     #region Music

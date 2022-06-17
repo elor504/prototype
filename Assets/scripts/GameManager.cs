@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 	public GhostAnimator getGhostAnim => ghost.GetComponent<GhostAnimator>();
 	public MousePosition mouse;
 	public Animator deathVortex;
+	public int GameLevelsAmount;
 	//information saved for resetting
 	Vector2 ghostStartPos;
 
@@ -35,7 +36,7 @@ public class GameManager : MonoBehaviour
 	public GameState currentState;
     public float ghostVortexTime;
 	int currentScene;
-
+	public static bool completeLVL1, completeLVL2, completeLVL3, completeLVL4, completeLVL5, completeLVL6, completeLVL7, completeLVL8, completeLVL9;
 
 	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
 
 		ghostStartPos = ghost.transform.position;
 		InitGameManager();
+		CursorChanger.cursorState = CursorState.Gameplay;
 		Application.targetFrameRate = 60;
 	}
 
@@ -112,7 +114,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Win!");
 		currentScene = SceneManager.GetActiveScene().buildIndex;
-		if(currentScene < 6)
+		if(currentScene < GameLevelsAmount)
 		{
 			// Move to the next level
 			StartCoroutine(NextLevelTransition());
@@ -121,11 +123,51 @@ public class GameManager : MonoBehaviour
         {
 			// Move to some thank you screen cuz the whole game was beaten
 			Debug.Log("The whole game was beaten!");
-			SceneManager.LoadScene(0);
+			StartCoroutine(GameCompleteTransition());
 		}
+
+        #region levelsWin
+		if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+			completeLVL1 = true;
+
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 2)
+		{
+			completeLVL2 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 3)
+		{
+			completeLVL3 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 4)
+		{
+			completeLVL4 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 5)
+		{
+			completeLVL5 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 6)
+		{
+			completeLVL6 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 7)
+		{
+			completeLVL7 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 8)
+		{
+			completeLVL8 = true;
+		}
+		else if (SceneManager.GetActiveScene().buildIndex == 9)
+		{
+			completeLVL9 = true;
+		}
+		#endregion
 	}
 
-	public void LoseScreen()
+    public void LoseScreen()
 	{
 		Debug.Log("Lose!");
 		ResetGame();
@@ -214,14 +256,19 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadScene(currentScene + 1);
 	}
+	IEnumerator GameCompleteTransition()
+	{
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadScene(0);
+	}
 
 
 
 
-    #endregion
+	#endregion
 
 
-    public void SetGameState(GameState newState)
+	public void SetGameState(GameState newState)
 	{
 		switch (newState)
 		{
@@ -254,5 +301,4 @@ public enum GameState
 	ghostMovement,
 	pause
 }
-
 

@@ -35,6 +35,8 @@ public class MenusInteractions : MonoBehaviour
         {
             lastPlayedLevel = 1;    
         }
+
+        CursorChanger.cursorState = CursorState.Menus;
     }
     void Update()
     {
@@ -59,6 +61,10 @@ public class MenusInteractions : MonoBehaviour
         AudioHandler.GetInstance.PlaySoundUIClicks();
         var context = new MenuContext(new StateLevelSelection());
         context.Request();
+    }
+    public void LockedLevelB()
+    {
+        AudioHandler.GetInstance.PlaySoundUILockedLevel();
     }
     public void SettingsB()
     {
@@ -139,7 +145,7 @@ public class MenusInteractions : MonoBehaviour
     }
     #endregion
 
-    #region Options
+    #region Settings
     public void ScreenResolutionDropdownInputData(int value)
     {
         if (value == 0)

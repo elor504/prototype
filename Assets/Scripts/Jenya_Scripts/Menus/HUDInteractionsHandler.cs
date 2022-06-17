@@ -33,6 +33,14 @@ public class HUDInteractionsHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if(CursorChanger.cursorState == CursorState.Gameplay)
+            {
+                CursorChanger.cursorState = CursorState.Menus;
+            }
+            else
+            {
+                CursorChanger.cursorState = CursorState.Gameplay;
+            }
             if (hudState == HUDstate.options)
             {
                 Button_Back();
@@ -69,6 +77,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     }
     public void Button_Continue()
     {
+        CursorChanger.cursorState = CursorState.Gameplay;
         AudioHandler.GetInstance.PlaySoundUIClicks();
         // Unfreeze time
         Time.timeScale = 1f;
