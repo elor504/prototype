@@ -5996,6 +5996,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_medium_vert (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2481575872904499959, guid: 507ebcb6081c18f458f6f750c0784cbf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.374
+      objectReference: {fileID: 0}
+    - target: {fileID: 2481575873405244470, guid: 507ebcb6081c18f458f6f750c0784cbf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.374
+      objectReference: {fileID: 0}
     - target: {fileID: 2481575873448892240, guid: 507ebcb6081c18f458f6f750c0784cbf,
         type: 3}
       propertyPath: m_IsActive
@@ -6009,7 +6019,7 @@ PrefabInstance:
     - target: {fileID: 2481575873578753210, guid: 507ebcb6081c18f458f6f750c0784cbf,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.58583546
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2481575873640018779, guid: 507ebcb6081c18f458f6f750c0784cbf,
         type: 3}
