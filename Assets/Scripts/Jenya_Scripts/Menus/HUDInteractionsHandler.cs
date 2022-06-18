@@ -13,6 +13,8 @@ public class HUDInteractionsHandler : MonoBehaviour
     [Header("Menus")]
     public GameObject pauseMenu;
     public GameObject optionsMenu;
+    [Header("HUD")]
+    public GameObject pauseButton;
     #endregion
 
     void Start()
@@ -29,61 +31,67 @@ public class HUDInteractionsHandler : MonoBehaviour
         playedLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
-    void Update()
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        OpenPauseMenu();
+    //    }
+    //}
+    public void OpenPauseMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        pauseButton.SetActive(false);
+        if (CursorChanger.cursorState == CursorState.Gameplay)
         {
-            if(CursorChanger.cursorState == CursorState.Gameplay)
-            {
-                CursorChanger.cursorState = CursorState.Menus;
-            }
-            else
-            {
-                CursorChanger.cursorState = CursorState.Gameplay;
-            }
-            if (hudState == HUDstate.options)
-            {
-                Button_Back();
-            }
-            else if (hudState == HUDstate.pause && isPauseAvailable == false)
-            {
-                AudioHandler.GetInstance.PlaySoundUIClose();
+            CursorChanger.cursorState = CursorState.Menus;
+        }
+        else
+        {
+            CursorChanger.cursorState = CursorState.Gameplay;
+        }
+        if (hudState == HUDstate.options)
+        {
+            Button_Back();
+        }
+        else if (hudState == HUDstate.pause && isPauseAvailable == false)
+        {
+            AudioHandler.GetInstance.PlaySoundUIClose();
 
-                // Unfreeze time
-                Time.timeScale = 1f;
-                
-                // Close pause menu
-                pauseMenu.SetActive(false);
+            // Unfreeze time
+            Time.timeScale = 1f;
 
-                // Set a flag for pause menu
-                isPauseAvailable = true;
-            }
-            else if (isPauseAvailable == true)
-            {
-                AudioHandler.GetInstance.PlaySoundUIClicks();
-                // Open pause menu
-                pauseMenu.SetActive(true);
+            // Close pause menu
+            pauseMenu.SetActive(false);
 
-                // Change state
-                hudState = HUDstate.pause;
+            // Set a flag for pause menu
+            isPauseAvailable = true;
+        }
+        else if (isPauseAvailable == true)
+        {
+            AudioHandler.GetInstance.PlaySoundUIClicks();
+            // Open pause menu
+            pauseMenu.SetActive(true);
 
-                // Set a flag for pause menu
-                isPauseAvailable = false;
+            // Change state
+            hudState = HUDstate.pause;
 
-                // Freeze time
-                Time.timeScale = 0f;
-            }
+            // Set a flag for pause menu
+            isPauseAvailable = false;
+
+            // Freeze time
+            Time.timeScale = 0f;
         }
     }
     public void Button_Continue()
     {
         CursorChanger.cursorState = CursorState.Gameplay;
-        AudioHandler.GetInstance.PlaySoundUIClicks();
+        AudioHandler.GetInstance.PlaySoundUIClose();
         // Unfreeze time
         Time.timeScale = 1f;
 
         // Close pause menu
         pauseMenu.SetActive(false);
+        pauseButton.SetActive(true);
 
         // Set a flag for pause menu
         isPauseAvailable = true;
