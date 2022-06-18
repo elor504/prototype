@@ -164,7 +164,10 @@ public class HUDInteractionsHandler : MonoBehaviour
     }
     public void PullInPauseB()
     {
-        pauseButton.GetComponent<Animation>().Play("Pull_In_PuseButton");
+        if (pauseButton.GetComponent<RectTransform>().position.y != 979)
+        {
+            pauseButton.GetComponent<Animation>().Play("Pull_In_PuseButton");
+        }
     }
     public void PullOutPauseB()
     {
