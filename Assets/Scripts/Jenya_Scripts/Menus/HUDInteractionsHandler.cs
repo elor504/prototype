@@ -40,7 +40,9 @@ public class HUDInteractionsHandler : MonoBehaviour
     //}
     public void OpenPauseMenu()
     {
+        pauseButton.GetComponent<RectTransform>().position = new Vector2(pauseButton.GetComponent<RectTransform>().position.x, 439f);
         pauseButton.SetActive(false);
+
         if (CursorChanger.cursorState == CursorState.Gameplay)
         {
             CursorChanger.cursorState = CursorState.Menus;
@@ -159,6 +161,14 @@ public class HUDInteractionsHandler : MonoBehaviour
             isFullScreenHUD = false;
             Screen.fullScreen = isFullScreenHUD;
         }
+    }
+    public void PullInPauseB()
+    {
+        pauseButton.GetComponent<Animation>().Play("Pull_In_PuseButton");
+    }
+    public void PullOutPauseB()
+    {
+        pauseButton.GetComponent<Animation>().Play("Pull_Out_PauseButton");
     }
 }
 
