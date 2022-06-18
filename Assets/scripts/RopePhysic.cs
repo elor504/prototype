@@ -162,7 +162,6 @@ public class RopePhysic : MonoBehaviour
 				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip))
 				{
 					//	Debug.Log("adding collider: " + hittedGrip.point);
-					AudioHandler.GetInstance.PlaySoundGameplayChainSnap();
 					AddNewRopePos(hitGrip.transform.position);
 					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
 				}
