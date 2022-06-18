@@ -24,6 +24,7 @@ public class AudioHandler : MonoBehaviour
     }
 
     #region SFX
+    // UI
     public void PlaySoundUIClicks()
     {
         sfxAudio[0].Play();
@@ -39,6 +40,12 @@ public class AudioHandler : MonoBehaviour
     public void PlaySoundUILockedLevel()
     {
         sfxAudio[3].Play();
+    }
+
+    // Gameplay
+    public void PlaySoundGameplayChainSnap()
+    {
+        sfxAudio[4].Play();
     }
     #endregion
 
