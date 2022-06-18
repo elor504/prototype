@@ -40,7 +40,6 @@ public class HUDInteractionsHandler : MonoBehaviour
     //}
     public void OpenPauseMenu()
     {
-        pauseButton.GetComponent<RectTransform>().position = new Vector2(pauseButton.GetComponent<RectTransform>().position.x, 439f);
         pauseButton.SetActive(false);
 
         if (CursorChanger.cursorState == CursorState.Gameplay)
@@ -92,6 +91,7 @@ public class HUDInteractionsHandler : MonoBehaviour
         Time.timeScale = 1f;
 
         // Close pause menu
+        PullOutPauseB();
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
 
