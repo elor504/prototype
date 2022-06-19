@@ -44,6 +44,10 @@ public class MovingPlatform : MonoBehaviour
 			else
 			{
 				movePos.RemoveAt(0);
+				if (movePos.Count <= 0)
+                {
+					AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(false);
+				}
 			}
 		}
 	}
@@ -52,11 +56,11 @@ public class MovingPlatform : MonoBehaviour
 	{
 		movePos.Add(points[currentPoint].position);
 		currentPoint++;
-		if(currentPoint > maxPoints -1)
+		AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(true);
+		if (currentPoint > maxPoints -1)
 		{
 			currentPoint = 0;
 		}
-
 	}
 
 	Vector2 GetPositionByPointsIndex()

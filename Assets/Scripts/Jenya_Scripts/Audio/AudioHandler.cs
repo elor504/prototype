@@ -55,6 +55,28 @@ public class AudioHandler : MonoBehaviour
     {
         sfxAudio[4].Play();
     }
+    public void PlaySoundGameplayChainMovement(bool play)
+    {
+        if (play == true)
+        {
+            sfxAudio[6].Play();
+        }
+        else
+        {
+            sfxAudio[6].Stop();
+        }
+    }
+    public void PlaySoundGameplayPlatformMovement(bool play)
+    {
+        if (play == true)
+        {
+            sfxAudio[7].Play();
+        }
+        else
+        {
+            sfxAudio[7].Stop();
+        }
+    }
     #endregion
 
     #region Music
