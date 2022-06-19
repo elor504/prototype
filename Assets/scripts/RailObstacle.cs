@@ -20,7 +20,7 @@ public class RailObstacle : MonoBehaviour
 		obstacleRB = obstacle.GetComponent<Rigidbody2D>();
 	}
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
 	{
 		MoveObstacle();
 	}
