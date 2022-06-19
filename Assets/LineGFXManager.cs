@@ -39,6 +39,7 @@ public class LineGFXManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       if(RopePhysic.getInstance.isRopeActive)
         OnLinePosAdded();
 
         if (ghostMove.startMovement)
@@ -102,6 +103,7 @@ public class LineGFXManager : MonoBehaviour
 
     public void ResetLineGFX()
     {
+       
         foreach (LineRenderer item in lineGFXList)
         {
             Destroy(item.gameObject);

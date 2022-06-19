@@ -15,6 +15,7 @@ public class LineRendererManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         lineRenderer.positionCount = rope.ropePositions.Count;
 
         //Vector2[] ropePositions = rope.ropePositions.ToArray();
@@ -29,7 +30,11 @@ public class LineRendererManager : MonoBehaviour
 
     }
 
+    public void ResetLineRenderer()
+	{
+        lineRenderer.positionCount = 0;
 
+    }
 
 
 }

@@ -290,6 +290,18 @@ Transform:
   m_Father: {fileID: 63079709}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &166498140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4031327795401507374, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 4031327794856549407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b515463ed194842a4d15bf890b8ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &190721637
 GameObject:
   m_ObjectHideFlags: 0
@@ -12161,6 +12173,11 @@ PrefabInstance:
       propertyPath: playerTrans
       value: 
       objectReference: {fileID: 211377111}
+    - target: {fileID: 4031327795401507375, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
+        type: 3}
+      propertyPath: lineRenderer
+      value: 
+      objectReference: {fileID: 166498140}
     - target: {fileID: 4031327795401507375, guid: 516f5afa88b7ecf47a591c8f6bd0b7f9,
         type: 3}
       propertyPath: colliderMouseBlockerMask.m_Bits

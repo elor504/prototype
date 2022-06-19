@@ -21,7 +21,6 @@ public class RopePhysic : MonoBehaviour
 	[Header("Runes related")]
 	public List<grip> hittedGrips = new List<grip>();
 	public Dictionary<Vector2, Rune> hittedRunes = new Dictionary<Vector2, Rune>();
-
 	private GhostMovement ghostMove => GameManager.getInstance.ghost;
 	private LineGFXManager lineGFXMan => LineGFXManager.LineGFXManage;
 

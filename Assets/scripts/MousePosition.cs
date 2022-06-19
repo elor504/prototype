@@ -63,6 +63,7 @@ public class MousePosition : MonoBehaviour
 		}
 		if (Input.GetKeyUp(KeyCode.Mouse0))
 		{
+			rope.isRopeActive = false;
 			if (rope.GetLastRune() != null)
 			{
 				// HERE
@@ -74,6 +75,8 @@ public class MousePosition : MonoBehaviour
 			else
 			{
 				GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", true);
+				if (lineGFXMan != null)
+					lineGFXMan.ResetLineGFX();
 			}
 
 
@@ -84,9 +87,10 @@ public class MousePosition : MonoBehaviour
 		}
 
 
-		if (Input.GetKeyDown(KeyCode.R))
+		if (Input.GetKeyDown(KeyCode.Mouse1))
 		{
-			ResetTotalController();
+			ResetTotalController(true);
+			rope.ClearHittedRunes();
 		}
 
 	}
@@ -114,10 +118,14 @@ public class MousePosition : MonoBehaviour
 	/// <summary>
 	/// resets the mouse position to the player and disable the rope and reset it
 	/// </summary>
-	public void ResetTotalController()
+	public void ResetTotalController(bool _TotalReset = false)
 	{
 		rope.ResetRope();
 		ResetMousePos();
+		if (_TotalReset)
+		{
+			LineGFXManager.LineGFXManage.ResetLineGFX();
+		}
 	}
 
 	public void MoveMouseByTrans(Vector2 _pos)
