@@ -2,7 +2,7 @@
 
 public class PickUpInteraction : ObjectInteraction
 {
-	public SpriteRenderer pickupSprite;
+	public GameObject pickupSprite;
 	public DoorInteraction door;
 
 	public override void Awake()
@@ -13,12 +13,12 @@ public class PickUpInteraction : ObjectInteraction
 	public void InitPickUp()
 	{
 		isInteracted = false;
-		pickupSprite.enabled = true;
+		pickupSprite.SetActive(true);
 	}
 	public override void OnInteraction()
 	{
 		isInteracted = true;
-		pickupSprite.enabled = false;
+		pickupSprite.SetActive(false);
 		door.OnGettingKey();
 	}
 

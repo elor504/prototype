@@ -12277,6 +12277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5143456543189562783, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
+        type: 3}
+      propertyPath: pickupSprite
+      value: 
+      objectReference: {fileID: 5143456544479749376}
     - target: {fileID: 5143456543345269628, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
         type: 3}
       propertyPath: m_RootOrder
@@ -12376,6 +12381,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5143456544479749374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5143456544479749376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5143456544840320153, guid: 0f7268fb7eb6d8745b1444e4752e2ba6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5143456544479749374}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5185074611343620417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12383,6 +12394,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106881493}
     m_Modifications:
+    - target: {fileID: 878455543, guid: 35288bd839a177f4ea9d0d6c305551dc, type: 3}
+      propertyPath: gfxMask
+      value: 
+      objectReference: {fileID: 5185074611343620418}
     - target: {fileID: 5185074611798756552, guid: 35288bd839a177f4ea9d0d6c305551dc,
         type: 3}
       propertyPath: m_RootOrder
@@ -12445,6 +12460,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35288bd839a177f4ea9d0d6c305551dc, type: 3}
+--- !u!1 &5185074611343620418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1794345434, guid: 35288bd839a177f4ea9d0d6c305551dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5185074611343620417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6590142317355282375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12679,6 +12700,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rune
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978044865845614639, guid: f2940e147a590c14ea080854ddea4f6e,
+        type: 3}
+      propertyPath: useableCountLeft
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978044865845614639, guid: f2940e147a590c14ea080854ddea4f6e,
+        type: 3}
+      propertyPath: useableCountStart
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2940e147a590c14ea080854ddea4f6e, type: 3}

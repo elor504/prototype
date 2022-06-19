@@ -151,7 +151,8 @@ public class RopePhysic : MonoBehaviour
 				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(hitGrip.transform.position))
 				{
 					if (ghostMove.ropeGFXBool == false) ghostMove.ropeGFXBool = true;
-					if(!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayChainSnap();
+					hitRune.RuneAttachedVFX();
+					if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayChainSnap();
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
 					AddNewRopePos(hitGrip.transform.position);
 					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
