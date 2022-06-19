@@ -120,6 +120,17 @@ public class LineGFXManager : MonoBehaviour
         lineGFXList.RemoveAt(lineGFXList.Count - 1);
     }
 
+    public void RemoveLastLinesBeforeLastRune(List<Vector2> _ghostPath)
+	{
+        List<Vector2> ghostPath = _ghostPath;
+        lineDots = 0;
+        while (ghostPath.Count != lineGFXList.Count)
+		{
+            Destroy(lineGFXList[lineGFXList.Count - 1].gameObject);
+            lineGFXList.RemoveAt(lineGFXList.Count - 1);
+        }
+    }
+
     public void LineFollowGhost()
     {
         if (lineGFXList.Count > 0)

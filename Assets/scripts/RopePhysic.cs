@@ -328,6 +328,7 @@ public class RopePhysic : MonoBehaviour
 		}
 		return ghostPath;
 	}
+
 	public void UseRunes()
 	{
 		foreach (var rune in hittedRunes)
