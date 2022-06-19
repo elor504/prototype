@@ -26,7 +26,7 @@ public class AudioHandler : MonoBehaviour
 
 #region SFX
 // UI
-public void PlaySoundUIClicks()
+    public void PlaySoundUIClicks()
     {
         sfxAudio[0].Play();
     }
