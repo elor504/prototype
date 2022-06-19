@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 		else if (_instance != this)
 			Destroy(this.gameObject);
 
-		debugSoundModeOn = true;
+		//debugSoundModeOn = true;
 		ghostStartPos = ghost.transform.position;
 		InitGameManager();
 		CursorChanger.cursorState = CursorState.Gameplay;

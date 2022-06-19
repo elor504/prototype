@@ -50,6 +50,10 @@ public void PlaySoundUIClicks()
     {
         sfxAudio[5].Play();
     }
+    public void PlaySoundUIHover()
+    {
+        sfxAudio[9].Play();
+    }
 
     // Gameplay
     public void PlaySoundGameplayChainSnap()
@@ -77,6 +81,14 @@ public void PlaySoundUIClicks()
         {
             sfxAudio[7].Stop();
         }
+    }
+    public void PlaySoundGameplayKeyPickUp()
+    {
+        sfxAudio[10].Play();
+    }
+    public void PlaySoundGameplayDeath()
+    {
+        sfxAudio[11].Play();
     }
     #endregion
 

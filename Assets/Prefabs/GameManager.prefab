@@ -187,7 +187,7 @@ MonoBehaviour:
   platforms: []
   rails: []
   enemies: []
-  debugSoundModeOn: 1
+  debugSoundModeOn: 0
   currentState: 0
   ghostVortexTime: 0.75
 --- !u!114 &4031327795401507375
