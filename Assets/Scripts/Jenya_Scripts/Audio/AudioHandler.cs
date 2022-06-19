@@ -10,6 +10,8 @@ public class AudioHandler : MonoBehaviour
     public AudioSource[] musicAudio;
     public AudioSource[] sfxAudio;
 
+    private int SfxSoundsCount = 11;
+
     private void Awake()
     {
         if (audioHandlerInstance == null)
@@ -119,4 +121,12 @@ public class AudioHandler : MonoBehaviour
         }
     }
     #endregion
+
+    public void StopAllSfx()
+    {
+        for(int i = 0; i<SfxSoundsCount; i++)
+        {
+            sfxAudio[i].Stop();
+        }
+    }
 }

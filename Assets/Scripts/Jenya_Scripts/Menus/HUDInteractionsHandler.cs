@@ -40,6 +40,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     //}
     public void OpenPauseMenu()
     {
+        AudioHandler.GetInstance.StopAllSfx();
         pauseButton.SetActive(false);
 
         if (CursorChanger.cursorState == CursorState.Gameplay)
@@ -97,6 +98,11 @@ public class HUDInteractionsHandler : MonoBehaviour
 
         // Set a flag for pause menu
         isPauseAvailable = true;
+
+        if(GameManager.getInstance.currentState == GameState.ghostMovement)
+        {
+            AudioHandler.GetInstance.PlaySoundGameplayChainMovement(true);
+        }
     }
     public void Button_Options()
     {
