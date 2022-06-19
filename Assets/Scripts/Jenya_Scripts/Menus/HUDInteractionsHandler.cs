@@ -166,13 +166,13 @@ public class HUDInteractionsHandler : MonoBehaviour
     {
         if (pauseButton.GetComponent<RectTransform>().position.y != 979)
         {
-            AudioHandler.GetInstance.PlaySoundUIPausePull();
+           if(!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundUIPausePull();
             pauseButton.GetComponent<Animation>().Play("Pull_In_PuseButton");
         }
     }
     public void PullOutPauseB()
     {
-        AudioHandler.GetInstance.PlaySoundUIPausePull();
+        if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundUIPausePull();
         pauseButton.GetComponent<Animation>().Play("Pull_Out_PauseButton");
     }
 }

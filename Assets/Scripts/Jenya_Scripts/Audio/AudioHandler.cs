@@ -21,11 +21,12 @@ public class AudioHandler : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-    }
 
-    #region SFX
-    // UI
-    public void PlaySoundUIClicks()
+}
+
+#region SFX
+// UI
+public void PlaySoundUIClicks()
     {
         sfxAudio[0].Play();
     }

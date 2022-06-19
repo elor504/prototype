@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 	public List<EnemyController> enemies;
 	///////////////////////////
 
+	public bool debugSoundModeOn = true;
 
 	public GameState currentState;
     public float ghostVortexTime;
@@ -274,11 +275,11 @@ public class GameManager : MonoBehaviour
 		{
 			case GameState.draggingRope:
 				rope.ClearHittedRunes();
-				AudioHandler.GetInstance.PlaySoundGameplayChainMovement(false);
+				if(!debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayChainMovement(false);
 				break;
 			case GameState.ghostMovement:
 				StartGhostMovement();
-				AudioHandler.GetInstance.PlaySoundGameplayChainMovement(true);
+				if (!debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayChainMovement(true);
 				break;
 			case GameState.pause:
 				break;

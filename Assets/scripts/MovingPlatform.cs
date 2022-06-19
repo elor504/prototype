@@ -46,7 +46,7 @@ public class MovingPlatform : MonoBehaviour
 				movePos.RemoveAt(0);
 				if (movePos.Count <= 0)
                 {
-					AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(false);
+					if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(false);
 				}
 			}
 		}
@@ -56,7 +56,7 @@ public class MovingPlatform : MonoBehaviour
 	{
 		movePos.Add(points[currentPoint].position);
 		currentPoint++;
-		AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(true);
+		if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(true);
 		if (currentPoint > maxPoints -1)
 		{
 			currentPoint = 0;

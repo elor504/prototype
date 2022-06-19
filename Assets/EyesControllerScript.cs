@@ -19,8 +19,11 @@ public class EyesControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.right = ghosyBoyTranform.position - eyeTranform.position;
+        eyeTranform.right = ghosyBoyTranform.position - eyeTranform.position;
+        //Debug.Log(eyeTranform.eulerAngles.z);
 
+        //eyeTranform.eulerAngles = new Vector3(0,0,Mathf.Clamp(eyeTranform.eulerAngles.z, 330, 30));
+        
 
     }
 
