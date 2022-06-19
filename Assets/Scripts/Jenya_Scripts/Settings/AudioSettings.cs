@@ -92,6 +92,6 @@ public class AudioSettings : MonoBehaviour
     }
     public void TriggerToggle()
     {
-        AudioHandler.GetInstance.PlaySoundUIButtonHover();
+        AudioHandler.GetInstance.PlaySoundUIButtonToggle();
     }
 }

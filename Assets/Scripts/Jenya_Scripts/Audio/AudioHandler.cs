@@ -42,7 +42,7 @@ public void PlaySoundUIClicks()
     {
         sfxAudio[3].Play();
     }
-    public void PlaySoundUIButtonHover()
+    public void PlaySoundUIButtonToggle()
     {
         sfxAudio[8].Play();
     }
