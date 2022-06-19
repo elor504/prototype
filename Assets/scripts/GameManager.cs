@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 	public List<EnemyController> enemies;
 	///////////////////////////
 
-	public bool debugSoundModeOn = true;
+	public bool debugSoundModeOn = false;
 
 	public GameState currentState;
     public float ghostVortexTime;
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 		else if (_instance != this)
 			Destroy(this.gameObject);
 
+		debugSoundModeOn = false;
 		ghostStartPos = ghost.transform.position;
 		InitGameManager();
 		CursorChanger.cursorState = CursorState.Gameplay;

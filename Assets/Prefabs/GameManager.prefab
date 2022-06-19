@@ -187,7 +187,7 @@ MonoBehaviour:
   platforms: []
   rails: []
   enemies: []
-  debugSoundModeOn: 0
+  debugSoundModeOn: 1
   currentState: 0
   ghostVortexTime: 0.75
 --- !u!114 &4031327795401507375
@@ -235,7 +235,7 @@ MonoBehaviour:
   mouseRB: {fileID: 0}
   rope: {fileID: 4031327795401507375}
   clamp: 2
-  mouseSpeed: 2.4
+  mouseSpeed: 8
   rigidbodyMouse: 1
 --- !u!114 &4031327795401507374
 MonoBehaviour:

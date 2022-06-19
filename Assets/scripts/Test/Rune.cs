@@ -7,6 +7,12 @@ public class Rune : grip
 	public bool getCanBeUsed => canBeUsed;
 	public Color useableColor;
 	public Color disabledColor;
+
+	[Header("VFX")]
+	public GameObject IdleVFX;
+	public GameObject AttachedVFX;
+	public GameObject gfxMask;
+
 	SpriteRenderer sprite;
 
 
@@ -45,6 +51,9 @@ public class Rune : grip
 			canBeUsed = false;
 		}
 
+		IdleVFX.SetActive(true);
+		AttachedVFX.SetActive(false);
+
 		SetRuneGFX();
 	}
 
@@ -54,13 +63,25 @@ public class Rune : grip
 		useableCountLeft++;
 		SetRuneGFX();
 	}
+
+	public void RuneAttachedVFX()
+	{
+		IdleVFX.SetActive(false);
+		AttachedVFX.SetActive(true);
+
+	}
+
 	void SetRuneGFX()
 	{
+		IdleVFX.SetActive(true);
+		AttachedVFX.SetActive(false);
+
 		if (sprite == null)
 			return;
 		if (!canBeUsed)
-			sprite.color = disabledColor;
+			gfxMask.SetActive(false);
 		else
-			sprite.color = useableColor;
+			gfxMask.SetActive(true);
+
 	}
 }

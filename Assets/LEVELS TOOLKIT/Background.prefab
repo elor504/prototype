@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 118225411}
   - component: {fileID: 118225413}
-  - component: {fileID: 118225412}
   m_Layer: 0
   m_Name: Pupil (1)
   m_TagString: Untagged
@@ -82,22 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &118225412
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118225410}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &154070530
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,7 +92,6 @@ GameObject:
   - component: {fileID: 154070531}
   - component: {fileID: 154070534}
   - component: {fileID: 154070533}
-  - component: {fileID: 154070532}
   m_Layer: 0
   m_Name: Eye2 (4)
   m_TagString: Untagged
@@ -198,22 +180,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 154070531}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &154070532
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154070530}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &981967645
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +190,6 @@ GameObject:
   m_Component:
   - component: {fileID: 981967646}
   - component: {fileID: 981967648}
-  - component: {fileID: 981967647}
   m_Layer: 0
   m_Name: Pupil
   m_TagString: Untagged
@@ -296,22 +261,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &981967647
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981967645}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &1175634632
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +272,6 @@ GameObject:
   - component: {fileID: 1175634633}
   - component: {fileID: 1175634636}
   - component: {fileID: 1175634635}
-  - component: {fileID: 1175634634}
   m_Layer: 0
   m_Name: Eye1 (5)
   m_TagString: Untagged
@@ -412,22 +360,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 1175634633}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &1175634634
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1175634632}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.01}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &1695823060
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +370,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1695823061}
   - component: {fileID: 1695823063}
-  - component: {fileID: 1695823062}
   m_Layer: 0
   m_Name: Pupil (1)
   m_TagString: Untagged
@@ -510,22 +441,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &1695823062
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695823060}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &2096039913
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +452,6 @@ GameObject:
   - component: {fileID: 2096039914}
   - component: {fileID: 2096039917}
   - component: {fileID: 2096039916}
-  - component: {fileID: 2096039915}
   m_Layer: 0
   m_Name: Eye1 (4)
   m_TagString: Untagged
@@ -626,22 +540,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 2096039914}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &2096039915
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096039913}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.01}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400676512766748
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +551,6 @@ GameObject:
   - component: {fileID: 4175400676512766751}
   - component: {fileID: 4175400676512766750}
   - component: {fileID: 4175400676512766721}
-  - component: {fileID: 4175400676512766720}
   m_Layer: 0
   m_Name: Eye1
   m_TagString: Untagged
@@ -742,22 +639,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 4175400676512766751}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &4175400676512766720
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400676512766748}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.01}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400676513703557
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +650,6 @@ GameObject:
   - component: {fileID: 4175400676513703556}
   - component: {fileID: 4175400676513703559}
   - component: {fileID: 4175400676513703558}
-  - component: {fileID: 4175400676513703561}
   m_Layer: 0
   m_Name: Eye2 (3)
   m_TagString: Untagged
@@ -858,22 +738,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 4175400676513703556}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &4175400676513703561
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400676513703557}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400676761285003
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +748,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4175400676761285002}
   - component: {fileID: 4175400676761285005}
-  - component: {fileID: 4175400676761285004}
   m_Layer: 0
   m_Name: Pupil (1)
   m_TagString: Untagged
@@ -956,22 +819,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4175400676761285004
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400676761285003}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &4175400677011617536
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,7 +829,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4175400677011617539}
   - component: {fileID: 4175400677011617538}
-  - component: {fileID: 4175400677011617541}
   m_Layer: 0
   m_Name: Pupil (1)
   m_TagString: Untagged
@@ -1054,22 +900,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4175400677011617541
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400677011617536}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &4175400677169259305
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +911,6 @@ GameObject:
   - component: {fileID: 4175400677169259304}
   - component: {fileID: 4175400677169259307}
   - component: {fileID: 4175400677169259306}
-  - component: {fileID: 4175400677169259309}
   m_Layer: 0
   m_Name: Eye2 (2)
   m_TagString: Untagged
@@ -1170,22 +999,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 4175400677169259304}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &4175400677169259309
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400677169259305}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400677171617707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,7 +1009,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4175400677171617706}
   - component: {fileID: 4175400677171617709}
-  - component: {fileID: 4175400677171617708}
   m_Layer: 0
   m_Name: Pupil
   m_TagString: Untagged
@@ -1268,22 +1080,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4175400677171617708
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400677171617707}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &4175400677233571093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1091,6 @@ GameObject:
   - component: {fileID: 4175400677233571092}
   - component: {fileID: 4175400677233571095}
   - component: {fileID: 4175400677233571094}
-  - component: {fileID: 4175400677233571097}
   m_Layer: 0
   m_Name: Eye1 (3)
   m_TagString: Untagged
@@ -1384,22 +1179,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 4175400677233571092}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &4175400677233571097
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400677233571093}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: -0.01}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400677309253101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,7 +1189,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4175400677309253100}
   - component: {fileID: 4175400677309253103}
-  - component: {fileID: 4175400677309253102}
   m_Layer: 0
   m_Name: Pupil
   m_TagString: Untagged
@@ -1482,22 +1260,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4175400677309253102
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400677309253101}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &4175400677743723887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1508,7 +1270,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4175400677743723886}
   - component: {fileID: 4175400677743723857}
-  - component: {fileID: 4175400677743723856}
   m_Layer: 0
   m_Name: Pupil
   m_TagString: Untagged
@@ -1580,22 +1341,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4175400677743723856
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400677743723887}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
-  serializedVersion: 2
-  m_Radius: 0.01
 --- !u!1 &4175400678109254151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1607,7 +1352,6 @@ GameObject:
   - component: {fileID: 4175400678109254150}
   - component: {fileID: 4175400678109254153}
   - component: {fileID: 4175400678109254152}
-  - component: {fileID: 4175400678109254155}
   m_Layer: 0
   m_Name: Eye2
   m_TagString: Untagged
@@ -1696,22 +1440,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 4175400678109254150}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &4175400678109254155
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400678109254151}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400678137272390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,7 +1451,6 @@ GameObject:
   - component: {fileID: 4175400678137272393}
   - component: {fileID: 4175400678137272392}
   - component: {fileID: 4175400678137272395}
-  - component: {fileID: 4175400678137272394}
   m_Layer: 0
   m_Name: Eye2 (1)
   m_TagString: Untagged
@@ -1812,22 +1539,6 @@ MonoBehaviour:
   eyeTranform: {fileID: 4175400678137272393}
   ghosyBoyTranform: {fileID: 0}
   eyeOffset: 0
---- !u!58 &4175400678137272394
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400678137272390}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.07
 --- !u!1 &4175400678309765372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,7 +1639,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4175400678465265357}
   - component: {fileID: 4175400678465265356}
-  - component: {fileID: 4175400678465265359}
   m_Layer: 0
   m_Name: Pupil (2)
   m_TagString: Untagged
@@ -2000,19 +1710,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &4175400678465265359
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175400678465265354}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0000009536743, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.01
