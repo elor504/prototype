@@ -274,9 +274,11 @@ public class GameManager : MonoBehaviour
 		{
 			case GameState.draggingRope:
 				rope.ClearHittedRunes();
+				AudioHandler.GetInstance.PlaySoundGameplayChainMovement(false);
 				break;
 			case GameState.ghostMovement:
 				StartGhostMovement();
+				AudioHandler.GetInstance.PlaySoundGameplayChainMovement(true);
 				break;
 			case GameState.pause:
 				break;

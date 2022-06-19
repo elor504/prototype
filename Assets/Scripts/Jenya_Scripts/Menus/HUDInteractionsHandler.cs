@@ -41,6 +41,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     public void OpenPauseMenu()
     {
         pauseButton.SetActive(false);
+
         if (CursorChanger.cursorState == CursorState.Gameplay)
         {
             CursorChanger.cursorState = CursorState.Menus;
@@ -90,6 +91,7 @@ public class HUDInteractionsHandler : MonoBehaviour
         Time.timeScale = 1f;
 
         // Close pause menu
+        PullOutPauseB();
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
 
@@ -159,6 +161,19 @@ public class HUDInteractionsHandler : MonoBehaviour
             isFullScreenHUD = false;
             Screen.fullScreen = isFullScreenHUD;
         }
+    }
+    public void PullInPauseB()
+    {
+        if (pauseButton.GetComponent<RectTransform>().position.y != 979)
+        {
+            AudioHandler.GetInstance.PlaySoundUIPausePull();
+            pauseButton.GetComponent<Animation>().Play("Pull_In_PuseButton");
+        }
+    }
+    public void PullOutPauseB()
+    {
+        AudioHandler.GetInstance.PlaySoundUIPausePull();
+        pauseButton.GetComponent<Animation>().Play("Pull_Out_PauseButton");
     }
 }
 

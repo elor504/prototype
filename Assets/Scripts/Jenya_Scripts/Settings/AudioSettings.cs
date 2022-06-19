@@ -90,4 +90,8 @@ public class AudioSettings : MonoBehaviour
     {
         AudioHandler.GetInstance.PlaySoundUIClicks();
     }
+    public void TriggerToggle()
+    {
+        AudioHandler.GetInstance.PlaySoundUIButtonHover();
+    }
 }
