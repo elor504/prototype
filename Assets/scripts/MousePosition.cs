@@ -68,7 +68,10 @@ public class MousePosition : MonoBehaviour
 			{
 				// HERE
 				if (lineGFXMan != null)
-					lineGFXMan.RemoveLastLineRenderer();
+				{
+					//lineGFXMan.RemoveLastLineRenderer();
+					lineGFXMan.RemoveLastLinesBeforeLastRune(rope.getGhostPath());
+				}
 				GameManager.getInstance.SetGameState(GameState.ghostMovement);
 				GameManager.getInstance.getGhostAnim.SetAnimBool("Movement", true);
 			}

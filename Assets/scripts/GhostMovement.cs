@@ -6,6 +6,7 @@ public class GhostMovement : MonoBehaviour
 {
 	[Header("movement")]
 	[SerializeField] List<Vector2> ghostPaths = new List<Vector2>();
+	
 	public float movementSpeed;
 
 	[Header("References")]
