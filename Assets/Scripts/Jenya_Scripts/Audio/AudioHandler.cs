@@ -41,6 +41,14 @@ public class AudioHandler : MonoBehaviour
     {
         sfxAudio[3].Play();
     }
+    public void PlaySoundUIButtonHover()
+    {
+        sfxAudio[8].Play();
+    }
+    public void PlaySoundUIPausePull()
+    {
+        sfxAudio[5].Play();
+    }
 
     // Gameplay
     public void PlaySoundGameplayChainSnap()
