@@ -20,6 +20,7 @@ public class PickUpInteraction : ObjectInteraction
 		isInteracted = true;
 		pickupSprite.SetActive(false);
 		door.OnGettingKey();
+		AudioHandler.GetInstance.PlaySoundGameplayKeyPickUp();
 	}
 
 	public override void OnTriggerEnter2D(Collider2D collision)

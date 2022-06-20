@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
 	public void WinScreen()
 	{
 		Debug.Log("Win!");
+		AudioHandler.GetInstance.PlaySoundGameplayChainMovement(false);
 		currentScene = SceneManager.GetActiveScene().buildIndex;
 		if(currentScene < GameLevelsAmount)
 		{
@@ -171,14 +172,16 @@ public class GameManager : MonoBehaviour
 
     public void LoseScreen()
 	{
+		
 		Debug.Log("Lose!");
 		ResetGame();
 	}
 
 	public void ResetGame()
     {
-        //resets the runes
-        for (int i = 0; i < runes.Count; i++)
+		AudioHandler.GetInstance.PlaySoundGameplayDeath();
+		//resets the runes
+		for (int i = 0; i < runes.Count; i++)
         {
             if (runes[i].enabled)
                 runes[i].InitRune();

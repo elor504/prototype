@@ -98,6 +98,7 @@ public class HUDInteractionsHandler : MonoBehaviour
         // Set a flag for pause menu
         isPauseAvailable = true;
 
+        // Make a reseter for all active sfx
         if(GameManager.getInstance.currentState == GameState.ghostMovement)
         {
             AudioHandler.GetInstance.PlaySoundGameplayChainMovement(true);
