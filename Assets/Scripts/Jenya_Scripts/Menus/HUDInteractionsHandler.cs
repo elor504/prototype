@@ -42,6 +42,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     {
         AudioHandler.GetInstance.StopAllSfx();
         pauseButton.SetActive(false);
+        
 
         if (CursorChanger.cursorState == CursorState.Gameplay)
         {

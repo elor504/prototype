@@ -98,4 +98,19 @@ public class AudioSettings : MonoBehaviour
     {
         AudioHandler.GetInstance.PlaySoundUIHover();
     }
+
+    public void LowerMusicForPause()
+    {
+        for (int i = 0; i < musicAudio.Count; i++)
+        {
+            musicAudio[i].volume = 0.2f;
+        }
+    }
+    public void ResetMusicForPause()
+    {
+        for (int i = 0; i < musicAudio.Count; i++)
+        {
+            musicAudio[i].volume = musicSlider.value;
+        }
+    }
 }
