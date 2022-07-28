@@ -155,7 +155,7 @@ public class RopePhysic : MonoBehaviour
 				if (!hitRune.getCanBeUsed)
 					return;
 
-				if (CheckIfGripCanBeAdded(hitGrip, hittedGrip) && !hittedRunes.ContainsKey(hitGrip.transform.position))
+				if (CheckIfGripCanBeAdded(hitRune, hittedGrip))
 				{
 					if (ghostMove.ropeGFXBool == false) ghostMove.ropeGFXBool = true;
 					hitRune.RuneAttachedVFX();
@@ -293,14 +293,20 @@ public class RopePhysic : MonoBehaviour
 	bool CheckIfGripCanBeAdded(grip hitGrip, RaycastHit2D hittedGrip)
 	{
 
-		//if (hitGrip is Rune)
-		//	return !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
+		if (hitGrip is Rune)
+			return !ropePositions.Contains(hittedGrip.collider.gameObject.transform.position);
 
-
-		if (hittedGrips.Count < 1)
-			return true;
+		if (hitGrip is Rune)
+		{
+			return !hittedRunes.ContainsKey(hitGrip.transform.position);
+		}
 		else
-			return !hitGrip.isMouseOnGrip && hittedGrips[hittedGrips.Count - 1] != hitGrip;
+		{
+			if (hittedGrips.Count < 1)
+				return true;
+			else
+				return !hitGrip.isMouseOnGrip && hittedGrips[hittedGrips.Count - 1] != hitGrip;
+		}
 	}
 
 
