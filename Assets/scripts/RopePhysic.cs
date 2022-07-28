@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-
 public class RopePhysic : MonoBehaviour
 {
 	private static RopePhysic _instance;
@@ -82,6 +82,14 @@ public class RopePhysic : MonoBehaviour
 	}
 	public void ClearHittedRunes()
 	{
+		for (int i = 0; i < hittedRunes.Count; i++)
+		{
+			var index = hittedRunes.ElementAt(i);
+			var key = index.Key;
+			var value = index.Value;
+			Rune rune = hittedRunes[key];
+			rune.SetRuneGFX();
+		}
 		hittedRunes.Clear();
 	}
 	void UpdateRopePositions()
@@ -151,7 +159,10 @@ public class RopePhysic : MonoBehaviour
 				{
 					if (ghostMove.ropeGFXBool == false) ghostMove.ropeGFXBool = true;
 					hitRune.RuneAttachedVFX();
-					if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayChainSnap();
+					if (AudioHandler.GetInstance)
+					{
+						if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayChainSnap();
+					}
 					hittedRunes.Add(new Vector2(hitGrip.transform.position.x, hitGrip.transform.position.y), (Rune)hitGrip);
 					AddNewRopePos(hitGrip.transform.position);
 					hittedGrips.Add(hittedGrip.collider.gameObject.GetComponent<grip>());
