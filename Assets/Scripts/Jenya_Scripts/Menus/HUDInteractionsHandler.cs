@@ -15,6 +15,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     public GameObject optionsMenu;
     [Header("HUD")]
     public GameObject pauseButton;
+    public GameObject resetButton;
     #endregion
 
     void Start()
@@ -42,6 +43,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     {
         AudioHandler.GetInstance.StopAllSfx();
         pauseButton.SetActive(false);
+        resetButton.SetActive(false);
         
 
         if (CursorChanger.cursorState == CursorState.Gameplay)
@@ -92,9 +94,9 @@ public class HUDInteractionsHandler : MonoBehaviour
         Time.timeScale = 1f;
 
         // Close pause menu
-        PullOutPauseB();
         pauseMenu.SetActive(false);
         pauseButton.SetActive(true);
+        resetButton.SetActive(true);
 
         // Set a flag for pause menu
         isPauseAvailable = true;
@@ -136,6 +138,12 @@ public class HUDInteractionsHandler : MonoBehaviour
         optionsMenu.SetActive(false);
         hudState = HUDstate.pause;
     }
+    public void Button_ResetLevel()
+    {
+        AudioHandler.GetInstance.PlaySoundUIClose();
+        // Close options menu and open pause menu
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     public void ScreenResolutionDropdownInputData(int value)
     {
         if (value == 0)
@@ -168,19 +176,6 @@ public class HUDInteractionsHandler : MonoBehaviour
             isFullScreenHUD = false;
             Screen.fullScreen = isFullScreenHUD;
         }
-    }
-    public void PullInPauseB()
-    {
-        if (pauseButton.GetComponent<RectTransform>().position.y != 979)
-        {
-           if(!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundUIPausePull();
-            pauseButton.GetComponent<Animation>().Play("Pull_In_PuseButton");
-        }
-    }
-    public void PullOutPauseB()
-    {
-        if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundUIPausePull();
-        pauseButton.GetComponent<Animation>().Play("Pull_Out_PauseButton");
     }
 }
 
