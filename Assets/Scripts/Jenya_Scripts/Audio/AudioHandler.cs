@@ -11,6 +11,7 @@ public class AudioHandler : MonoBehaviour
     public AudioSource[] sfxAudio;
 
     private int SfxSoundsCount = 11;
+    private bool keepFadingIn, keepFadingOut;
 
     private void Awake()
     {
@@ -81,7 +82,7 @@ public class AudioHandler : MonoBehaviour
         }
         else
         {
-            sfxAudio[7].Stop();
+            StartCoroutine(FadeOutSfx(7, 0.3f));
         }
     }
     public void PlaySoundGameplayKeyPickUp()
@@ -110,7 +111,7 @@ public class AudioHandler : MonoBehaviour
     {
         if (play == true)
         {
-            if(musicAudio[1].isPlaying == false)
+            if (musicAudio[1].isPlaying == false)
             {
                 musicAudio[1].Play();
             }
@@ -127,6 +128,69 @@ public class AudioHandler : MonoBehaviour
         for(int i = 0; i<SfxSoundsCount; i++)
         {
             sfxAudio[i].Stop();
+        }
+    }
+
+    IEnumerator FadeInSfx(int track, float speed, float maxVolume)
+    {
+        keepFadingIn = true;
+        keepFadingOut = false;
+
+        sfxAudio[track].volume = 0;
+        float audioVolume = sfxAudio[track].volume;
+
+        while(sfxAudio[track].volume < maxVolume && keepFadingIn)
+        {
+            audioVolume += speed;
+            sfxAudio[track].volume = audioVolume;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator FadeOutSfx(int track, float speed)
+    {
+        keepFadingIn = false;
+        keepFadingOut = true;
+
+        float audioVolume = sfxAudio[track].volume;
+
+        while (sfxAudio[track].volume >= speed && keepFadingOut)
+        {
+            audioVolume -= speed;
+            sfxAudio[track].volume = audioVolume;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator FadeInMusic(int track, float speed, float maxVolume)
+    {
+        keepFadingIn = true;
+        keepFadingOut = false;
+
+        musicAudio[track].volume = 0;
+        float audioVolume = musicAudio[track].volume;
+
+        while (musicAudio[track].volume < maxVolume)
+        {
+            audioVolume += speed;
+            musicAudio[track].volume = audioVolume;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator FadeOutMusic(int track, float speed)
+    {
+        keepFadingIn = false;
+        keepFadingOut = true;
+
+        float audioVolume = musicAudio[track].volume;
+
+        while (musicAudio[track].volume > 0)
+        {
+            audioVolume -= speed;
+            musicAudio[track].volume = audioVolume;
+            yield return new WaitForSeconds(1f);
+            musicAudio[track].Stop();
         }
     }
 }

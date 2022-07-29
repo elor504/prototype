@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MousePosition : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class MousePosition : MonoBehaviour
 		if (GameManager.getInstance.currentState != GameState.draggingRope)
 			return;
 
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if (Input.GetKeyDown(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
 		{
 			ResetMousePos();
 			rope.InitRope();
