@@ -11,12 +11,12 @@ public class MovingPlatLineRendererScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movePlatLineRend1.position = new Vector3(movePlatLineRend1.position.x, movePlatLineRend1.position.y,0);
-        movePlatLineRend2.position = new Vector3(movePlatLineRend2.position.x, movePlatLineRend2.position.y,0);
+        movePlatLineRend1.localPosition = new Vector3(movePlatLineRend1.localPosition.x, movePlatLineRend1.localPosition.y,0);
+        movePlatLineRend2.localPosition = new Vector3(movePlatLineRend2.localPosition.x, movePlatLineRend2.localPosition.y,0);
 
 
-        LineRend.SetPosition(0, movePlatLineRend1.position);
-        LineRend.SetPosition(1, movePlatLineRend2.position);
+        LineRend.SetPosition(0, movePlatLineRend1.localPosition);
+        LineRend.SetPosition(1, movePlatLineRend2.localPosition);
 
     }
 

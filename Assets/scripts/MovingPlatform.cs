@@ -8,6 +8,12 @@ public class MovingPlatform : MonoBehaviour
 	public Rigidbody2D platformRB;
 	public float movementSpeed;
 	public List<Transform> points = new List<Transform>();
+
+	[Header("\nLine Arrow Materials")]
+	[SerializeField] private LineRenderer lineRend;
+	[SerializeField] private Material matRight;
+	[SerializeField] private Material matLeft;
+
 	public int maxPoints => points.Count;
 
 	int currentPoint;
@@ -17,10 +23,14 @@ public class MovingPlatform : MonoBehaviour
 
 
 	Vector2 startPos;
-	private void Awake()
+
+    public bool arrowLinesAreRight = true;
+
+    private void Awake()
 	{
 		startPos = platform.position;
 		currentPoint = 1;
+
 	}
 	//private void Update()
 	//{
@@ -30,7 +40,7 @@ public class MovingPlatform : MonoBehaviour
 	//	}
 
 
-		
+
 	//}
 	private void FixedUpdate()
 	{
@@ -43,9 +53,30 @@ public class MovingPlatform : MonoBehaviour
 			}
 			else
 			{
+				// HERE ********************
+
+
+				if (arrowLinesAreRight)
+				{
+					lineRend.material = matLeft;
+					arrowLinesAreRight = false;
+
+					//Debug.LogError("IMMA SCHA ZONA");
+					Debug.LogError("IMMA SCHA ZONA1");
+
+				}
+				else
+				{
+					lineRend.material = matRight;
+					arrowLinesAreRight = true;
+
+					Debug.LogError("IMMA SCHA ZONA2");
+				}
+
 				movePos.RemoveAt(0);
 				if (movePos.Count <= 0)
                 {
+				
 					if (!GameManager.getInstance.debugSoundModeOn) AudioHandler.GetInstance.PlaySoundGameplayPlatformMovement(false);
 				}
 			}
