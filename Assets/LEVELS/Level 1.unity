@@ -11409,6 +11409,16 @@ PrefabInstance:
       propertyPath: ghosyBoyTranform
       value: 
       objectReference: {fileID: 211377111}
+    - target: {fileID: 1825934738279054237, guid: b35e3450789db534d8a99962bf7d6bb8,
+        type: 3}
+      propertyPath: ghosyBoyTranform
+      value: 
+      objectReference: {fileID: 211377111}
+    - target: {fileID: 3293964403359418496, guid: b35e3450789db534d8a99962bf7d6bb8,
+        type: 3}
+      propertyPath: ghosyBoyTranform
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4175400676512766721, guid: b35e3450789db534d8a99962bf7d6bb8,
         type: 3}
       propertyPath: ghosyBoyTranform
@@ -11499,6 +11509,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4362590167545814916, guid: b35e3450789db534d8a99962bf7d6bb8,
+        type: 3}
+      propertyPath: ghosyBoyTranform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786077409003486213, guid: b35e3450789db534d8a99962bf7d6bb8,
+        type: 3}
+      propertyPath: ghosyBoyTranform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022908935332259179, guid: b35e3450789db534d8a99962bf7d6bb8,
+        type: 3}
+      propertyPath: ghosyBoyTranform
+      value: 
+      objectReference: {fileID: 211377111}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b35e3450789db534d8a99962bf7d6bb8, type: 3}
 --- !u!4 &1846234303 stripped

@@ -35,7 +35,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Mask:
-        m_Texture: {fileID: 2800000, guid: 65402efe7f739f04ab41563ff35bc87b, type: 3}
+        m_Texture: {fileID: 2800000, guid: a5bbd2402b604f14e853fc5f1b51cc50, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AlphaTex:
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: abb419e5fe65a5b46b19ffea5c43afa8, type: 3}
+        m_Texture: {fileID: 2800000, guid: ecba750c7c01fce4db007c39cd97fb15, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
