@@ -60,7 +60,7 @@ public class GhostAnimator : MonoBehaviour
 	}
 	public void SetAnimBool(string _boolMame, bool _bool)
 	{
-		//anim.SetBool(_boolMame, _bool);
+		anim.SetBool(_boolMame, _bool);
 	}
 
 }

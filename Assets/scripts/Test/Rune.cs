@@ -28,6 +28,7 @@ public class Rune : grip
 
 	private void Awake()
 	{
+		useableCountLeft = 1;
 		sprite = GetComponentInChildren<SpriteRenderer>();
 		InitRune();
 	}
@@ -46,7 +47,7 @@ public class Rune : grip
 		{
 			canBeUsed = false;
 		}
-		useableCountLeft--;
+		//useableCountLeft--;
 		if(useableCountLeft <= 0){
 			canBeUsed = false;
 		}
@@ -71,7 +72,7 @@ public class Rune : grip
 
 	}
 
-	void SetRuneGFX()
+	public void SetRuneGFX()
 	{
 		IdleVFX.SetActive(true);
 		AttachedVFX.SetActive(false);

@@ -25,8 +25,8 @@ public class MousePosition : MonoBehaviour
 		{
 			ResetMousePos();
 			rope.InitRope();
-			GameManager.getInstance.getGhostAnim.SetAnimBool("DragActive", true);
-			GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", false);
+			//GameManager.getInstance.getGhostAnim.SetAnimBool("DragActive", true);
+			//GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", false);
 			rope.isRopeActive = true;
 		}
 
@@ -75,9 +75,11 @@ public class MousePosition : MonoBehaviour
 				}
 				GameManager.getInstance.SetGameState(GameState.ghostMovement);
 				GameManager.getInstance.getGhostAnim.SetAnimBool("Movement", true);
+				GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", false);
 			}
 			else
 			{
+				GameManager.getInstance.getGhostAnim.SetAnimBool("Movement", false);
 				GameManager.getInstance.getGhostAnim.SetAnimBool("Idle", true);
 				if (lineGFXMan != null)
 					lineGFXMan.ResetLineGFX();
@@ -85,7 +87,7 @@ public class MousePosition : MonoBehaviour
 
 
 
-			GameManager.getInstance.getGhostAnim.SetAnimBool("DragActive", false);
+			//GameManager.getInstance.getGhostAnim.SetAnimBool("DragActive", false);
 
 			ResetTotalController();
 		}
