@@ -179,7 +179,9 @@ public class GameManager : MonoBehaviour
 
 	public void ResetGame()
     {
-		AudioHandler.GetInstance.PlaySoundGameplayDeath();
+		AudioHandler.GetInstance?.PlaySoundGameplayDeath();
+
+
 		//resets the runes
 		for (int i = 0; i < runes.Count; i++)
         {
@@ -210,7 +212,6 @@ public class GameManager : MonoBehaviour
             if (rails[i].enabled)
                 rails[i].ResetRail();
         }
-
 
         for (int i = 0; i < enemies.Count; i++)
         {
@@ -255,7 +256,6 @@ public class GameManager : MonoBehaviour
 		ghost.ropeGFXBool = false;
         SetGameState(GameState.draggingRope);
     }
-
 	IEnumerator NextLevelTransition()
     {
 		yield return new WaitForSeconds(1f);
@@ -266,10 +266,6 @@ public class GameManager : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadScene(0);
 	}
-
-
-
-
 	#endregion
 
 

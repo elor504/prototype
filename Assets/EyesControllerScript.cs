@@ -9,9 +9,17 @@ public class EyesControllerScript : MonoBehaviour
 
     [SerializeField] Transform ghosyBoyTranform;
     public float eyeOffset;
+    [SerializeField] Animator animator;
+    public bool isPupilFollow;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+        ghosyBoyTranform = GameObject.Find("Ghostboy_onlyidle").transform;
+
+    }
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }
@@ -19,7 +27,16 @@ public class EyesControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        eyeTranform.right = ghosyBoyTranform.position - eyeTranform.position;
+        if (isPupilFollow)
+        {
+            Vector2 dir = (ghosyBoyTranform.position - this.transform.position).normalized;
+            animator.SetFloat("X", dir.x);
+            animator.SetFloat("Y", dir.y);
+        }
+        else
+        {
+            eyeTranform.right = ghosyBoyTranform.position - eyeTranform.position;
+        }
         //Debug.Log(eyeTranform.eulerAngles.z);
 
         //eyeTranform.eulerAngles = new Vector3(0,0,Mathf.Clamp(eyeTranform.eulerAngles.z, 330, 30));
