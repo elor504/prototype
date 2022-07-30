@@ -2,8 +2,8 @@
 
 public class GhostAnimator : MonoBehaviour
 {
-	Animator anim;
-	SpriteRenderer spriteRendrer;
+	[SerializeField]Animator anim;
+	[SerializeField] SpriteRenderer spriteRendrer;
 	private void Awake()
 	{
 		anim = GetComponent<Animator>();
