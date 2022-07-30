@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GhostMovement : MonoBehaviour
 {
+	GhostAnimator animator;
 	[Header("movement")]
 	[SerializeField] List<Vector2> ghostPaths = new List<Vector2>();
 	
@@ -28,6 +29,7 @@ public class GhostMovement : MonoBehaviour
 
 	private void Awake()
 	{
+		animator = GetComponent<GhostAnimator>();
 		InitPlayer();
 	}
 
@@ -123,6 +125,12 @@ public class GhostMovement : MonoBehaviour
 		ghostGravity = rb.gravityScale;
 		isLookingRight = true;
 		Flip();
+		ResetPlayerGFX();
+	}
+	public void ResetPlayerGFX()
+	{
+		animator.SetAnimBool("Idle", true);
+		animator.SetAnimBool("Movement", false);
 	}
 
 	public void ResetGhost()

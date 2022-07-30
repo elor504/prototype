@@ -180,8 +180,7 @@ public class GameManager : MonoBehaviour
 	public void ResetGame()
     {
 		AudioHandler.GetInstance?.PlaySoundGameplayDeath();
-
-
+		ghost.ResetPlayerGFX();
 		//resets the runes
 		for (int i = 0; i < runes.Count; i++)
         {
