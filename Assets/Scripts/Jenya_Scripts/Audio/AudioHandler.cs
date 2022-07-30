@@ -65,7 +65,7 @@ public class AudioHandler : MonoBehaviour
     }
     public void PlaySoundUIQuitB()
     {
-        randomQuitBSFX = Random.Range(26, 28);
+        randomQuitBSFX = Random.Range(26, 27);
         sfxAudio[randomQuitBSFX].Play();
     }
 
