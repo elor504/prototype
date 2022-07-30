@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("Win!");
 		AudioHandler.GetInstance.PlaySoundGameplayChainMovement(false);
+		AudioHandler.GetInstance.PlaySoundGameplayLevelPass();
 		currentScene = SceneManager.GetActiveScene().buildIndex;
 		if(currentScene < GameLevelsAmount)
 		{

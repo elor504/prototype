@@ -62,7 +62,6 @@ public class MovingPlatform : MonoBehaviour
 					arrowLinesAreRight = false;
 
 					//Debug.LogError("IMMA SCHA ZONA");
-					Debug.LogError("IMMA SCHA ZONA1");
 
 				}
 				else
@@ -70,7 +69,6 @@ public class MovingPlatform : MonoBehaviour
 					lineRend.material = matRight;
 					arrowLinesAreRight = true;
 
-					Debug.LogError("IMMA SCHA ZONA2");
 				}
 
 				movePos.RemoveAt(0);

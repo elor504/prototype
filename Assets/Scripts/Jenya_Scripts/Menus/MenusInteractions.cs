@@ -53,7 +53,7 @@ public class MenusInteractions : MonoBehaviour
     #region Buttons
     public void PlayB()
     {
-        AudioHandler.GetInstance.PlaySoundUIClicks();
+        AudioHandler.GetInstance.PlaySoundUIPlayB();
         SceneManager.LoadScene(lastPlayedLevel);
     }
     public void LevelSelectionB()
@@ -80,7 +80,7 @@ public class MenusInteractions : MonoBehaviour
     }
     public void QuitB()
     {
-        AudioHandler.GetInstance.PlaySoundUIGameExit();
+        AudioHandler.GetInstance.PlaySoundUIQuitB();
         Application.Quit();
     }
     public void BackB()

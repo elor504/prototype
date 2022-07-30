@@ -12,6 +12,7 @@ public class AudioHandler : MonoBehaviour
 
     private int SfxSoundsCount = 11;
     private bool keepFadingIn, keepFadingOut;
+    private int randomDeathSFX, randomKeySFX, randomLevelPassSFX, randomPlayBSFX, randomQuitBSFX;
 
     private void Awake()
     {
@@ -57,6 +58,16 @@ public class AudioHandler : MonoBehaviour
     {
         sfxAudio[9].Play();
     }
+    public void PlaySoundUIPlayB()
+    {
+        randomPlayBSFX = Random.Range(24, 25);
+        sfxAudio[randomPlayBSFX].Play();
+    }
+    public void PlaySoundUIQuitB()
+    {
+        randomQuitBSFX = Random.Range(26, 28);
+        sfxAudio[randomQuitBSFX].Play();
+    }
 
     // Gameplay
     public void PlaySoundGameplayChainSnap()
@@ -87,11 +98,18 @@ public class AudioHandler : MonoBehaviour
     }
     public void PlaySoundGameplayKeyPickUp()
     {
-        sfxAudio[10].Play();
+        randomKeySFX = Random.Range(15, 18);
+        sfxAudio[randomKeySFX].Play();
+    }
+    public void PlaySoundGameplayLevelPass()
+    {
+        randomLevelPassSFX = Random.Range(19, 23);
+        sfxAudio[randomLevelPassSFX].Play();
     }
     public void PlaySoundGameplayDeath()
     {
-        sfxAudio[11].Play();
+        randomDeathSFX = Random.Range(10, 14);
+        sfxAudio[randomDeathSFX].Play();
     }
     #endregion
 

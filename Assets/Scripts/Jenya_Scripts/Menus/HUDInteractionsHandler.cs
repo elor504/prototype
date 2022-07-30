@@ -89,6 +89,7 @@ public class HUDInteractionsHandler : MonoBehaviour
     }
     public void Button_Continue()
     {
+        AudioHandler.GetInstance.PlaySoundUIClicks();
         CursorChanger.cursorState = CursorState.Gameplay;
         // Unfreeze time
         Time.timeScale = 1f;
