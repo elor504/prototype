@@ -12286,7 +12286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Sound
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2594072291298733079, guid: 5c0f23eef415b0946aa7ecd542bd0b07, type: 3}
+    - {fileID: 2594072291298733077, guid: 5c0f23eef415b0946aa7ecd542bd0b07, type: 3}
+    - {fileID: 2594072291298733078, guid: 5c0f23eef415b0946aa7ecd542bd0b07, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c0f23eef415b0946aa7ecd542bd0b07, type: 3}
 --- !u!1001 &4031327794856549407
 PrefabInstance:

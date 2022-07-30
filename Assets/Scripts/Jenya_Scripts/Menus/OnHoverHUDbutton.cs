@@ -1,22 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.EventSystems;
 using UnityEngine;
+using TMPro;
 
-public class OnHoverHUDbutton : MonoBehaviour
+public class OnHoverHUDbutton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     Color newColor;
+    TextMeshPro m_TextMeshPro;
 
 
 
-
-    void OnMouseOver()
+    void Start()
     {
         newColor = new Color(3f, 45f, 67f);
-        gameObject.GetComponentInChildren<TextMesh>().color = newColor;
+        m_TextMeshPro = gameObject.GetComponent<TextMeshPro>();
     }
 
-    void OnMouseExit()
+
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        gameObject.GetComponentInChildren<TextMesh>().color = Color.white;
+        m_TextMeshPro.color = newColor;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        m_TextMeshPro.color = Color.white;
     }
 }

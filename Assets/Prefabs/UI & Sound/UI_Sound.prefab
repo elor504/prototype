@@ -728,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4568530416845173479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1787,6 +1787,7 @@ GameObject:
   - component: {fileID: 2594072290748322533}
   - component: {fileID: 2594072290748322535}
   - component: {fileID: 2594072290748322532}
+  - component: {fileID: 2594072291298733078}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1850,7 +1851,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290493374
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -1910,6 +1911,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2594072291298733078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594072290748322530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452b8a1197f5c10498d5a97fbf4fadbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2594072290765751148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,6 +2186,7 @@ GameObject:
   - component: {fileID: 2594072291078220815}
   - component: {fileID: 2594072291078220849}
   - component: {fileID: 2594072291078220814}
+  - component: {fileID: 2594072291298733077}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2236,7 +2250,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290493374
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2296,6 +2310,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2594072291298733077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594072291078220812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452b8a1197f5c10498d5a97fbf4fadbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2594072291143242728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,6 +3444,7 @@ GameObject:
   - component: {fileID: 2594072292267152892}
   - component: {fileID: 2594072292267152894}
   - component: {fileID: 2594072292267152895}
+  - component: {fileID: 2594072291298733079}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3481,7 +3508,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290493374
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3541,6 +3568,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2594072291298733079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594072292267152893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452b8a1197f5c10498d5a97fbf4fadbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2594072292296115995
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,7 +3739,7 @@ RectTransform:
   m_GameObject: {fileID: 2918259524783374894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.032481, y: 0.032481, z: 0.032481}
+  m_LocalScale: {x: 0.031861223, y: 0.031861223, z: 0.031861223}
   m_Children:
   - {fileID: 4845317442759165241}
   m_Father: {fileID: 4568530416845173479}
@@ -5343,7 +5382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 131.5, y: -33.719}
+  m_AnchoredPosition: {x: 131.5, y: -1}
   m_SizeDelta: {x: 198, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5588794983571635281
