@@ -5,6 +5,7 @@ public class SettingsToggleLight : MonoBehaviour
 {
     public Toggle toggle;
     public GameObject toggleLampMask;
+    public GameObject dropdownItemHighlight;
 
 
     public void ChangeToggleVisuals()
@@ -16,6 +17,18 @@ public class SettingsToggleLight : MonoBehaviour
         else
         {
             toggleLampMask.SetActive(false);
+        }
+    }
+
+    public void ChangeItemHighlight(bool show)
+    {
+        if (show)
+        {
+            dropdownItemHighlight.SetActive(true);
+        }
+        else
+        {
+            dropdownItemHighlight.SetActive(false);
         }
     }
 }
