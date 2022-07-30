@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine;
 
 public class MenusInteractions : MonoBehaviour
@@ -81,6 +82,11 @@ public class MenusInteractions : MonoBehaviour
     public void QuitB()
     {
         AudioHandler.GetInstance.PlaySoundUIQuitB();
+        StartCoroutine(Quit());
+    }
+    IEnumerator Quit()
+    {
+        yield return new WaitForSeconds(3f);
         Application.Quit();
     }
     public void BackB()

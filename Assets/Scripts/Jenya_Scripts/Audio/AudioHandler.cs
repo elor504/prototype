@@ -60,12 +60,12 @@ public class AudioHandler : MonoBehaviour
     }
     public void PlaySoundUIPlayB()
     {
-        randomPlayBSFX = Random.Range(24, 25);
+        randomPlayBSFX = Random.Range(24, 25+1);
         sfxAudio[randomPlayBSFX].Play();
     }
     public void PlaySoundUIQuitB()
     {
-        randomQuitBSFX = Random.Range(26, 27);
+        randomQuitBSFX = Random.Range(26, 27+1);
         sfxAudio[randomQuitBSFX].Play();
     }
 
@@ -98,17 +98,17 @@ public class AudioHandler : MonoBehaviour
     }
     public void PlaySoundGameplayKeyPickUp()
     {
-        randomKeySFX = Random.Range(15, 18);
+        randomKeySFX = Random.Range(15, 18+1);
         sfxAudio[randomKeySFX].Play();
     }
     public void PlaySoundGameplayLevelPass()
     {
-        randomLevelPassSFX = Random.Range(19, 23);
+        randomLevelPassSFX = Random.Range(19, 23+1);
         sfxAudio[randomLevelPassSFX].Play();
     }
     public void PlaySoundGameplayDeath()
     {
-        randomDeathSFX = Random.Range(10, 14);
+        randomDeathSFX = Random.Range(10, 14+1);
         sfxAudio[randomDeathSFX].Play();
     }
     #endregion
