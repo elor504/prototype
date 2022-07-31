@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostMovement : MonoBehaviour
 {
-	GhostAnimator animator;
+	[SerializeField]GhostAnimator animator;
 	[Header("movement")]
 	[SerializeField] List<Vector2> ghostPaths = new List<Vector2>();
 	
@@ -29,7 +29,6 @@ public class GhostMovement : MonoBehaviour
 
 	private void Awake()
 	{
-		animator = GetComponent<GhostAnimator>();
 		InitPlayer();
 	}
 

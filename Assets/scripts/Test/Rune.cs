@@ -43,14 +43,14 @@ public class Rune : grip
 
 	public virtual void UseRune()
 	{
-		if (isFragile)
-		{
-			canBeUsed = false;
-		}
+		//if (isFragile)
+		//{
+		//	canBeUsed = false;
+		//}
 		//useableCountLeft--;
-		if(useableCountLeft <= 0){
-			canBeUsed = false;
-		}
+		//if(useableCountLeft <= 0){
+		//	canBeUsed = false;
+		//}
 
 		IdleVFX.SetActive(true);
 		AttachedVFX.SetActive(false);

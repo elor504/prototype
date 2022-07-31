@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78cf1ea1ac836d348a68776a52b1c86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 6719417905593877135}
   ghostPaths: []
   movementSpeed: 500
   rb: {fileID: 9939454555922026}
@@ -68,6 +69,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55961b634f5e734389d4828a3770f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2042717663607010410}
+  spriteRendrer: {fileID: 9939456255428241}
 --- !u!50 &9939454555922026
 Rigidbody2D:
   serializedVersion: 4
