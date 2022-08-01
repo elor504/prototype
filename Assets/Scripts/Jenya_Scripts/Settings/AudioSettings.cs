@@ -28,6 +28,7 @@ public class AudioSettings : MonoBehaviour
         {
             AudioHandler.GetInstance.PlayMusicMainMenu(false);
             AudioHandler.GetInstance.PlayMusicGame(true);
+            AudioHandler.GetInstance.StopAllSfx();
         }
     }
 
